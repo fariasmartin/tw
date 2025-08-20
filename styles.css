@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Savate&display=swap');
+
+
+/*-- scss:defaults --*/
+$primary: #800000;
+$body-bg: #fffdfb;
+$link-color: $primary;
+$navbar-bg: $primary;
+$navbar-fg: white;
+$font-family-sans-serif: "Savate", sans-serif;
+

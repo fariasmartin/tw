@@ -1,0 +1,268 @@
+---
+title: "Encuentra tu próximo centro de yoga"
+page-layout: full
+format:
+  html:
+    toc: false
+    
+---
+
+<link href="https://fonts.googleapis.com/css2?family=Savate&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    font-family: 'Savate', sans-serif;
+  }
+  .cta-button {
+    background-color: #800000;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 18px;
+    display: inline-block;
+    margin: 1em 0;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  .centered {
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+  .features {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1em;
+  }
+  .features li {
+    margin-bottom: 0.8em;
+  }
+  blockquote {
+    font-style: italic;
+    color: #555;
+    margin: 2em auto;
+    max-width: 600px;
+  }
+  .hero-search {
+    text-align: center;
+    margin-top: 2em;
+  }
+  .hero-search input[type="text"] {
+    padding: 12px;
+    font-size: 18px;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  .popular-cities {
+    text-align: center;
+    margin: 3em 0;
+  }
+  .popular-cities a {
+    margin: 0 10px;
+    display: inline-block;
+    color: #800000;
+    text-decoration: none;
+    font-size: 1.1em;
+  }
+
+
+.popular-cities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5em;
+  width: 100%;
+  max-width: none;
+  margin: 3em 0;
+}
+
+.city-card {
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.city-card:hover {
+  transform: scale(1.02);
+}
+
+.city-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.city-name {
+  padding: 1em;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #800000;
+  background-color: rgba(255, 255, 255, 0.3); /* semi-transparent white */
+}
+
+
+.suggestion-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 150px;
+  overflow-y: auto;
+  position: absolute;
+  width: 80%;
+  max-width: 500px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.suggestion-list li {
+  padding: 10px;
+  cursor: pointer;
+  border-top: 1px solid #eee;
+  font-size: 16px;
+  transition: background 0.2s ease;
+}
+
+.suggestion-list li:hover {
+  background-color: #f0f0f0;
+}
+
+
+
+
+</style>
+
+
+
+
+
+Explora nuestro directorio de centros y profesores de yoga por ciudad, estilo, idioma y más. Todo en un solo lugar.
+
+<div class="hero-search" style="position: relative;">
+  <input type="text" id="citySearch" placeholder="Buscar centros en mi ciudad" autocomplete="off" />
+  <ul id="citySuggestions" class="suggestion-list"></ul>
+</div>
+
+
+<div class="centered">
+  <a href="/map.html" class="cta-button">Explora todas las ciudades</a>
+</div>
+
+# Ciudades más populares
+
+```{=html}
+<div class="popular-cities-grid">
+  <div class="city-card" onclick="window.location.href='/map.html?city=Barcelona'">
+    <img src="/images/cities/barcelona.jpg" alt="Barcelona">
+    <div class="city-name">Barcelona</div>
+  </div>
+  <div class="city-card" onclick="window.location.href='/map.html?city=Madrid'">
+    <img src="/images/cities/madrid.jpg" alt="Madrid">
+    <div class="city-name">Madrid</div>
+  </div>
+  <div class="city-card" onclick="window.location.href='/map.html?city=Valencia'">
+    <img src="/images/cities/valencia.jpg" alt="Valencia">
+    <div class="city-name">Valencia</div>
+  </div>
+  <div class="city-card" onclick="window.location.href='/map.html?city=Granada'">
+    <img src="/images/cities/granada.jpg" alt="Granada">
+    <div class="city-name">Granada</div>
+  </div>
+</div>
+```
+
+
+
+<!-- <div class="popular-cities">
+  <strong>Ciudades más buscadas:</strong><br>
+  <a href="/map.html?city=Barcelona">Barcelona</a>
+  <a href="/map.html?city=Madrid">Madrid</a>
+  <a href="/map.html?city=Valencia">Valencia</a>
+  <a href="/map.html?city=Granada">Granada</a>
+</div> -->
+
+## ¿Qué puedes hacer?
+
+<ul class="features">
+  <li>Filtrar por ciudad, estilo de yoga, idioma o profesor/a</li>
+  <li>Ver centros cercanos a tu ubicación</li>
+  <li>Buscar clases en distintos idiomas</li>
+  <li>Descubrir nuevas escuelas y profesores</li>
+</ul>
+
+## Colabora
+
+¿Conoces un centro o profesor/a que debería estar aquí?
+
+<div class="centered">
+  <a href="/contacto.html" class="cta-button">Ponte en contacto con nosotros</a>
+</div>
+
+<!-- ## 🗨️ Lo que dicen nuestros usuarios
+
+> “Encontré clases de Vinyasa en inglés cerca de mí en solo 2 minutos.”  
+> — Laura, Barcelona
+
+> “Me encanta poder ver todos los centros en el mapa y filtrar por estilos. Es súper práctico.”  
+> — Diego, Valencia -->
+
+
+<script>
+let centers = [];
+
+const input = document.getElementById("citySearch");
+const suggestions = document.getElementById("citySuggestions");
+
+fetch("/data/centers.json")
+  .then(res => res.json())
+  .then(data => {
+    centers = data;
+  });
+
+input.addEventListener("input", () => {
+  const val = input.value.toLowerCase().trim();
+  suggestions.innerHTML = "";
+
+  if (val.length === 0) {
+    suggestions.style.display = "none";
+    return;
+  }
+
+  const allCities = [...new Set(centers.map(c => c.city))];
+  const matches = allCities.filter(c => c.toLowerCase().startsWith(val));
+
+  matches.forEach(city => {
+    const li = document.createElement("li");
+    li.textContent = city;
+    li.addEventListener("click", () => {
+      window.location.href = `/map.html?city=${encodeURIComponent(city)}`;
+    });
+    suggestions.appendChild(li);
+  });
+
+  suggestions.style.display = matches.length > 0 ? "block" : "none";
+});
+
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    const val = input.value.trim();
+    if (val.length > 0) {
+      window.location.href = `/map.html?city=${encodeURIComponent(val)}`;
+    }
+  }
+});
+
+document.addEventListener("click", (e) => {
+  if (!input.contains(e.target) && !suggestions.contains(e.target)) {
+    suggestions.style.display = "none";
+  }
+});
+</script>

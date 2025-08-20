@@ -1,0 +1,447 @@
+---
+title: "Encuentra tu centro de Yoga"
+format:
+  html:
+    toc: false
+---
+
+<link href="https://fonts.googleapis.com/css2?family=Savate&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    font-family: 'Savate', sans-serif;
+    margin: 2em;
+  }
+
+  .layout {
+    display: flex;
+    gap: 2em;
+    align-items: flex-start;
+  }
+
+  .sidebar {
+    flex: 0 0 300px;
+  }
+
+  .main {
+    flex: 1;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.3em;
+  }
+
+
+# Mejorar aparienia de menu de estilos
+  #styleCheckboxes::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  #styleCheckboxes::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+  }
+
+  #styleCheckboxes::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+
+
+
+</style>
+
+```{=html}
+<div class="layout">
+
+  <div class="sidebar">
+    <h2>Filtrar por</h2>
+
+    <button id="findNearby" style="padding: 10px; width: 100%; margin-bottom: 1em;">Cerca de mí</button>
+
+    <input type="text" id="citySearch" placeholder="Buscar centros en mi ciudad" style="width: 100%; padding: 10px; margin-bottom: 10px;" autocomplete="off" />
+    <ul id="citySuggestions" style="list-style: none; padding: 0; margin: 0; border: 1px solid #ccc; display: none; max-height: 150px; overflow-y: auto;"></ul>
+
+
+    <div id="styleFilters" style="margin-bottom: 1em;">
+      <strong>Estilos de yoga</strong><br />
+      <div id="styleCheckboxes" style="max-height: 200px; overflow-y: auto; border: 1px solid #ccc; padding: 0.5em;"></div>
+    </div>
+
+    
+    <!-- <details open style="margin-bottom: 1em;">
+  <summary><strong>Estilos de yoga</strong></summary>
+  <div id="styleCheckboxes" style="
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5em;
+    margin-top: 0.5em;
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 0.5em;
+  "></div>
+</details> -->
+
+
+
+
+    <div style="margin-bottom: 1em;">
+      <strong>Profesores</strong><br />
+      <select id="professorSelect" style="width: 100%; padding: 10px;">
+        <option value="">Todos los profesores</option>
+      </select>
+    </div>
+
+    <div id="languageFilters" style="margin-bottom: 1em;">
+      <strong>Idiomas</strong><br />
+      <label><input type="checkbox" value="Spanish"> Español</label>
+      <label><input type="checkbox" value="English"> Inglés</label>
+    </div>
+
+    
+
+  </div>
+
+  <div class="main">
+    <div id="map" style="height: 600px; margin-bottom: 1em;"></div>
+    <h2>Centros de Yoga</h2>
+    <ul id="centerList"></ul>
+    <p id="noResults" style="display:none; color: red;">No centers found for your search.</p>
+  </div>
+
+</div>
+```
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+let centers = [];
+let professors = [];
+let usingNearby = false;
+let userLat = null;
+let userLng = null;
+
+const input = document.getElementById("citySearch");
+const suggestions = document.getElementById("citySuggestions");
+let checkboxes = []; // Will be populated dynamically
+const languageBoxes = document.querySelectorAll("#languageFilters input[type=checkbox]");
+const professorSelect = document.getElementById("professorSelect");
+const findNearbyBtn = document.getElementById("findNearby");
+const listEl = document.getElementById("centerList");
+const noResults = document.getElementById("noResults");
+
+const map = L.map('map').setView([40.0, -3.7], 6);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 18,
+  attribution: '&copy; OpenStreetMap'
+}).addTo(map);
+let markers = [];
+
+function updateDisplay(doZoom = false, updateMarkers = true) {
+  const cityVal = input.value.toLowerCase().trim();
+  const selectedStyles = Array.from(checkboxes).filter(cb => cb.checked).map(cb => cb.value);
+  const selectedLangs = Array.from(languageBoxes).filter(cb => cb.checked).map(cb => cb.value);
+  const selectedProf = professorSelect.value;
+
+  const filtered = centers.filter(c => {
+    const matchCity = c.city.toLowerCase().includes(cityVal);
+    const matchStyle = selectedStyles.length === 0 || c.styles.some(style => selectedStyles.includes(style));
+    const matchLang = selectedLangs.length === 0 || c.languages.some(lang => selectedLangs.includes(lang));
+    const matchProf = !selectedProf || c.professors.includes(selectedProf);
+    const matchNearby = !usingNearby || (
+      userLat !== null && userLng !== null &&
+      getDistance(userLat, userLng, c.lat, c.lng) <= 2
+    );
+    return matchNearby && matchCity && matchStyle && matchLang && matchProf;
+  });
+
+  listEl.innerHTML = "";
+  filtered.forEach(c => {
+    const li = document.createElement("li");
+    li.innerHTML = `<a href="${c.page}">${c.name} (${c.city})</a>`;
+    listEl.appendChild(li);
+  });
+
+  noResults.style.display = filtered.length === 0 ? "block" : "none";
+
+  if (updateMarkers) {
+    markers.forEach(m => map.removeLayer(m));
+    markers = [];
+    filtered.forEach(c => {
+      const marker = L.marker([c.lat, c.lng]).addTo(map)
+        .bindPopup(`<a href="${c.page}">${c.name}</a><br>${c.city}`);
+      markers.push(marker);
+    });
+  }
+
+  if (doZoom && cityVal) {
+    const exactMatch = centers.filter(c => c.city.toLowerCase() === cityVal);
+    if (exactMatch.length > 0) {
+      const avgLat = exactMatch.reduce((sum, c) => sum + c.lat, 0) / exactMatch.length;
+      const avgLng = exactMatch.reduce((sum, c) => sum + c.lng, 0) / exactMatch.length;
+      map.setView([avgLat, avgLng], 12);
+    }
+  }
+
+  if (doZoom && usingNearby && userLat && userLng) {
+    map.setView([userLat, userLng], 14);
+  }
+}
+
+function getDistance(lat1, lng1, lat2, lng2) {
+  const toRad = deg => deg * Math.PI / 180;
+  const R = 6371;
+  const dLat = toRad(lat2 - lat1);
+  const dLng = toRad(lng2 - lng1);
+  const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng/2)**2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+findNearbyBtn.addEventListener("click", () => {
+  if (!usingNearby) {
+    if (!navigator.geolocation) {
+      alert("Geolocation not supported");
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(pos => {
+      userLat = pos.coords.latitude;
+      userLng = pos.coords.longitude;
+      usingNearby = true;
+
+      // Clear city input when nearby search is activated
+      input.value = "";
+      findNearbyBtn.textContent = "✅ Mostrando centros cerca de mí";
+      updateDisplay(true, true);
+    }, () => {
+      alert("Unable to get location");
+    });
+  } else {
+    usingNearby = false;
+    userLat = null;
+    userLng = null;
+    findNearbyBtn.textContent = "Cerca de mí";
+    updateDisplay(true, true);
+  }
+});
+
+
+fetch("data/centers.json")
+  .then(res => res.json())
+  .then(data => {
+    centers = data;
+    return fetch("data/professors.json");
+  })
+  .then(res => res.json())
+  .then(data => {
+    professors = data;
+    professors.forEach(p => {
+      const option = document.createElement("option");
+      option.value = p.id;
+      option.textContent = p.name;
+      professorSelect.appendChild(option);
+    });
+    updateDisplay(true, true);
+  })
+  .then(() => {
+  return fetch("data/styles.json");
+})
+.then(res => res.json())
+.then(styles => {
+  const container = document.getElementById("styleCheckboxes");
+  styles.forEach(style => {
+    const label = document.createElement("label");
+    label.innerHTML = `<input type="checkbox" value="${style}"> ${style}`;
+    container.appendChild(label);
+  });
+
+  // Reassign checkboxes variable now that they exist
+  checkboxes = document.querySelectorAll("#styleFilters input[type=checkbox]");
+  checkboxes.forEach(cb => cb.addEventListener("change", () => updateDisplay(false, true)));
+
+  // Also re-run URL params logic in case styles are pre-selected
+  const stylesParam = new URLSearchParams(window.location.search).get("styles");
+  if (stylesParam) {
+    const styleValues = stylesParam.split(",");
+    checkboxes.forEach(cb => {
+      cb.checked = styleValues.includes(cb.value);
+    });
+  }
+
+  updateDisplay(true, true);
+});
+
+
+
+
+
+input.addEventListener("focus", () => {
+
+  suggestions.innerHTML = "";
+
+
+  // Boton pàra buscar centros cerca de mi en la barra de ciudades
+  // const li = document.createElement("li");
+  // li.textContent = "📍 Use my location (2 km)";
+  // li.style.padding = "5px";
+  // li.style.cursor = "pointer";
+  // li.style.fontStyle = "italic";
+  // li.addEventListener("click", () => {
+  //   suggestions.style.display = "none";
+  //   findNearbyBtn.click();
+  // });
+  // suggestions.appendChild(li);
+
+    // Inside both focus and input event handlers (after nearMe block)
+  const showAll = document.createElement("li");
+  showAll.textContent = "Todas las ciudades";
+  showAll.style.padding = "5px";
+  showAll.style.cursor = "pointer";
+  showAll.style.fontStyle = "italic";
+  showAll.addEventListener("click", () => {
+  usingNearby = false;
+  userLat = null;
+  userLng = null;
+  input.value = "";
+  suggestions.style.display = "none";
+  findNearbyBtn.textContent = "Cerca de mí";
+  map.setView([40.0, -3.7], 6); // Reset to default view
+  updateDisplay(true, true);
+  });
+  suggestions.appendChild(showAll);
+
+  
+  suggestions.style.display = "block";
+});
+
+document.addEventListener("click", (e) => {
+  if (!input.contains(e.target) && !suggestions.contains(e.target)) {
+    suggestions.style.display = "none";
+  }
+});
+
+input.addEventListener("input", () => {
+  const val = input.value.toLowerCase().trim();
+  suggestions.innerHTML = "";
+
+// Boton pàra buscar centros cerca de mi en la barra de ciudades
+
+  // const nearMe = document.createElement("li");
+  // nearMe.textContent = "📍 Use my location (2 km)";
+  // nearMe.style.padding = "5px";
+  // nearMe.style.cursor = "pointer";
+  // nearMe.style.fontStyle = "italic";
+  // nearMe.addEventListener("click", () => {
+  //   suggestions.style.display = "none";
+  //   findNearbyBtn.click();
+  // });
+  // suggestions.appendChild(nearMe);
+
+
+
+
+  // Inside both focus and input event handlers (after nearMe block)
+  const showAll = document.createElement("li");
+  showAll.textContent = "Toas las ciudades";
+  showAll.style.padding = "5px";
+  showAll.style.cursor = "pointer";
+  showAll.style.fontStyle = "italic";
+  showAll.addEventListener("click", () => {
+  usingNearby = false;
+  userLat = null;
+  userLng = null;
+  input.value = "";
+  suggestions.style.display = "none";
+  findNearbyBtn.textContent = "Cerca de mí";
+  map.setView([40.0, -3.7], 6); // Reset to default view
+  updateDisplay(true, true);
+  });
+  suggestions.appendChild(showAll);
+
+
+
+
+
+
+  if (val.length === 0) {
+    suggestions.style.display = "block";
+    return;
+  }
+
+  const allCities = [...new Set(centers.map(c => c.city))];
+  const matches = allCities.filter(c => c.toLowerCase().startsWith(val));
+  if (matches.length > 0) {
+    matches.forEach(city => {
+      const li = document.createElement("li");
+      li.textContent = city;
+      li.style.padding = "5px";
+      li.style.cursor = "pointer";
+      li.addEventListener("click", () => {
+        usingNearby = false;
+        userLat = null;
+        userLng = null;
+        findNearbyBtn.textContent = "Cerca de mí";
+        input.value = city;
+        suggestions.style.display = "none";
+        updateDisplay(true, true);
+      });
+
+      suggestions.appendChild(li);
+    });
+    suggestions.style.display = "block";
+  }
+});
+
+checkboxes.forEach(cb => cb.addEventListener("change", () => updateDisplay(false, true)));
+languageBoxes.forEach(cb => cb.addEventListener("change", () => updateDisplay(false, true)));
+professorSelect.addEventListener("change", () => updateDisplay(false, true));
+
+
+// Read URL parameters on page load
+window.addEventListener("DOMContentLoaded", () => {
+  const urlParams = new URLSearchParams(window.location.search);
+
+  // City
+  const cityParam = urlParams.get("city");
+  if (cityParam) {
+    input.value = cityParam;
+  }
+
+  // Yoga styles (comma-separated)
+  const stylesParam = urlParams.get("styles");
+  if (stylesParam) {
+    const styleValues = stylesParam.split(",");
+    checkboxes.forEach(cb => {
+      cb.checked = styleValues.includes(cb.value);
+    });
+  }
+
+  // Languages (comma-separated)
+  const langsParam = urlParams.get("langs");
+  if (langsParam) {
+    const langValues = langsParam.split(",");
+    languageBoxes.forEach(cb => {
+      cb.checked = langValues.includes(cb.value);
+    });
+  }
+
+  // Professor (exact id)
+  const profParam = urlParams.get("prof");
+  if (profParam) {
+    professorSelect.value = profParam;
+  }
+
+  // Nearby search
+  const nearbyParam = urlParams.get("nearby");
+  if (nearbyParam === "1") {
+    findNearbyBtn.click();
+  } else {
+    updateDisplay(true, true);
+  }
+});
+
+
+
+</script>
+

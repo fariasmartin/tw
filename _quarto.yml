@@ -1,0 +1,24 @@
+project:
+  type: website
+
+resources:
+  - data/centers.json
+  - data/professors.json
+  - data/styles.json
+
+website:
+  title: "Yoga Directory"
+  navbar:
+    left:
+      - text: Inicio
+        href: index.qmd
+      - text: Encuentra tu centro
+        href: map.qmd
+      - text: Contacto
+        href: contacto.qmd  # 👈 This is the new menu item
+
+format:
+  html:
+    theme: flatly
+    css: styles.css
+    toc: false
