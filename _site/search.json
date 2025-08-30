@@ -1,155 +1,15 @@
 [
   {
-    "objectID": "professors/victor-ortega.html",
-    "href": "professors/victor-ortega.html",
-    "title": "Víctor Ortega",
+    "objectID": "map.html",
+    "href": "map.html",
+    "title": "Encuentra tu tienda",
     "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/victor-ortega.html#about-víctor-ortega",
-    "href": "professors/victor-ortega.html#about-víctor-ortega",
-    "title": "Víctor Ortega",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/raquel-moreno.html",
-    "href": "professors/raquel-moreno.html",
-    "title": "Raquel Moreno",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/raquel-moreno.html#about-raquel-moreno",
-    "href": "professors/raquel-moreno.html#about-raquel-moreno",
-    "title": "Raquel Moreno",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/nuria-diaz.html",
-    "href": "professors/nuria-diaz.html",
-    "title": "Nuria Díaz",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/nuria-diaz.html#about-nuria-díaz",
-    "href": "professors/nuria-diaz.html#about-nuria-díaz",
-    "title": "Nuria Díaz",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/maria-lopez.html",
-    "href": "professors/maria-lopez.html",
-    "title": "María López",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/maria-lopez.html#about-maría-lópez",
-    "href": "professors/maria-lopez.html#about-maría-lópez",
-    "title": "María López",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/laura-perez.html",
-    "href": "professors/laura-perez.html",
-    "title": "Laura Pérez",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/laura-perez.html#about-laura-pérez",
-    "href": "professors/laura-perez.html#about-laura-pérez",
-    "title": "Laura Pérez",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/javier-fernandez.html",
-    "href": "professors/javier-fernandez.html",
-    "title": "Javier Fernández",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/javier-fernandez.html#about-javier-fernández",
-    "href": "professors/javier-fernandez.html#about-javier-fernández",
-    "title": "Javier Fernández",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/daniel-gomez.html",
-    "href": "professors/daniel-gomez.html",
-    "title": "Daniel Gómez",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/daniel-gomez.html#about-daniel-gómez",
-    "href": "professors/daniel-gomez.html#about-daniel-gómez",
-    "title": "Daniel Gómez",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/carlos-ruiz.html",
-    "href": "professors/carlos-ruiz.html",
-    "title": "Carlos Ruiz",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/carlos-ruiz.html#about-carlos-ruiz",
-    "href": "professors/carlos-ruiz.html#about-carlos-ruiz",
-    "title": "Carlos Ruiz",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/ana-torres.html",
-    "href": "professors/ana-torres.html",
-    "title": "Ana Torres",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/ana-torres.html#about-ana-torres",
-    "href": "professors/ana-torres.html#about-ana-torres",
-    "title": "Ana Torres",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "index.html#qué-puedes-hacer",
-    "href": "index.html#qué-puedes-hacer",
-    "title": "Encuentra tu próximo centro de yoga",
-    "section": "¿Qué puedes hacer?",
-    "text": "¿Qué puedes hacer?\n\n\nFiltrar por ciudad, estilo de yoga, idioma o profesor/a\n\n\nVer centros cercanos a tu ubicación\n\n\nBuscar clases en distintos idiomas\n\n\nDescubrir nuevas escuelas y profesores"
-  },
-  {
-    "objectID": "index.html#colabora",
-    "href": "index.html#colabora",
-    "title": "Encuentra tu próximo centro de yoga",
-    "section": "Colabora",
-    "text": "Colabora\n¿Conoces un centro o profesor/a que debería estar aquí?\n\nPonte en contacto con nosotros"
-  },
-  {
-    "objectID": "index.html#lo-que-dicen-nuestros-usuarios",
-    "href": "index.html#lo-que-dicen-nuestros-usuarios",
-    "title": "Inicio",
-    "section": "🗨️ Lo que dicen nuestros usuarios",
-    "text": "🗨️ Lo que dicen nuestros usuarios\n\n“Encontré clases de Vinyasa en inglés cerca de mí en solo 2 minutos.”\n— Laura, Barcelona\n\n\n“Me encanta poder ver todos los centros en el mapa y filtrar por estilos. Es súper práctico.”\n— Diego, Valencia"
+    "text": "Limpiar filtros\n\n    Cerca de mí\n\n\n  \n    \n    \n  \n\n\n  \n    Tipo de establecimiento\n    \n       Alimentación\n       Café\n       Pastelería\n       Bar\n       Restaurante\n       Otros\n    \n  \n\n  \n    País de origen\n    \n  \n\n    \n\n  \n\n  \n    \n    establecimientos encontrados\n    \n    No centers found for your search."
   },
   {
     "objectID": "generate_professors_and_centers_files/center_template.html",
     "href": "generate_professors_and_centers_files/center_template.html",
-    "title": "$title",
+    "title": "§title",
     "section": "",
     "text": "Loading…"
   },
@@ -161,128 +21,44 @@
     "text": "Loading…"
   },
   {
-    "objectID": "centers/yoga-norte.html",
-    "href": "centers/yoga-norte.html",
-    "title": "Yoga Norte",
+    "objectID": "centers/chijwxcllu0pqg0rgepcvf7_uea.html",
+    "href": "centers/chijwxcllu0pqg0rgepcvf7_uea.html",
+    "title": "El Viejo Almacén de Buenos Aires",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "centers/yoga-norte.html#about-yoga-norte",
-    "href": "centers/yoga-norte.html#about-yoga-norte",
-    "title": "Yoga Norte",
+    "objectID": "centers/chijwxcllu0pqg0rgepcvf7_uea.html#about-el-viejo-almacén-de-buenos-aires",
+    "href": "centers/chijwxcllu0pqg0rgepcvf7_uea.html#about-el-viejo-almacén-de-buenos-aires",
+    "title": "El Viejo Almacén de Buenos Aires",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "centers/soul-stretch.html",
-    "href": "centers/soul-stretch.html",
-    "title": "Soul Stretch",
+    "objectID": "centers/chij7vefe7tjya0regku4rjiazi.html",
+    "href": "centers/chij7vefe7tjya0regku4rjiazi.html",
+    "title": "Dulce de Leche",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "centers/soul-stretch.html#about-soul-stretch",
-    "href": "centers/soul-stretch.html#about-soul-stretch",
-    "title": "Soul Stretch",
+    "objectID": "centers/chij7vefe7tjya0regku4rjiazi.html#about-dulce-de-leche",
+    "href": "centers/chij7vefe7tjya0regku4rjiazi.html#about-dulce-de-leche",
+    "title": "Dulce de Leche",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "centers/peace-yoga.html",
-    "href": "centers/peace-yoga.html",
-    "title": "Peace Yoga",
+    "objectID": "contacto.html",
+    "href": "contacto.html",
+    "title": "Tiendas argentinas",
     "section": "",
-    "text": "Loading…"
+    "text": "Contáctanos\n\n\nGracias por ayudarnos a mantener esta guía actualizada. Puedes sugerir un nuevo establecimiento, o enviarnos comentarios, dudas o correcciones.\n\n ➕ Añadir o editar establecimientos \n 💬 Envíanos tu mensaje por cualquier otra razón"
   },
   {
-    "objectID": "centers/peace-yoga.html#about-peace-yoga",
-    "href": "centers/peace-yoga.html#about-peace-yoga",
-    "title": "Peace Yoga",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/namaste-center.html",
-    "href": "centers/namaste-center.html",
-    "title": "Namaste Center",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/namaste-center.html#about-namaste-center",
-    "href": "centers/namaste-center.html#about-namaste-center",
-    "title": "Namaste Center",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/balance-yoga.html",
-    "href": "centers/balance-yoga.html",
-    "title": "Balance Yoga",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/balance-yoga.html#about-balance-yoga",
-    "href": "centers/balance-yoga.html#about-balance-yoga",
-    "title": "Balance Yoga",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/alma-yoga.html",
-    "href": "centers/alma-yoga.html",
-    "title": "Alma Yoga",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/alma-yoga.html#about-alma-yoga",
-    "href": "centers/alma-yoga.html#about-alma-yoga",
-    "title": "Alma Yoga",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/costa-zen.html",
-    "href": "centers/costa-zen.html",
-    "title": "Costa Zen",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/costa-zen.html#about-costa-zen",
-    "href": "centers/costa-zen.html#about-costa-zen",
-    "title": "Costa Zen",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/ocean-zen.html",
-    "href": "centers/ocean-zen.html",
-    "title": "Ocean Zen",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/ocean-zen.html#about-ocean-zen",
-    "href": "centers/ocean-zen.html#about-ocean-zen",
-    "title": "Ocean Zen",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/sevilla-breath.html",
-    "href": "centers/sevilla-breath.html",
-    "title": "Sevilla Breath",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/sevilla-breath.html#about-sevilla-breath",
-    "href": "centers/sevilla-breath.html#about-sevilla-breath",
-    "title": "Sevilla Breath",
+    "objectID": "generate_professors_and_centers_files/professor_template.html",
+    "href": "generate_professors_and_centers_files/professor_template.html",
+    "title": "§title",
     "section": "",
     "text": "Loading…"
   },
@@ -294,157 +70,241 @@
     "text": "Loading…"
   },
   {
-    "objectID": "centers/urban-flow.html#about-urban-flow",
-    "href": "centers/urban-flow.html#about-urban-flow",
-    "title": "Urban Flow",
+    "objectID": "centers/sevilla-breath.html",
+    "href": "centers/sevilla-breath.html",
+    "title": "Sevilla Breath",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "contacto.html",
-    "href": "contacto.html",
-    "title": "Yoga Directory",
-    "section": "",
-    "text": "Contáctanos\n\n\nGracias por ayudarnos a mantener esta guía actualizada. Puedes sugerir un nuevo centro o profesor/a, o enviarnos comentarios, dudas o correcciones.\n\n ➕ Añadir o editar centros y profesores \n 💬 Envíanos tu mensaje por cualquier otra razón"
-  },
-  {
-    "objectID": "generate_professors_and_centers_files/professor_template.html",
-    "href": "generate_professors_and_centers_files/professor_template.html",
-    "title": "$title",
+    "objectID": "centers/ocean-zen.html",
+    "href": "centers/ocean-zen.html",
+    "title": "Ocean Zen",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "generate_professors_and_centers_files/professor_template.html#about-title",
-    "href": "generate_professors_and_centers_files/professor_template.html#about-title",
-    "title": "$title",
+    "objectID": "centers/costa-zen.html",
+    "href": "centers/costa-zen.html",
+    "title": "Costa Zen",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "map.html",
-    "href": "map.html",
-    "title": "Encuentra tu centro de Yoga",
-    "section": "",
-    "text": "Filtrar por\n\n    Cerca de mí\n\n    \n    \n\n\n    \n      Estilos de yoga\n      \n    \n\n    \n    \n\n\n\n\n    \n      Profesores\n      \n        Todos los profesores\n      \n    \n\n    \n      Idiomas\n       Español\n       Inglés\n    \n\n    \n\n  \n\n  \n    \n    Centros de Yoga\n    \n    No centers found for your search."
-  },
-  {
-    "objectID": "professors/beatriz-molina.html",
-    "href": "professors/beatriz-molina.html",
-    "title": "Beatriz Molina",
+    "objectID": "centers/alma-yoga.html",
+    "href": "centers/alma-yoga.html",
+    "title": "Alma Yoga",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "professors/beatriz-molina.html#about-beatriz-molina",
-    "href": "professors/beatriz-molina.html#about-beatriz-molina",
-    "title": "Beatriz Molina",
+    "objectID": "centers/balance-yoga.html",
+    "href": "centers/balance-yoga.html",
+    "title": "Balance Yoga",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "professors/carmen-romero.html",
-    "href": "professors/carmen-romero.html",
-    "title": "Carmen Romero",
+    "objectID": "centers/namaste-center.html",
+    "href": "centers/namaste-center.html",
+    "title": "Namaste Center",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "professors/carmen-romero.html#about-carmen-romero",
-    "href": "professors/carmen-romero.html#about-carmen-romero",
-    "title": "Carmen Romero",
+    "objectID": "centers/peace-yoga.html",
+    "href": "centers/peace-yoga.html",
+    "title": "Peace Yoga",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "professors/isabel-cano.html",
-    "href": "professors/isabel-cano.html",
-    "title": "Isabel Cano",
+    "objectID": "centers/soul-stretch.html",
+    "href": "centers/soul-stretch.html",
+    "title": "Soul Stretch",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "professors/isabel-cano.html#about-isabel-cano",
-    "href": "professors/isabel-cano.html#about-isabel-cano",
-    "title": "Isabel Cano",
+    "objectID": "centers/yoga-norte.html",
+    "href": "centers/yoga-norte.html",
+    "title": "Yoga Norte",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "professors/jorge-herrera.html",
-    "href": "professors/jorge-herrera.html",
-    "title": "Jorge Herrera",
+    "objectID": "centers/chijyuzsdzuipbir7c8frki1-hg.html",
+    "href": "centers/chijyuzsdzuipbir7c8frki1-hg.html",
+    "title": "Asador d’Aranda | Eixample",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "professors/jorge-herrera.html#about-jorge-herrera",
-    "href": "professors/jorge-herrera.html#about-jorge-herrera",
-    "title": "Jorge Herrera",
+    "objectID": "centers/chijuro46qyjpbir8mo5yw-op3o.html",
+    "href": "centers/chijuro46qyjpbir8mo5yw-op3o.html",
+    "title": "70/30 Restobar",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "professors/lucia-martin.html",
-    "href": "professors/lucia-martin.html",
-    "title": "Lucía Martín",
+    "objectID": "centers/chiju1iehxejpbireyol-gsmu3y.html",
+    "href": "centers/chiju1iehxejpbireyol-gsmu3y.html",
+    "title": "Asado Libre Buffet de Carnes Argentinas",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "professors/lucia-martin.html#about-lucía-martín",
-    "href": "professors/lucia-martin.html#about-lucía-martín",
-    "title": "Lucía Martín",
+    "objectID": "centers/chijr05z0uyipbir2p_c0pssw2g.html",
+    "href": "centers/chijr05z0uyipbir2p_c0pssw2g.html",
+    "title": "9Reinas | Diagonal",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "professors/miguel-sanchez.html",
-    "href": "professors/miguel-sanchez.html",
-    "title": "Miguel Sánchez",
+    "objectID": "centers/chijofas58qjpbirfmvhyjtzc2o.html",
+    "href": "centers/chijofas58qjpbirfmvhyjtzc2o.html",
+    "title": "TA producciones SC",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "professors/miguel-sanchez.html#about-miguel-sánchez",
-    "href": "professors/miguel-sanchez.html#about-miguel-sánchez",
-    "title": "Miguel Sánchez",
+    "objectID": "centers/chijlqdscvd9lg0rqxh6sqnfd74.html",
+    "href": "centers/chijlqdscvd9lg0rqxh6sqnfd74.html",
+    "title": "8 Mesitas - Medialunas Argentinas",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "professors/pablo-alonso.html",
-    "href": "professors/pablo-alonso.html",
-    "title": "Pablo Alonso",
+    "objectID": "centers/chiji0yexa-dpbirjovwddmikd4.html",
+    "href": "centers/chiji0yexa-dpbirjovwddmikd4.html",
+    "title": "ANKARA BURGER",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "professors/pablo-alonso.html#about-pablo-alonso",
-    "href": "professors/pablo-alonso.html#about-pablo-alonso",
-    "title": "Pablo Alonso",
+    "objectID": "centers/chijg8ui43cypbirycdujqkayki.html",
+    "href": "centers/chijg8ui43cypbirycdujqkayki.html",
+    "title": "9Reinas - Gourmet argentí | Turó",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "professors/sofia-navarro.html",
-    "href": "professors/sofia-navarro.html",
-    "title": "Sofía Navarro",
+    "objectID": "centers/chijctiigswjpbir1qromfjwwro.html",
+    "href": "centers/chijctiigswjpbir1qromfjwwro.html",
+    "title": "Asado Burgers",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "professors/sofia-navarro.html#about-sofía-navarro",
-    "href": "professors/sofia-navarro.html#about-sofía-navarro",
-    "title": "Sofía Navarro",
+    "objectID": "centers/chij35ftdmqjpbirol2p1frgzl4.html",
+    "href": "centers/chij35ftdmqjpbirol2p1frgzl4.html",
+    "title": "Argentinísimo Asador ( El Salón de La milanesa )",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/chij-a6ru1o3yw0r-0xtjdjmwwy.html",
+    "href": "centers/chij-a6ru1o3yw0r-0xtjdjmwwy.html",
+    "title": "Aires Burger Bar | Elche",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/chijc44fximbpbirmor_fmydx2o.html",
+    "href": "centers/chijc44fximbpbirmor_fmydx2o.html",
+    "title": "EL ASADOR DE PABLO- Restaurante Argentino",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/chijfyzpw42ipbiru38aklk7ti8.html",
+    "href": "centers/chijfyzpw42ipbiru38aklk7ti8.html",
+    "title": "Pampero Asador Argentino",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/chijhwjf-52ipbirp_itixedvww.html",
+    "href": "centers/chijhwjf-52ipbirp_itixedvww.html",
+    "title": "Apluma l Pollo asado Barcelona",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/chijkujpjckipbire3yzi9wfnzi.html",
+    "href": "centers/chijkujpjckipbire3yzi9wfnzi.html",
+    "title": "Els “Pollos” de Llull | Sagrada Família",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/chijnaadzknnyg0rrwd9muz5ig8.html",
+    "href": "centers/chijnaadzknnyg0rrwd9muz5ig8.html",
+    "title": "Aires Burger Beach Bar | Santa Pola",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/chijp9t20gijpbirroc04wuzuwi.html",
+    "href": "centers/chijp9t20gijpbirroc04wuzuwi.html",
+    "title": "Don Asador",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/chijtymjzezbwbqrsedlat_euqa.html",
+    "href": "centers/chijtymjzezbwbqrsedlat_euqa.html",
+    "title": "ATA Animation Production",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/chijudqnp-aipbirjl-xaciw6xw.html",
+    "href": "centers/chijudqnp-aipbirjl-xaciw6xw.html",
+    "title": "Restaurant Parrilla Alfonsina",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/chijveh6ik6jpbiruzgkmn-hf5c.html",
+    "href": "centers/chijveh6ik6jpbiruzgkmn-hf5c.html",
+    "title": "Apluma l Pollo asado Barcelona",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/chijzytak7y1yhqrnqxnwcnzv6q.html",
+    "href": "centers/chijzytak7y1yhqrnqxnwcnzv6q.html",
+    "title": "AtA Production",
     "section": "",
     "text": "Loading…"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Encuentra tu próximo centro de yoga",
+    "title": "Encuentra tu tienda, bar, restaurante o café favorito",
     "section": "",
-    "text": "Explora nuestro directorio de centros y profesores de yoga por ciudad, estilo, idioma y más. Todo en un solo lugar."
+    "text": "Explora nuestro directorio de establecimientos por ciudad, tipo de establecimiento, país de origen de los productos y más. Todo en un solo lugar."
+  },
+  {
+    "objectID": "index.html#qué-puedes-hacer",
+    "href": "index.html#qué-puedes-hacer",
+    "title": "Encuentra tu tienda, bar, restaurante o café favorito",
+    "section": "¿Qué puedes hacer?",
+    "text": "¿Qué puedes hacer?\n\n\nFiltrar por ciudad, tipo de establecimiento o país de origen de los productos\n\n\nVer establecimientos cercanos a tu ubicación"
+  },
+  {
+    "objectID": "index.html#colabora",
+    "href": "index.html#colabora",
+    "title": "Encuentra tu tienda, bar, restaurante o café favorito",
+    "section": "Colabora",
+    "text": "Colabora\n¿Conoces un establecimiento que debería estar aquí?\n\nPonte en contacto con nosotros"
+  },
+  {
+    "objectID": "index.html#ciudades-más-populares",
+    "href": "index.html#ciudades-más-populares",
+    "title": "Encuentra tu tienda, bar, restaurante o café favorito",
+    "section": "Ciudades más populares",
+    "text": "Ciudades más populares\n\n  \n    \n    Barcelona\n  \n  \n    \n    Madrid\n  \n  \n    \n    Valencia\n  \n  \n    \n    Granada"
   }
 ]

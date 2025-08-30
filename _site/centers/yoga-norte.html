@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Yoga Norte – Yoga Directory</title>
+<title>Yoga Norte – Centros de Yoga</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -26,10 +26,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -40,18 +36,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -79,10 +63,9 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Yoga Directory</span>
+    <span class="navbar-title">Centros de Yoga</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -90,15 +73,11 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="../index.html"> 
-<span class="menu-text">Home</span></a>
+<span class="menu-text">Inicio</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../map.html"> 
-<span class="menu-text">Map</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../centers/peace-yoga.html"> 
-<span class="menu-text">Centers</span></a>
+<span class="menu-text">Encuentra tu centro</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../contacto.html"> 
@@ -138,54 +117,146 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="about-yoga-norte" class="level2">
-<h2 class="anchored" data-anchor-id="about-yoga-norte">About Yoga Norte</h2>
+<p><link href="https://fonts.googleapis.com/css2?family=Savate&amp;display=swap" rel="stylesheet"></p>
+<style>
+  :root{ --burdeos:#800000; --gris-claro:#f7f5f5; --borde:#e6e6e6; }
+  body{ font-family:'Savate', sans-serif; }
+  .center-wrap{ max-width:1100px; margin:0 auto; padding:1rem 1.25rem; }
+  .center-hero h1{
+  margin: 0 0 .6rem 0;                 /* más aire debajo */
+  font-size: clamp(1.7rem, 2.6vw, 2.2rem);
+  line-height: 1.2;
+}
+  .center-sub{ color:#555; margin:.2rem 0 1rem 0; }
+  .cta-row{ display:flex; gap:.6rem; flex-wrap:wrap; margin:.4rem 0 1rem; }
+  .btn{ background:var(--burdeos); color:#fff; border:none; border-radius:10px; padding:.55rem .9rem; font-weight:700; text-decoration:none; display:inline-block; }
+  .btn.outline{ background:#fff; color:var(--burdeos); border:1px solid var(--burdeos); }
+  .btn:hover{ filter:brightness(.95); }
+  .grid{ display:grid; grid-template-columns: 1.25fr .75fr; gap:1.2rem; align-items:start; }
+  .card{ background:var(--gris-claro); border:1px solid var(--borde); border-radius:14px; padding:1rem 1.2rem; box-shadow:0 2px 6px rgba(0,0,0,.05); }
+  .section-title{ margin:.2rem 0 .6rem; font-size:1.1rem; }
+  .chips{ display:flex; flex-wrap:wrap; gap:.5rem; margin:.4rem 0 .8rem; }
+  .chip{ background:#fff; border:1px solid var(--borde); border-radius:999px; padding:.25rem .65rem; font-size:.95rem; }
+  .meta-list{
+  list-style: none;      /* ← sin viñetas */
+  margin: 0;
+  padding-left: 0;       /* ← sin sangría */
+}
+  .prof-list a{ text-decoration:none; color:var(--burdeos); }
+  .prof-list a:hover{ text-decoration:underline; }
+  @media(max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
+
+
+  .crumbs{
+  font-size: .95rem;
+  color: #666;
+  margin: .25rem 0 1rem;
+}
+.crumbs a{ color: inherit; text-decoration: none; }
+.crumbs a:hover{ text-decoration: underline; }
+</style>
 <div id="centerInfo">
 Loading…
 </div>
 <script>
-const centerId = "yoga-norte";
+document.addEventListener('DOMContentLoaded', async () => {
+  const centerId = "yoga-norte";
+  const container = document.getElementById("centerInfo");
 
-Promise.all([
-  fetch("../data/centers.json").then(res => res.json()),
-  fetch("../data/professors.json").then(res => res.json())
-])
-.then(([centers, professors]) => {
-  const center = centers.find(c => c.id === centerId);
-  if (!center) {
-    document.getElementById("centerInfo").innerHTML = "<p>Center not found.</p>";
-    return;
+  // Detecta si estamos en /centers/ para ajustar las rutas
+  const BASE = location.pathname.includes('/centers/') ? '..' : '.';
+  const CENTERS_URL = `${BASE}/data/centers.json`;
+  const PROFS_URL   = `${BASE}/data/professors.json`;
+
+  console.log('[center page] path:', location.pathname);
+  console.log('[center page] base:', BASE);
+  console.log('[center page] centerId:', centerId);
+
+  try {
+    const [centersRes, profsRes] = await Promise.all([
+      fetch(CENTERS_URL),
+      fetch(PROFS_URL)
+    ]);
+
+    if (!centersRes.ok || !profsRes.ok) {
+      throw new Error(`Fetch failed: centers(${centersRes.status}) profs(${profsRes.status})`);
+    }
+
+    const [centers, professors] = await Promise.all([
+      centersRes.json(),
+      profsRes.json()
+    ]);
+
+    const center = centers.find(c => c.id === centerId);
+    if (!center) {
+      console.warn('[center page] Center not found. Available ids:', centers.map(c => c.id));
+      container.innerHTML = "<div class='center-wrap'><div class='card'><p>Center not found.</p></div></div>";
+      return;
+    }
+
+    const profData = (center.professors || [])
+      .map(pid => professors.find(p => p.id === pid))
+      .filter(Boolean);
+
+    container.innerHTML = `
+      <div class="center-wrap">
+
+
+        <div class="center-hero">
+          <div class="cta-row">
+            <a class="btn outline" href="${BASE}/map.html">← Volver al mapa</a>
+            ${center.website ? `<a class="btn" href="${center.website}" target="_blank" rel="noopener">Sitio web</a>` : ``}
+          </div>
+        </div>
+
+
+        <div class="grid">
+          <div class="card">
+            <h3 class="section-title">Sobre ${center.name}</h3>
+            <p>${center.description ? center.description : `Bienvenido a la página de ${center.name} en ${center.city}.`}</p>
+
+            <h3 class="section-title">Estilos de yoga</h3>
+            <div class="chips">
+              ${(center.styles || []).map(s => `<span class="chip">${s}</span>`).join("")}
+            </div>
+
+            <h3 class="section-title">Idiomas</h3>
+            <div class="chips">
+              ${(center.languages || []).map(l => `<span class="chip">${l}</span>`).join("")}
+            </div>
+
+            <h3 class="section-title">Profesores</h3>
+            ${profData.length
+              ? `<ul class="meta-list prof-list">
+                   ${profData.map(p => {
+                     const slug = p.id.toLowerCase().replace(/\s+/g,'-');
+                     return `<li><a href="${BASE}/professors/${slug}.html">${p.name}</a></li>`;
+                   }).join("")}
+                 </ul>`
+              : `<p>—</p>`}
+          </div>
+
+          <div class="card">
+            <h3 class="section-title">Detalles</h3>
+            <ul class="meta-list">
+              <li>📍 ${center.city}</li>
+              ${center.address ? `<li>🏠 ${center.address}</li>` : ``}
+              ${center.phone ? `<li>📞 ${center.phone}</li>` : ``}
+              ${center.email ? `<li>✉️ <a href="mailto:${center.email}">${center.email}</a></li>` : ``}
+              ${center.website ? `<li>🌐 <a href="${center.website}" target="_blank" rel="noopener">${center.website.replace(/^https?:\/\//,'')}</a></li>` : ``}
+            </ul>
+          </div>
+        </div>
+      </div>
+    `;
+  } catch (err) {
+    console.error('[center page] Error:', err);
+    container.innerHTML = "<div class='center-wrap'><div class='card'><p>Error loading data.</p></div></div>";
   }
-
-  const profData = center.professors.map(pid => 
-    professors.find(p => p.id === pid)
-  ).filter(p => p);
-
-  document.getElementById("centerInfo").innerHTML = `
-    <p>Welcome to ${center.name} in ${center.city}.</p>
-
-    <h3>Styles Offered</h3>
-    <ul>${center.styles.map(s => `<li>${s}</li>`).join("")}</ul>
-
-    <h3>Languages Spoken</h3>
-    <ul>${center.languages.map(l => `<li>${l}</li>`).join("")}</ul>
-
-    <h3>Professors</h3>
-    <ul>
-      ${profData.map(p => 
-        `<li><a href="../professors/${p.id.toLowerCase().replace(/\\s+/g,'-')}.html">${p.name}</a></li>`
-      ).join("")}
-    </ul>
-  `;
-})
-.catch(err => {
-  console.error(err);
-  document.getElementById("centerInfo").innerHTML = "<p>Error loading data.</p>";
 });
 </script>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

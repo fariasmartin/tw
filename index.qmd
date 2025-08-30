@@ -1,5 +1,5 @@
 ---
-title: "Encuentra tu próximo centro de yoga"
+title: "Encuentra tu tienda, bar, restaurante o café favorito"
 page-layout: full
 format:
   html:
@@ -68,22 +68,27 @@ format:
   }
 
 
-.popular-cities-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5em;
-  width: 100%;
-  max-width: none;
-  margin: 3em 0;
-}
+  /* --- 2 cols on first row, 3 on second --- */
+  .popular-cities-grid{
+    display:grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    max-width: 1000px;
+    margin: 2rem auto;
+  }
+  .popular-cities-grid .city-card:nth-child(-n+2){  /* first two */
+    grid-column: span 3;
+  }
+  .popular-cities-grid .city-card:nth-child(n+3){   /* rest */
+    grid-column: span 2;
+  }
 
-.city-card {
-  cursor: pointer;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
-}
+/* mobile fallback: 1 per row */
+  @media (max-width: 640px){
+    .popular-cities-grid{ grid-template-columns: 1fr; }
+    .popular-cities-grid .city-card{ grid-column: auto; }
+  }
+
 
 .city-card:hover {
   transform: scale(1.02);
@@ -91,7 +96,7 @@ format:
 
 .city-card img {
   width: 100%;
-  height: 200px;
+  height: 120px;   /* antes 200px */
   object-fit: cover;
 }
 
@@ -136,7 +141,11 @@ format:
 }
 
 
-
+.origin-note{
+  margin-top:.5rem;
+  color:#555;
+  font-size:.95rem;
+}
 
 </style>
 
@@ -144,19 +153,27 @@ format:
 
 
 
-Explora nuestro directorio de centros y profesores de yoga por ciudad, estilo, idioma y más. Todo en un solo lugar.
+Explora nuestro directorio de establecimientos por ciudad, tipo de establecimiento, país de origen de los productos y más. Todo en un solo lugar.
 
 <div class="hero-search" style="position: relative;">
-  <input type="text" id="citySearch" placeholder="Buscar centros en mi ciudad" autocomplete="off" />
+  <input type="text" id="citySearch" placeholder="Buscar establecimientos en mi ciudad" autocomplete="off" />
   <ul id="citySuggestions" class="suggestion-list"></ul>
 </div>
+
+<div class="hero-filters" style="text-align:center; margin-top:1rem;">
+  <select id="originSelect" style="padding:10px; font-size:16px; border-radius:6px; border:1px solid #ccc; width:100%; max-width:500px;">
+    <option value="">Todos los países</option>
+  </select>
+  <div class="origin-note">Proximamente añadiremos más países</div>
+</div>
+
 
 
 <div class="centered">
   <a href="/map.html" class="cta-button">Explora todas las ciudades</a>
 </div>
 
-# Ciudades más populares
+### Ciudades más populares
 
 ```{=html}
 <div class="popular-cities-grid">
@@ -176,43 +193,28 @@ Explora nuestro directorio de centros y profesores de yoga por ciudad, estilo, i
     <img src="/images/cities/granada.jpg" alt="Granada">
     <div class="city-name">Granada</div>
   </div>
+  <div class="city-card" onclick="window.location.href='/map.html?city=Granada'">
+    <img src="/images/cities/granada.jpg" alt="Granada">
+    <div class="city-name">Granada</div>
+  </div>
 </div>
 ```
 
 
-
-<!-- <div class="popular-cities">
-  <strong>Ciudades más buscadas:</strong><br>
-  <a href="/map.html?city=Barcelona">Barcelona</a>
-  <a href="/map.html?city=Madrid">Madrid</a>
-  <a href="/map.html?city=Valencia">Valencia</a>
-  <a href="/map.html?city=Granada">Granada</a>
-</div> -->
-
 ## ¿Qué puedes hacer?
 
 <ul class="features">
-  <li>Filtrar por ciudad, estilo de yoga, idioma o profesor/a</li>
-  <li>Ver centros cercanos a tu ubicación</li>
-  <li>Buscar clases en distintos idiomas</li>
-  <li>Descubrir nuevas escuelas y profesores</li>
+  <li>Filtrar por ciudad, tipo de establecimiento o país de origen de los productos</li>
+  <li>Ver establecimientos cercanos a tu ubicación</li>
 </ul>
 
 ## Colabora
 
-¿Conoces un centro o profesor/a que debería estar aquí?
+¿Conoces un establecimiento que debería estar aquí?
 
 <div class="centered">
   <a href="/contacto.html" class="cta-button">Ponte en contacto con nosotros</a>
 </div>
-
-<!-- ## 🗨️ Lo que dicen nuestros usuarios
-
-> “Encontré clases de Vinyasa en inglés cerca de mí en solo 2 minutos.”  
-> — Laura, Barcelona
-
-> “Me encanta poder ver todos los centros en el mapa y filtrar por estilos. Es súper práctico.”  
-> — Diego, Valencia -->
 
 
 <script>
@@ -221,11 +223,49 @@ let centers = [];
 const input = document.getElementById("citySearch");
 const suggestions = document.getElementById("citySuggestions");
 
-fetch("/data/centers.json")
-  .then(res => res.json())
+
+const originSelect = document.getElementById("originSelect");
+
+// Lista fija (edítala a tu gusto)
+const FIXED_COUNTRIES = ["Argentina"];
+
+// Pinta opciones inmediatamente (sin esperar al fetch)
+originSelect.innerHTML = '<option value="">Todos los países</option>' +
+  FIXED_COUNTRIES.map(p => `<option value="${p}">${p}</option>`).join('');
+
+// Preselecciona si vienes con ?origin=
+const currentOrigin = new URLSearchParams(window.location.search).get('origin') || '';
+if (currentOrigin) originSelect.value = currentOrigin;
+
+// Navegación al cambiar
+originSelect.addEventListener("change", () => {
+  const v = originSelect.value;
+  const q = new URLSearchParams();
+  if (input.value.trim()) q.set("city", input.value.trim());
+  if (v) q.set("origin", v);
+  window.location.href = `/map.html?${q.toString()}`;
+});
+
+
+const parseOrigins = v =>
+  Array.isArray(v) ? v :
+  (typeof v === "string" ? v.split(/[;,/|]+/) : []);
+
+const titleCase = s => (s || "").toLowerCase().replace(/\b\w/g, m => m.toUpperCase());
+
+
+fetch(encodeURI("/data/test centers_with_google_maps_and_website_information.json"))
+  .then(res => {
+    if (!res.ok) throw new Error("No se pudieron cargar los datos");
+    return res.json();
+  })
   .then(data => {
     centers = data;
+  })
+  .catch(err => {
+    console.error("Error cargando establecimientos:", err);
   });
+
 
 input.addEventListener("input", () => {
   const val = input.value.toLowerCase().trim();

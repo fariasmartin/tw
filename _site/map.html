@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Encuentra tu centro de Yoga – Yoga Directory</title>
+<title>Encuentra tu tienda – Buscar de establecimientos</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -26,10 +26,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -40,18 +36,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -71,7 +55,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -79,10 +63,9 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Yoga Directory</span>
+    <span class="navbar-title">Buscar de establecimientos</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -94,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./map.html" aria-current="page"> 
-<span class="menu-text">Encuentra tu centro</span></a>
+<span class="menu-text">Encuentra tu establecimiento</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./contacto.html"> 
@@ -108,21 +91,21 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Encuentra tu centro de Yoga</h1>
+<h1 class="title">Encuentra tu tienda</h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page">
 
     
   
@@ -136,44 +119,196 @@ ul.task-list li input[type="checkbox"] {
 
 <p><link href="https://fonts.googleapis.com/css2?family=Savate&amp;display=swap" rel="stylesheet"></p>
 <style>
+  :root {
+    --burdeos: #800000;
+    --burdeos-hover: #a3333d;
+    --gris-claro: #f4f1f1;
+    --blanco-roto: #fafafa;
+    --texto-oscuro: #222222;
+    --borde-gris: #ccc;
+
+    /* layout vars */
+    --sidebar-w: 300px;  /* ancho columna filtros */
+    --gap: 1em;        /* separación columnas */
+  }
+
   body {
-    font-family: 'Savate', sans-serif;
-    margin: 2em;
+    font-family: 'Savate', sans-serif !important;
+    padding: 0 !important;
+    background-color: var(--blanco-roto) !important;
+    padding-top: 100px !important; /* separa del navbar fijo */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 
-  .layout {
-    display: flex;
-    gap: 2em;
-    align-items: flex-start;
+  /* Contenedor 2 columnas */
+  .layout{
+    display:flex;
+    flex-wrap:wrap;
+    gap: var(--gap);
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    margin-top: 30px !important; /* ajusta a gusto */
+    align-items: flex-start !important;
   }
 
-  .sidebar {
-    flex: 0 0 300px;
+  /* Filtros (izquierda) */
+  .sidebar{
+    flex: 0 0 var(--sidebar-w);
+    max-width: var(--sidebar-w);
+    background-color: var(--gris-claro) !important;
+    padding: 1em 1em 1em 1em !important;   /* usa 0.5em si quieres un poco de aire */
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.05);
   }
 
-  .main {
-    flex: 1;
+  .sidebar h2{
+  margin-top: 0 !important;
+  /* opcional: ajusta el espacio hacia abajo */
+  margin-bottom: .5em;
+}
+
+  /* Columna derecha (mapa + lista) */
+  .main{
+    flex: 1 1 0;
+    max-width: none !important;
+    margin: 0 0 2em 0 !important; /* sin centrado */
   }
 
-  label {
-    display: block;
-    margin-bottom: 0.3em;
+  h2 { color: #000 !important; }
+
+  /* Mapa */
+  #map{
+    width: 100%;
+    height: clamp(420px, 75dvh, 900px);
+    border-radius: 12px;
+    margin-bottom: 1em;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+  }
+
+  /* Lista resultados */
+  #centerList { list-style: none; padding-left: 0; margin-top: 1em; }
+  #centerList li {
+    background: var(--gris-claro);
+    padding: .6em .8em;
+    border-radius: 8px;
+    margin-bottom: .5em;
+  }
+  #centerList a { text-decoration: none; color: var(--burdeos); font-weight: bold; }
+
+  /* Oculta el “#” de ancla en títulos */
+  h2 a.anchorjs-link { display: none !important; }
+
+  /* Botones */
+  button{
+    background-color: var(--burdeos);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    font-weight: bold;
+    width: 100%;
+    margin-bottom: 1em;
+    cursor: pointer;
+    transition: background-color .3s;
+  }
+  button:hover{ background-color: var(--burdeos-hover); }
+
+
+  #typeCheckboxes, #originCheckboxes {
+    display: block !important;
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: .5em;
+  }
+  #typeCheckboxes label, #originCheckboxes label {
+    display: block !important;
+    margin-bottom: .3em;
   }
 
 
-# Mejorar aparienia de menu de estilos
-  #styleCheckboxes::-webkit-scrollbar {
-    width: 6px;
+  /* Responsive */
+  @media (max-width: 768px){
+    .layout{ flex-direction: column; align-items: stretch; }
+    .sidebar{ width: 100%; max-width: 100%; }
+    .main{ width: 100%; flex: 1 1 100%; padding: 0 .5em; }
+    #map{ height: 50vh !important; }
   }
 
-  #styleCheckboxes::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 4px;
-  }
 
-  #styleCheckboxes::-webkit-scrollbar-thumb:hover {
-    background-color: #555;
-  }
+
+
+
+/* Elimina la columna de margen y el padding lateral de Quarto */
+.page-columns .content{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  grid-template-columns: [screen-start] minmax(0,1fr) [screen-end] !important;
+}
+.page-columns .content > *{ grid-column: screen !important; }
+
+/* Quita límites y centrados de contenedores de Quarto */
+.quarto-container, .content, main, .page-layout, .column-page, #quarto-content{
+  max-width: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+
+
+
+/* H1 responsivo y sin cortes (título de la página de Quarto) */
+.quarto-title-block .title, .page-title, h1 {
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  line-height: 1.25;
+  margin: 0 0 .5rem 0 !important;
+  padding: 0 1rem;              /* un poco de aire lateral */
+  white-space: normal;          /* permite salto de línea */
+  overflow-wrap: anywhere;      /* evita “cortes” raros */
+}
+/* Asegura padding horizontal del contenedor del título */
+.quarto-title-block, .page-header {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+/* Variante secundaria para el botón limpiar */
+button.secondary{
+  background:#fff;
+  color: var(--burdeos);
+  border: 1px solid var(--burdeos);
+}
+button.secondary:hover{
+  background:#f7f7f7;
+}
+
+/* Botón "Limpiar filtros" más bajo/compacto */
+#clearFilters{
+  padding: 6px 10px;     /* antes: 12px */
+  font-size: 0.9rem;     /* un poco más pequeño */
+  line-height: 1.1;      /* reduce la altura de línea */
+  margin-bottom: .5em;   /* menos espacio debajo */
+}
+
+
+.city-autocomplete{ position: relative; }
+#citySuggestions{
+  list-style: none;
+  margin: .25rem 0 0 0; padding: 0;
+  position: absolute; top: calc(100% - 10px); left: 0; right: 0;
+  background: #fff; border: 1px solid var(--borde-gris);
+  border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  display: none; max-height: 200px; overflow-y: auto; z-index: 1000;
+}
+#citySuggestions li{ padding: .5rem .6rem; cursor: pointer; }
+#citySuggestions li:hover{ background: #f7f7f7; }
 
 
 
@@ -181,57 +316,43 @@ ul.task-list li input[type="checkbox"] {
 <div class="layout">
 
   <div class="sidebar">
-    <h2 class="anchored">Filtrar por</h2>
+   
 
-    <button id="findNearby" style="padding: 10px; width: 100%; margin-bottom: 1em;">Cerca de mí</button>
+    <button id="clearFilters" class="secondary">Limpiar filtros</button>
 
-    <input type="text" id="citySearch" placeholder="Buscar centros en mi ciudad" style="width: 100%; padding: 10px; margin-bottom: 10px;" autocomplete="off">
-    <ul id="citySuggestions" style="list-style: none; padding: 0; margin: 0; border: 1px solid #ccc; display: none; max-height: 150px; overflow-y: auto;"></ul>
+    <button id="findNearby">Cerca de mí</button>
 
 
-    <div id="styleFilters" style="margin-bottom: 1em;">
-      <strong>Estilos de yoga</strong><br>
-      <div id="styleCheckboxes" style="max-height: 200px; overflow-y: auto; border: 1px solid #ccc; padding: 0.5em;"></div>
+  <div class="city-autocomplete">
+    <input type="text" id="citySearch" placeholder="Buscar en mi ciudad" style="width: 100%; padding: 10px; margin-bottom: 10px;" autocomplete="off">
+    <ul id="citySuggestions" role="listbox" aria-label="Sugerencias de ciudades"></ul>
+  </div>
+
+
+  <div id="typeFilters" style="margin-bottom: 1em;">
+    <strong>Tipo de establecimiento</strong><br>
+    <div id="typeCheckboxes">
+      <label><input type="checkbox" value="Alimentación"> Alimentación</label>
+      <label><input type="checkbox" value="café"> Café</label>
+      <label><input type="checkbox" value="pastelería"> Pastelería</label>
+      <label><input type="checkbox" value="bar"> Bar</label>
+      <label><input type="checkbox" value="restaurante"> Restaurante</label>
+      <label><input type="checkbox" value="otros"> Otros</label>
     </div>
+  </div>
 
-    
-    <!-- <details open style="margin-bottom: 1em;">
-  <summary><strong>Estilos de yoga</strong></summary>
-  <div id="styleCheckboxes" style="
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5em;
-    margin-top: 0.5em;
-    max-height: 250px;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    padding: 0.5em;
-  "></div>
-</details> -->
-
-
-
-
-    <div style="margin-bottom: 1em;">
-      <strong>Profesores</strong><br>
-      <select id="professorSelect" style="width: 100%; padding: 10px;">
-        <option value="">Todos los profesores</option>
-      </select>
-    </div>
-
-    <div id="languageFilters" style="margin-bottom: 1em;">
-      <strong>Idiomas</strong><br>
-      <label><input type="checkbox" value="Spanish"> Español</label>
-      <label><input type="checkbox" value="English"> Inglés</label>
-    </div>
+  <div id="originFilters" style="margin-bottom: 1em;">
+    <strong>País de origen</strong><br>
+    <div id="originCheckboxes"></div>
+  </div>
 
     
 
   </div>
 
   <div class="main">
-    <div id="map" style="height: 600px; margin-bottom: 1em;"></div>
-    <h2 class="anchored">Centros de Yoga</h2>
+    <div id="map"></div>
+    <h2 class="anchored">establecimientos encontrados</h2>
     <ul id="centerList"></ul>
     <p id="noResults" style="display:none; color: red;">No centers found for your search.</p>
   </div>
@@ -241,19 +362,61 @@ ul.task-list li input[type="checkbox"] {
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
 let centers = [];
-let professors = [];
 let usingNearby = false;
 let userLat = null;
 let userLng = null;
+let originParam = "";
+
+
 
 const input = document.getElementById("citySearch");
 const suggestions = document.getElementById("citySuggestions");
-let checkboxes = []; // Will be populated dynamically
-const languageBoxes = document.querySelectorAll("#languageFilters input[type=checkbox]");
-const professorSelect = document.getElementById("professorSelect");
 const findNearbyBtn = document.getElementById("findNearby");
 const listEl = document.getElementById("centerList");
 const noResults = document.getElementById("noResults");
+const typeCheckboxes = document.querySelectorAll("#typeFilters input[type=checkbox]");
+const originContainer = document.getElementById("originCheckboxes");
+
+
+// ✅ Lista fija de países (edítala como quieras)
+const FIXED_COUNTRIES = ["Argentina"];
+
+
+
+// Construye los checkboxes de países desde una lista fija
+function buildOriginFilter() {
+  originContainer.innerHTML = "";
+  FIXED_COUNTRIES.forEach(pais => {
+    const id = "origin-" + pais.toLowerCase().replace(/\s+/g, "-");
+    const label = document.createElement("label");
+    label.innerHTML = `<input type="checkbox" id="${id}" value="${pais}"> ${pais}`;
+    originContainer.appendChild(label);
+  });
+
+  // Listeners: cuando cambie cualquier checkbox, re-filtra
+  originContainer.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener("change", () => updateDisplay(false, true));
+  });
+
+  // Preselección si viene ?origin= en la URL
+  const pre = (new URLSearchParams(window.location.search).get("origin") || "").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim();
+  if (pre) {
+    originContainer.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+      const v = cb.value.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim();
+      if (v === pre) cb.checked = true;
+    });
+  }
+}
+buildOriginFilter();
+
+
+
+typeCheckboxes.forEach(cb =>
+  cb.addEventListener("change", () => updateDisplay(false, true))
+);
+
+
+
 
 const map = L.map('map').setView([40.0, -3.7], 6);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -262,45 +425,170 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 let markers = [];
 
+
+const clearBtn = document.getElementById("clearFilters");
+
+// Valores por defecto del mapa (los que ya usas)
+const DEFAULT_LAT = 40.0;
+const DEFAULT_LNG = -3.7;
+const DEFAULT_ZOOM = 6;
+
+
+
+const slugify = (text) => (text ?? "")
+  .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+  .toLowerCase()
+  .replace(/\s+/g, "-")
+  .replace(/[^a-z0-9-]/g, "-")
+  .replace(/-+/g, "-")
+  .replace(/^-|-$/g, "");
+
+
+
+
+// Normaliza textos: minúsculas + sin acentos + trim
+const norm = s => (s ?? "").toString()
+  .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+  .toLowerCase().trim();
+
+
+const parseCategories = (v) => {
+  if (Array.isArray(v)) return v;
+  if (typeof v === "string") return v.split(/[;,/|]+/); // comma ; / |
+  return [];
+};
+
+const parseOrigins = v =>
+  Array.isArray(v) ? v :
+  (typeof v === "string" ? v.split(/[;,/|]+/) : []);
+
+
+
+
+// Convierte cada registro de tu JSON al formato que usa el mapa
+function normalizeCenter(c) {
+  const pid  = (c.place_id ?? "").toString().trim();
+  const slug = pid.toLowerCase().replace(/[^a-z0-9_-]/g, "-").replace(/-+/g, "-");
+  const page = `centers/${slug}.html`;
+
+  const cats = Array.isArray(c.category) ? c.category
+              : (c.category ? c.category.split(",") : []);
+
+  const origin = (Array.isArray(c.country_of_origin) ? c.country_of_origin
+                : (typeof (c.country_of_origin || c.product_origin || c.origin_country || c.origin) === "string"
+                   ? (c.country_of_origin || c.product_origin || c.origin_country || c.origin).split(/[;,/|]+/)
+                   : []))
+                .map(s => (s || "").trim()).filter(Boolean);
+
+  return {
+    name: c.name || "",
+    page,
+    city: c.city || "",
+    lat: +c.lat,
+    lng: +c.lng,
+    category: cats,
+    origin
+  };
+}
+
+
+
+
+
+
+clearBtn.addEventListener("click", () => {
+  // Apaga “cerca de mí”
+  usingNearby = false;
+  userLat = null;
+  userLng = null;
+  findNearbyBtn.textContent = "Cerca de mí";
+
+  // Resetea filtros de texto/autocomplete
+  input.value = "";
+  suggestions.style.display = "none";
+
+  // Desmarcar tipos
+  typeCheckboxes.forEach(cb => cb.checked = false);
+
+  // ⬇️ DESMARCAR PAÍSES (pégalo aquí)
+  originContainer.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+
+  // Recentrar mapa y repintar
+  map.setView([DEFAULT_LAT, DEFAULT_LNG], DEFAULT_ZOOM);
+  updateDisplay(true, true);
+});
+
+
+
+
+// 🔧 Asegura que Leaflet recalcula el tamaño cuando la página carga o cambia de tamaño
+window.addEventListener('load', () => setTimeout(() => map.invalidateSize(), 0));
+window.addEventListener('resize', () => map.invalidateSize());
+
+
 function updateDisplay(doZoom = false, updateMarkers = true) {
-  const cityVal = input.value.toLowerCase().trim();
-  const selectedStyles = Array.from(checkboxes).filter(cb => cb.checked).map(cb => cb.value);
-  const selectedLangs = Array.from(languageBoxes).filter(cb => cb.checked).map(cb => cb.value);
-  const selectedProf = professorSelect.value;
+  const cityVal = norm(input.value);
+  const selectedTypes = Array.from(typeCheckboxes).filter(cb => cb.checked).map(cb => norm(cb.value));
+
+  const selectedOrigins = Array.from(
+    document.querySelectorAll('#originCheckboxes input[type="checkbox"]:checked')
+  ).map(cb => norm(cb.value));
+
 
   const filtered = centers.filter(c => {
-    const matchCity = c.city.toLowerCase().includes(cityVal);
-    const matchStyle = selectedStyles.length === 0 || c.styles.some(style => selectedStyles.includes(style));
-    const matchLang = selectedLangs.length === 0 || c.languages.some(lang => selectedLangs.includes(lang));
-    const matchProf = !selectedProf || c.professors.includes(selectedProf);
+    const matchCity = !cityVal || norm(c.city).includes(cityVal);
+
     const matchNearby = !usingNearby || (
       userLat !== null && userLng !== null &&
       getDistance(userLat, userLng, c.lat, c.lng) <= 2
     );
-    return matchNearby && matchCity && matchStyle && matchLang && matchProf;
+
+    // categorías normalizadas para comparar sin tildes
+    let centerCats = parseCategories(c.category).map(x => norm(x.trim()));
+
+    const matchType =
+      selectedTypes.length === 0 ||
+      centerCats.some(ct => selectedTypes.includes(ct)) ||
+      (selectedTypes.includes("otros") && centerCats.length === 0);
+
+    const originNorms = Array.isArray(c.origin) ? c.origin.map(o => norm(o)) : [];
+    const matchOrigin = selectedOrigins.length === 0 ||
+                        originNorms.some(o => selectedOrigins.includes(o));
+
+
+
+    return matchNearby && matchCity && matchType && matchOrigin;
   });
 
+  if (usingNearby && userLat != null && userLng != null) {
+  filtered.sort((a, b) =>
+    getDistance(userLat, userLng, a.lat, a.lng) - getDistance(userLat, userLng, b.lat, b.lng)
+  );
+}
+
+  // Lista
   listEl.innerHTML = "";
   filtered.forEach(c => {
     const li = document.createElement("li");
-    li.innerHTML = `<a href="${c.page}">${c.name} (${c.city})</a>`;
+    li.innerHTML = `<a href="${c.page}" target="_blank" rel="noopener">${c.name} (${c.city})</a>`;
     listEl.appendChild(li);
   });
-
   noResults.style.display = filtered.length === 0 ? "block" : "none";
 
+  // Marcadores
   if (updateMarkers) {
     markers.forEach(m => map.removeLayer(m));
     markers = [];
     filtered.forEach(c => {
       const marker = L.marker([c.lat, c.lng]).addTo(map)
-        .bindPopup(`<a href="${c.page}">${c.name}</a><br>${c.city}`);
-      markers.push(marker);
+        .bindPopup(`<a href="${c.page}" target="_blank" rel="noopener">${c.name}</a><br>${c.city}`);
+        markers.push(marker);
     });
   }
 
+  // Zoom por ciudad exacta (ya limpia y normalizada)
   if (doZoom && cityVal) {
-    const exactMatch = centers.filter(c => c.city.toLowerCase() === cityVal);
+    const exactMatch = centers.filter(c => norm(c.city) === cityVal);
     if (exactMatch.length > 0) {
       const avgLat = exactMatch.reduce((sum, c) => sum + c.lat, 0) / exactMatch.length;
       const avgLng = exactMatch.reduce((sum, c) => sum + c.lng, 0) / exactMatch.length;
@@ -312,6 +600,25 @@ function updateDisplay(doZoom = false, updateMarkers = true) {
     map.setView([userLat, userLng], 14);
   }
 }
+
+
+
+
+// CARGA DE CENTROS DESDE TU JSON
+fetch(encodeURI("data/test centers_with_google_maps_and_website_information.json"))
+  .then(res => res.json())
+  .then(raw => {
+    centers = raw.map(normalizeCenter)
+                 .filter(c => Number.isFinite(c.lat) && Number.isFinite(c.lng));
+    updateDisplay(true, true);
+  })
+  .catch(err => {
+    console.error("Error cargando establecimientos:", err);
+    alert("No se pudieron cargar los establecimientos.");
+  });
+
+
+
 
 function getDistance(lat1, lng1, lat2, lng2) {
   const toRad = deg => deg * Math.PI / 180;
@@ -335,7 +642,7 @@ findNearbyBtn.addEventListener("click", () => {
 
       // Clear city input when nearby search is activated
       input.value = "";
-      findNearbyBtn.textContent = "✅ Mostrando centros cerca de mí";
+      findNearbyBtn.textContent = "✅ Mostrando establecimientos cerca de mí";
       updateDisplay(true, true);
     }, () => {
       alert("Unable to get location");
@@ -350,93 +657,14 @@ findNearbyBtn.addEventListener("click", () => {
 });
 
 
-fetch("data/centers.json")
-  .then(res => res.json())
-  .then(data => {
-    centers = data;
-    return fetch("data/professors.json");
-  })
-  .then(res => res.json())
-  .then(data => {
-    professors = data;
-    professors.forEach(p => {
-      const option = document.createElement("option");
-      option.value = p.id;
-      option.textContent = p.name;
-      professorSelect.appendChild(option);
-    });
-    updateDisplay(true, true);
-  })
-  .then(() => {
-  return fetch("data/styles.json");
-})
-.then(res => res.json())
-.then(styles => {
-  const container = document.getElementById("styleCheckboxes");
-  styles.forEach(style => {
-    const label = document.createElement("label");
-    label.innerHTML = `<input type="checkbox" value="${style}"> ${style}`;
-    container.appendChild(label);
-  });
-
-  // Reassign checkboxes variable now that they exist
-  checkboxes = document.querySelectorAll("#styleFilters input[type=checkbox]");
-  checkboxes.forEach(cb => cb.addEventListener("change", () => updateDisplay(false, true)));
-
-  // Also re-run URL params logic in case styles are pre-selected
-  const stylesParam = new URLSearchParams(window.location.search).get("styles");
-  if (stylesParam) {
-    const styleValues = stylesParam.split(",");
-    checkboxes.forEach(cb => {
-      cb.checked = styleValues.includes(cb.value);
-    });
-  }
-
-  updateDisplay(true, true);
-});
-
-
-
 
 
 input.addEventListener("focus", () => {
-
   suggestions.innerHTML = "";
-
-
-  // Boton pàra buscar centros cerca de mi en la barra de ciudades
-  // const li = document.createElement("li");
-  // li.textContent = "📍 Use my location (2 km)";
-  // li.style.padding = "5px";
-  // li.style.cursor = "pointer";
-  // li.style.fontStyle = "italic";
-  // li.addEventListener("click", () => {
-  //   suggestions.style.display = "none";
-  //   findNearbyBtn.click();
-  // });
-  // suggestions.appendChild(li);
-
-    // Inside both focus and input event handlers (after nearMe block)
-  const showAll = document.createElement("li");
-  showAll.textContent = "Todas las ciudades";
-  showAll.style.padding = "5px";
-  showAll.style.cursor = "pointer";
-  showAll.style.fontStyle = "italic";
-  showAll.addEventListener("click", () => {
-  usingNearby = false;
-  userLat = null;
-  userLng = null;
-  input.value = "";
+  // No mostramos nada al enfocar; se mostrará cuando el usuario escriba
   suggestions.style.display = "none";
-  findNearbyBtn.textContent = "Cerca de mí";
-  map.setView([40.0, -3.7], 6); // Reset to default view
-  updateDisplay(true, true);
-  });
-  suggestions.appendChild(showAll);
-
-  
-  suggestions.style.display = "block";
 });
+
 
 document.addEventListener("click", (e) => {
   if (!input.contains(e.target) && !suggestions.contains(e.target)) {
@@ -448,52 +676,15 @@ input.addEventListener("input", () => {
   const val = input.value.toLowerCase().trim();
   suggestions.innerHTML = "";
 
-// Boton pàra buscar centros cerca de mi en la barra de ciudades
-
-  // const nearMe = document.createElement("li");
-  // nearMe.textContent = "📍 Use my location (2 km)";
-  // nearMe.style.padding = "5px";
-  // nearMe.style.cursor = "pointer";
-  // nearMe.style.fontStyle = "italic";
-  // nearMe.addEventListener("click", () => {
-  //   suggestions.style.display = "none";
-  //   findNearbyBtn.click();
-  // });
-  // suggestions.appendChild(nearMe);
-
-
-
-
-  // Inside both focus and input event handlers (after nearMe block)
-  const showAll = document.createElement("li");
-  showAll.textContent = "Toas las ciudades";
-  showAll.style.padding = "5px";
-  showAll.style.cursor = "pointer";
-  showAll.style.fontStyle = "italic";
-  showAll.addEventListener("click", () => {
-  usingNearby = false;
-  userLat = null;
-  userLng = null;
-  input.value = "";
-  suggestions.style.display = "none";
-  findNearbyBtn.textContent = "Cerca de mí";
-  map.setView([40.0, -3.7], 6); // Reset to default view
-  updateDisplay(true, true);
-  });
-  suggestions.appendChild(showAll);
-
-
-
-
-
-
+  // Si no hay texto, ocultamos el menú
   if (val.length === 0) {
-    suggestions.style.display = "block";
+    suggestions.style.display = "none";
     return;
   }
 
   const allCities = [...new Set(centers.map(c => c.city))];
   const matches = allCities.filter(c => c.toLowerCase().startsWith(val));
+
   if (matches.length > 0) {
     matches.forEach(city => {
       const li = document.createElement("li");
@@ -509,17 +700,13 @@ input.addEventListener("input", () => {
         suggestions.style.display = "none";
         updateDisplay(true, true);
       });
-
       suggestions.appendChild(li);
     });
     suggestions.style.display = "block";
+  } else {
+    suggestions.style.display = "none";
   }
 });
-
-checkboxes.forEach(cb => cb.addEventListener("change", () => updateDisplay(false, true)));
-languageBoxes.forEach(cb => cb.addEventListener("change", () => updateDisplay(false, true)));
-professorSelect.addEventListener("change", () => updateDisplay(false, true));
-
 
 // Read URL parameters on page load
 window.addEventListener("DOMContentLoaded", () => {
@@ -531,29 +718,8 @@ window.addEventListener("DOMContentLoaded", () => {
     input.value = cityParam;
   }
 
-  // Yoga styles (comma-separated)
-  const stylesParam = urlParams.get("styles");
-  if (stylesParam) {
-    const styleValues = stylesParam.split(",");
-    checkboxes.forEach(cb => {
-      cb.checked = styleValues.includes(cb.value);
-    });
-  }
+  originParam = norm(urlParams.get("origin") || "");
 
-  // Languages (comma-separated)
-  const langsParam = urlParams.get("langs");
-  if (langsParam) {
-    const langValues = langsParam.split(",");
-    languageBoxes.forEach(cb => {
-      cb.checked = langValues.includes(cb.value);
-    });
-  }
-
-  // Professor (exact id)
-  const profParam = urlParams.get("prof");
-  if (profParam) {
-    professorSelect.value = profParam;
-  }
 
   // Nearby search
   const nearbyParam = urlParams.get("nearby");

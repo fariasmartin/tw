@@ -1,45 +1,54 @@
 from pathlib import Path
-import json
+import json, re
 from string import Template
-import pandas as pd
 
-# Load JSON data
-with open("data/centers.json", "r", encoding="utf-8") as f:
+class CTemplate(Template):
+    delimiter = '§'
+
+DATA_PATH = "data/test centers_with_google_maps_and_website_information.json"
+TEMPLATE_PATH = "generate_professors_and_centers_files/center_template.qmd"
+OUT_DIR = Path("centers")
+
+def clean_pid(pid: str) -> str:
+    pid = (pid or "").strip()
+    pid = re.sub(r"[^A-Za-z0-9_-]", "-", pid)
+    pid = re.sub(r"-{2,}", "-", pid).lower().strip("-")
+    return pid or "x"
+
+def yaml_escape(s: str) -> str:
+    # escape for double-quoted YAML scalars
+    return (s or "").replace("\\", "\\\\").replace('"', '\\"').replace("\n", " ").strip()
+
+with open(DATA_PATH, "r", encoding="utf-8") as f:
     centers = json.load(f)
 
-with open("data/professors.json", "r", encoding="utf-8") as f:
-    professors = json.load(f)
+with open(TEMPLATE_PATH, "r", encoding="utf-8") as f:
+    center_template = CTemplate(f.read())
 
-# Load templates
-with open("generate_professors_and_centers_files/center_template.qmd", "r", encoding="utf-8") as f:
-    center_template = Template(f.read())
+OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-with open("generate_professors_and_centers_files/professor_template.qmd", "r", encoding="utf-8") as f:
-    professor_template = Template(f.read())
+seen = set()
+def unique_slug(base: str) -> str:
+    s, i = base, 2
+    while s in seen:
+        s = f"{base}-{i}"; i += 1
+    seen.add(s); return s
 
-# Ensure output directories exist
-Path("centers").mkdir(exist_ok=True)
-Path("professors").mkdir(exist_ok=True)
+generated, skipped = 0, 0
+for c in centers:
+    pid = c.get("place_id")
+    if not pid:
+        skipped += 1
+        continue
 
-def clean_filename(text):
-    return text.lower().replace(" ", "-") \
-               .replace("á", "a").replace("é", "e") \
-               .replace("í", "i").replace("ó", "o") \
-               .replace("ú", "u").replace("ñ", "n")
+    slug = unique_slug(clean_pid(pid))
+    filename = OUT_DIR / f"{slug}.qmd"
 
-# Generate center QMD files
-for center in centers:
-    filename = f"centers/{clean_filename(center['id'])}.qmd"
+    raw_title = c.get("name", slug)
+    safe_title = yaml_escape(raw_title)
+
     with open(filename, "w", encoding="utf-8") as f:
-        f.write(center_template.substitute(title=center["name"], id=center["id"]))
+        f.write(center_template.substitute(title=safe_title, id=pid))
+    generated += 1
 
-# Generate professor QMD files
-for professor in professors:
-    filename = f"professors/{clean_filename(professor['id'])}.qmd"
-    with open(filename, "w", encoding="utf-8") as f:
-        f.write(professor_template.substitute(title=professor["name"], id=professor["id"]))
-
-
-
-
-
+print(f"Generated {generated} files; skipped {skipped} without place_id.")

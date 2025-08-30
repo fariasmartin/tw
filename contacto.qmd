@@ -50,15 +50,15 @@ format:
 
   <p>
     Gracias por ayudarnos a mantener esta guía actualizada.<br>
-    Puedes sugerir un nuevo centro o profesor/a, o enviarnos comentarios, dudas o correcciones.
+    Puedes sugerir un nuevo establecimiento, o enviarnos comentarios, dudas o correcciones.
   </p>
 
-  <a class="contact-button" href="https://docs.google.com/forms/d/e/1FAIpQLScXrAjdVHfkB-50QpnDUGvp5FDrTORbgftis9ledNwKzz2lRQ/viewform?embedded=true" target="_blank">
-    ➕ Añadir o editar centros y profesores
+  <a class="contact-button" href="https://docs.google.com/forms/d/e/1FAIpQLSeUa3WA4lrcoStNrmVSqTPFOrKXWynsG6uvTQ8nkovmr2rwWA/viewform?usp=header" target="_blank">
+    ➕ Añadir o editar establecimientos
   </a>
 
 
-  <a class="contact-button" href="https://docs.google.com/forms/d/e/1FAIpQLSfLjTxiau7biL0Ptv2idJSiY5knNu032ut49rxfg4XW4iVvOA/viewform?usp=header" target="_blank">
+  <a class="contact-button" href="https://docs.google.com/forms/d/e/1FAIpQLSe2cdhWnYESMk4WXJvxyzCTKkMNsuOiSGVHDAky8hRrPNSidQ/viewform?usp=header" target="_blank">
     💬 Envíanos tu mensaje por cualquier otra razón
   </a>
 </div>
