@@ -1,0 +1,688 @@
+---
+title: "Encuentra tu tienda"
+page-layout: full
+format:
+  html:
+    toc: false
+---
+
+<link href="https://fonts.googleapis.com/css2?family=Savate&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --burdeos: #800000;
+    --burdeos-hover: #a3333d;
+    --gris-claro: #f4f1f1;
+    --blanco-roto: #fafafa;
+    --texto-oscuro: #222222;
+    --borde-gris: #ccc;
+
+    /* layout vars */
+    --sidebar-w: 300px;  /* ancho columna filtros */
+    --gap: 1em;        /* separación columnas */
+  }
+
+  body {
+    font-family: 'Savate', sans-serif !important;
+    padding: 0 !important;
+    background-color: var(--blanco-roto) !important;
+    padding-top: 100px !important; /* separa del navbar fijo */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Contenedor 2 columnas */
+  .layout{
+    display:flex;
+    flex-wrap:wrap;
+    gap: var(--gap);
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    margin-top: 30px !important; /* ajusta a gusto */
+    align-items: flex-start !important;
+  }
+
+  /* Filtros (izquierda) */
+  .sidebar{
+    flex: 0 0 var(--sidebar-w);
+    max-width: var(--sidebar-w);
+    background-color: var(--gris-claro) !important;
+    padding: 1em 1em 1em 1em !important;   /* usa 0.5em si quieres un poco de aire */
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.05);
+  }
+
+  .sidebar h2{
+  margin-top: 0 !important;
+  /* opcional: ajusta el espacio hacia abajo */
+  margin-bottom: .5em;
+}
+
+  /* Columna derecha (mapa + lista) */
+  .main{
+    flex: 1 1 0;
+    max-width: none !important;
+    margin: 0 0 2em 0 !important; /* sin centrado */
+  }
+
+  h2 { color: #000 !important; }
+
+  /* Mapa */
+  #map{
+    width: 100%;
+    height: clamp(420px, 75dvh, 900px);
+    border-radius: 12px;
+    margin-bottom: 1em;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+  }
+
+  /* Lista resultados */
+  #centerList { list-style: none; padding-left: 0; margin-top: 1em; }
+  #centerList li {
+    background: var(--gris-claro);
+    padding: .6em .8em;
+    border-radius: 8px;
+    margin-bottom: .5em;
+  }
+  #centerList a { text-decoration: none; color: var(--burdeos); font-weight: bold; }
+
+  /* Oculta el “#” de ancla en títulos */
+  h2 a.anchorjs-link { display: none !important; }
+
+  /* Botones */
+  button{
+    background-color: var(--burdeos);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    font-weight: bold;
+    width: 100%;
+    margin-bottom: 1em;
+    cursor: pointer;
+    transition: background-color .3s;
+  }
+  button:hover{ background-color: var(--burdeos-hover); }
+
+
+  #typeCheckboxes, #originCheckboxes {
+    display: block !important;
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: .5em;
+  }
+  #typeCheckboxes label, #originCheckboxes label {
+    display: block !important;
+    margin-bottom: .3em;
+  }
+
+
+  /* Responsive */
+  @media (max-width: 768px){
+    .layout{ flex-direction: column; align-items: stretch; }
+    .sidebar{ width: 100%; max-width: 100%; }
+    .main{ width: 100%; flex: 1 1 100%; padding: 0 .5em; }
+    #map{ height: 50vh !important; }
+  }
+
+
+
+
+
+/* Elimina la columna de margen y el padding lateral de Quarto */
+.page-columns .content{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  grid-template-columns: [screen-start] minmax(0,1fr) [screen-end] !important;
+}
+.page-columns .content > *{ grid-column: screen !important; }
+
+/* Quita límites y centrados de contenedores de Quarto */
+.quarto-container, .content, main, .page-layout, .column-page, #quarto-content{
+  max-width: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+
+
+
+/* H1 responsivo y sin cortes (título de la página de Quarto) */
+.quarto-title-block .title, .page-title, h1 {
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  line-height: 1.25;
+  margin: 0 0 .5rem 0 !important;
+  padding: 0 1rem;              /* un poco de aire lateral */
+  white-space: normal;          /* permite salto de línea */
+  overflow-wrap: anywhere;      /* evita “cortes” raros */
+}
+/* Asegura padding horizontal del contenedor del título */
+.quarto-title-block, .page-header {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+/* Variante secundaria para el botón limpiar */
+button.secondary{
+  background:#fff;
+  color: var(--burdeos);
+  border: 1px solid var(--burdeos);
+}
+button.secondary:hover{
+  background:#f7f7f7;
+}
+
+/* Botón "Limpiar filtros" más bajo/compacto */
+#clearFilters{
+  padding: 6px 10px;     /* antes: 12px */
+  font-size: 0.9rem;     /* un poco más pequeño */
+  line-height: 1.1;      /* reduce la altura de línea */
+  margin-bottom: .5em;   /* menos espacio debajo */
+}
+
+
+.city-autocomplete{ position: relative; }
+#citySuggestions{
+  list-style: none;
+  margin: .25rem 0 0 0; padding: 0;
+  position: absolute; top: calc(100% - 10px); left: 0; right: 0;
+  background: #fff; border: 1px solid var(--borde-gris);
+  border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  display: none; max-height: 200px; overflow-y: auto; z-index: 1000;
+}
+#citySuggestions li{ padding: .5rem .6rem; cursor: pointer; }
+#citySuggestions li:hover{ background: #f7f7f7; }
+
+.intro{
+  flex: 0 0 100%;      /* ocupa todo el ancho dentro de .layout */
+  padding: 0 1rem;
+  margin: .25rem 0 1rem;
+  color: #444;
+}
+.intro p{
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+</style>
+
+
+
+
+
+```{=html}
+<div class="layout">
+
+   <div class="intro">
+  <p>
+    ¡Explora el directorio de tiendas, cafés, bares  y más!. ¿No sabes por dónde empezar?
+    Prueba “Cerca de mí” para ver sitios cercanos a ti, o escribe tu ciudad y
+    elige tu tipo de establecimiento.
+
+    Actualmente hay sitios argentinos, pero próximamente añadiremos sitios especilizados en productos de otros países latinoamericanos. 
+  </p>
+</div>
+
+  <div class="sidebar">
+   
+
+    <button id="clearFilters" class="secondary">Limpiar filtros</button>
+
+    <button id="findNearby">Cerca de mí</button>
+
+
+  <div class="city-autocomplete">
+    <input
+      type="text"
+      id="citySearch"
+      placeholder="Buscar en mi ciudad"
+      style="width: 100%; padding: 10px; margin-bottom: 10px;"
+      autocomplete="off"
+    />
+    <ul id="citySuggestions" role="listbox" aria-label="Sugerencias de ciudades"></ul>
+  </div>
+
+
+  <div id="typeFilters" style="margin-bottom: 1em;">
+    <strong>Tipo de establecimiento</strong><br />
+    <div id="typeCheckboxes">
+      <label><input type="checkbox" value="Alimentación"> Alimentación</label>
+      <label><input type="checkbox" value="café"> Café</label>
+      <label><input type="checkbox" value="pastelería"> Pastelería</label>
+      <label><input type="checkbox" value="bar"> Bar</label>
+      <label><input type="checkbox" value="restaurante"> Restaurante</label>
+      <label><input type="checkbox" value="otros"> Otros</label>
+    </div>
+  </div>
+
+  <div id="originFilters" style="margin-bottom: 1em;">
+    <strong>País de origen</strong><br />
+    <div id="originCheckboxes"></div>
+  </div>
+
+    
+
+  </div>
+
+  <div class="main">
+    <div id="map"></div>
+    <h2>Establecimientos encontrados</h2>
+    <ul id="centerList"></ul>
+    <p id="noResults" style="display:none; color: red;">No centers found for your search.</p>
+  </div>
+
+</div>
+```
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+let centers = [];
+let usingNearby = false;
+let userLat = null;
+let userLng = null;
+let originParam = "";
+
+
+
+const input = document.getElementById("citySearch");
+const suggestions = document.getElementById("citySuggestions");
+const findNearbyBtn = document.getElementById("findNearby");
+const listEl = document.getElementById("centerList");
+const noResults = document.getElementById("noResults");
+const typeCheckboxes = document.querySelectorAll("#typeFilters input[type=checkbox]");
+const originContainer = document.getElementById("originCheckboxes");
+
+
+// ✅ Lista fija de países (edítala como quieras)
+const FIXED_COUNTRIES = ["Argentina"];
+
+
+
+// Construye los checkboxes de países desde una lista fija
+function buildOriginFilter() {
+  originContainer.innerHTML = "";
+  FIXED_COUNTRIES.forEach(pais => {
+    const id = "origin-" + pais.toLowerCase().replace(/\s+/g, "-");
+    const label = document.createElement("label");
+    label.innerHTML = `<input type="checkbox" id="${id}" value="${pais}"> ${pais}`;
+    originContainer.appendChild(label);
+  });
+
+  // Listeners: cuando cambie cualquier checkbox, re-filtra
+  originContainer.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener("change", () => updateDisplay(false, true));
+  });
+
+  // Preselección si viene ?origin= en la URL
+  const pre = (new URLSearchParams(window.location.search).get("origin") || "").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim();
+  if (pre) {
+    originContainer.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+      const v = cb.value.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim();
+      if (v === pre) cb.checked = true;
+    });
+  }
+}
+buildOriginFilter();
+
+
+
+typeCheckboxes.forEach(cb =>
+  cb.addEventListener("change", () => updateDisplay(false, true))
+);
+
+
+const DEFAULT_BOUNDS = L.latLngBounds(
+  [34.0, -25.0],  // Suroeste ~ Atlántico/Canarias
+  [72.0,  45.0]   // Noreste  ~ Norte de Noruega / Oeste de Rusia
+);
+
+
+const map = L.map('map', { worldCopyJump: true });
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 18,
+  attribution: '&copy; OpenStreetMap'
+}).addTo(map);
+
+// Vista inicial: Europa completa
+map.fitBounds(DEFAULT_BOUNDS, { padding: [20, 20] });
+
+// (Opcional) Limitar paneo para no “salirse” demasiado
+map.setMaxBounds(DEFAULT_BOUNDS.pad(0.2));
+map.options.maxBoundsViscosity = 0.8;
+
+// Icono "pequeño" basado en el pin por defecto de Leaflet
+const smallIcon = L.icon({
+  iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+  iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  // Tamaño y anclas ajustadas (por defecto es 25x41)
+  iconSize: [12, 20],         // ← prueba 18x30 o 20x33 si prefieres
+  iconAnchor: [6, 20],
+  popupAnchor: [1, -16],
+  shadowSize: [20, 20]
+});
+
+
+
+
+let markers = [];
+
+
+const clearBtn = document.getElementById("clearFilters");
+
+// Valores por defecto del mapa (los que ya usas)
+const DEFAULT_LAT = 40.0;
+const DEFAULT_LNG = -3.7;
+const DEFAULT_ZOOM = 6;
+
+
+
+const slugify = (text) => (text ?? "")
+  .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+  .toLowerCase()
+  .replace(/\s+/g, "-")
+  .replace(/[^a-z0-9-]/g, "-")
+  .replace(/-+/g, "-")
+  .replace(/^-|-$/g, "");
+
+
+
+
+// Normaliza textos: minúsculas + sin acentos + trim
+const norm = s => (s ?? "").toString()
+  .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+  .toLowerCase().trim();
+
+
+const parseCategories = (v) => {
+  if (Array.isArray(v)) return v;
+  if (typeof v === "string") return v.split(/[;,/|]+/); // comma ; / |
+  return [];
+};
+
+const parseOrigins = v =>
+  Array.isArray(v) ? v :
+  (typeof v === "string" ? v.split(/[;,/|]+/) : []);
+
+
+
+
+// Convierte cada registro de tu JSON al formato que usa el mapa
+function normalizeCenter(c) {
+  const pid  = (c.place_id ?? "").toString().trim();
+  const slug = pid.toLowerCase().replace(/[^a-z0-9_-]/g, "-").replace(/-+/g, "-");
+  const page = `centers/${slug}.html`;
+
+  const cats = Array.isArray(c.category) ? c.category
+              : (c.category ? c.category.split(",") : []);
+
+  const origin = Array.isArray(c.origins) ? c.origins
+              : (typeof (c.country_of_origin || c.product_origin || c.origin_country || c.origin) === "string"
+                 ? (c.country_of_origin || c.product_origin || c.origin_country || c.origin).split(/[;,/|]+/)
+                 : []);
+
+  return {
+    name: c.name || "",
+    page,
+    city: c.city || "",
+    lat: +c.lat,
+    lng: +c.lng,
+    category: cats,
+    origin
+  };
+}
+
+
+
+
+
+
+clearBtn.addEventListener("click", () => {
+  // Apaga “cerca de mí”
+  usingNearby = false;
+  userLat = null;
+  userLng = null;
+  findNearbyBtn.textContent = "Cerca de mí";
+
+  // Resetea filtros de texto/autocomplete
+  input.value = "";
+  suggestions.style.display = "none";
+
+  // Desmarcar tipos
+  typeCheckboxes.forEach(cb => cb.checked = false);
+
+  // ⬇️ DESMARCAR PAÍSES (pégalo aquí)
+  originContainer.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+
+  // Recentrar mapa y repintar
+  map.fitBounds(DEFAULT_BOUNDS, { padding: [20, 20] });
+  updateDisplay(true, true);
+});
+
+
+
+
+// 🔧 Asegura que Leaflet recalcula el tamaño cuando la página carga o cambia de tamaño
+window.addEventListener('load', () => setTimeout(() => map.invalidateSize(), 0));
+window.addEventListener('resize', () => map.invalidateSize());
+
+
+function updateDisplay(doZoom = false, updateMarkers = true) {
+  const cityVal = norm(input.value);
+  const selectedTypes = Array.from(typeCheckboxes).filter(cb => cb.checked).map(cb => norm(cb.value));
+
+  const selectedOrigins = Array.from(
+    document.querySelectorAll('#originCheckboxes input[type="checkbox"]:checked')
+  ).map(cb => norm(cb.value));
+
+
+  const filtered = centers.filter(c => {
+    const matchCity = !cityVal || norm(c.city).includes(cityVal);
+
+    const matchNearby = !usingNearby || (
+      userLat !== null && userLng !== null &&
+      getDistance(userLat, userLng, c.lat, c.lng) <= 2
+    );
+
+    // categorías normalizadas para comparar sin tildes
+    let centerCats = parseCategories(c.category).map(x => norm(x.trim()));
+
+    const matchType =
+      selectedTypes.length === 0 ||
+      centerCats.some(ct => selectedTypes.includes(ct)) ||
+      (selectedTypes.includes("otros") && centerCats.length === 0);
+
+    const originNorms = Array.isArray(c.origin) ? c.origin.map(o => norm(o)) : [];
+    const matchOrigin = selectedOrigins.length === 0 ||
+                        originNorms.some(o => selectedOrigins.includes(o));
+
+
+
+    return matchNearby && matchCity && matchType && matchOrigin;
+  });
+
+  if (usingNearby && userLat != null && userLng != null) {
+  filtered.sort((a, b) =>
+    getDistance(userLat, userLng, a.lat, a.lng) - getDistance(userLat, userLng, b.lat, b.lng)
+  );
+}
+
+  // Lista
+  listEl.innerHTML = "";
+  filtered.forEach(c => {
+    const li = document.createElement("li");
+    li.innerHTML = `<a href="${c.page}" target="_blank" rel="noopener">${c.name} (${c.city})</a>`;
+    listEl.appendChild(li);
+  });
+  noResults.style.display = filtered.length === 0 ? "block" : "none";
+
+  // Marcadores
+  if (updateMarkers) {
+    markers.forEach(m => map.removeLayer(m));
+    markers = [];
+    filtered.forEach(c => {
+      const marker = L.marker([c.lat, c.lng], { icon: smallIcon }).addTo(map)
+        .bindPopup(`<a href="${c.page}" target="_blank" rel="noopener">${c.name}</a><br>${c.city}`);
+
+        markers.push(marker);
+    });
+  }
+
+  // Zoom por ciudad exacta (ya limpia y normalizada)
+  if (doZoom && cityVal) {
+    const exactMatch = centers.filter(c => norm(c.city) === cityVal);
+    if (exactMatch.length > 0) {
+      const avgLat = exactMatch.reduce((sum, c) => sum + c.lat, 0) / exactMatch.length;
+      const avgLng = exactMatch.reduce((sum, c) => sum + c.lng, 0) / exactMatch.length;
+      map.setView([avgLat, avgLng], 12);
+    }
+  }
+
+  if (doZoom && usingNearby && userLat && userLng) {
+    map.setView([userLat, userLng], 14);
+  }
+}
+
+
+
+
+// CARGA DE CENTROS DESDE TU JSON
+fetch(encodeURI("data/centers_with_google_maps_and_website_information.json"))
+  .then(res => res.json())
+  .then(raw => {
+    centers = raw.map(normalizeCenter)
+                 .filter(c => Number.isFinite(c.lat) && Number.isFinite(c.lng));
+    updateDisplay(true, true);
+  })
+  .catch(err => {
+    console.error("Error cargando establecimientos:", err);
+    alert("No se pudieron cargar los establecimientos.");
+  });
+
+
+
+
+function getDistance(lat1, lng1, lat2, lng2) {
+  const toRad = deg => deg * Math.PI / 180;
+  const R = 6371;
+  const dLat = toRad(lat2 - lat1);
+  const dLng = toRad(lng2 - lng1);
+  const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng/2)**2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+findNearbyBtn.addEventListener("click", () => {
+  if (!usingNearby) {
+    if (!navigator.geolocation) {
+      alert("Geolocation not supported");
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(pos => {
+      userLat = pos.coords.latitude;
+      userLng = pos.coords.longitude;
+      usingNearby = true;
+
+      // Clear city input when nearby search is activated
+      input.value = "";
+      findNearbyBtn.textContent = "✅ Mostrando establecimientos cerca de mí";
+      updateDisplay(true, true);
+    }, () => {
+      alert("Unable to get location");
+    });
+  } else {
+    usingNearby = false;
+    userLat = null;
+    userLng = null;
+    findNearbyBtn.textContent = "Cerca de mí";
+    updateDisplay(true, true);
+  }
+});
+
+
+
+
+input.addEventListener("focus", () => {
+  suggestions.innerHTML = "";
+  // No mostramos nada al enfocar; se mostrará cuando el usuario escriba
+  suggestions.style.display = "none";
+});
+
+
+document.addEventListener("click", (e) => {
+  if (!input.contains(e.target) && !suggestions.contains(e.target)) {
+    suggestions.style.display = "none";
+  }
+});
+
+input.addEventListener("input", () => {
+  const val = input.value.toLowerCase().trim();
+  suggestions.innerHTML = "";
+
+  // Si no hay texto, ocultamos el menú
+  if (val.length === 0) {
+    suggestions.style.display = "none";
+    return;
+  }
+
+  const allCities = [...new Set(centers.map(c => c.city))];
+  const matches = allCities.filter(c => c.toLowerCase().startsWith(val));
+
+  if (matches.length > 0) {
+    matches.forEach(city => {
+      const li = document.createElement("li");
+      li.textContent = city;
+      li.style.padding = "5px";
+      li.style.cursor = "pointer";
+      li.addEventListener("click", () => {
+        usingNearby = false;
+        userLat = null;
+        userLng = null;
+        findNearbyBtn.textContent = "Cerca de mí";
+        input.value = city;
+        suggestions.style.display = "none";
+        updateDisplay(true, true);
+      });
+      suggestions.appendChild(li);
+    });
+    suggestions.style.display = "block";
+  } else {
+    suggestions.style.display = "none";
+  }
+});
+
+// Read URL parameters on page load
+window.addEventListener("DOMContentLoaded", () => {
+  const urlParams = new URLSearchParams(window.location.search);
+
+  // City
+  const cityParam = urlParams.get("city");
+  if (cityParam) {
+    input.value = cityParam;
+  }
+
+  originParam = norm(urlParams.get("origin") || "");
+
+
+  // Nearby search
+  const nearbyParam = urlParams.get("nearby");
+  if (nearbyParam === "1") {
+    findNearbyBtn.click();
+  } else {
+    updateDisplay(true, true);
+  }
+});
+
+
+
+</script>
+

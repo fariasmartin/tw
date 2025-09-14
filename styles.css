@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Savate&display=swap');
+
+/* Fuente general */
+body {
+  font-family: 'Savate', sans-serif;
+  background-color: #fffdfb;
+}
+
+/* NAVBAR burdeos */
+.navbar {
+  background-color: #800000 !important;
+  color: white !important;
+}
+
+.navbar a,
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: white !important;
+}
+
+.navbar a:hover,
+.navbar-brand:hover,
+.navbar-nav .nav-link:hover {
+  color: #ffcccc !important;
+}
+
+
+
+/* === Navbar más baja (Bootstrap 5 / Quarto) === */
+nav.navbar.navbar-expand-lg.fixed-top{
+  /* altura vertical general */
+  --bs-navbar-padding-y: .25rem;          /* antes ~.5rem */
+}
+
+nav.navbar .navbar-brand{
+  /* marca/título más compacto */
+  --bs-navbar-brand-padding-y: 0;
+  --bs-navbar-brand-font-size: 1rem;
+  line-height: 1.1;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+nav.navbar .nav-link{
+  /* enlaces más compactos */
+  padding-top: .25rem !important;
+  padding-bottom: .25rem !important;
+  line-height: 1.1;
+}
+
+nav.navbar .navbar-toggler{
+  /* botón hamburguesa más pequeño */
+  --bs-navbar-toggler-padding-y: .15rem;
+  --bs-navbar-toggler-padding-x: .35rem;
+  line-height: 1;
+}

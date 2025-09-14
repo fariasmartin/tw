@@ -1,0 +1,90 @@
+---
+title: ""
+page-layout: full
+format:
+  html:
+    toc: false
+---
+
+<link href="https://fonts.googleapis.com/css2?family=Savate&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    font-family: 'Savate', sans-serif;
+  }
+
+  .contact-container {
+    max-width: 600px;
+    margin: 2em auto 3em auto;
+    padding: 0 1em;
+    text-align: center;
+  }
+
+  .contact-container p {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 2em;
+  }
+
+  .contact-button {
+    background-color: #800000;
+    color: white;
+    padding: 15px 25px;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+    display: inline-block;
+    margin: 1.5em 0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .contact-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.2);
+  }
+</style>
+
+<div class="contact-container">
+  <h2>Contáctanos</h2>
+
+  <p>
+    Gracias por ayudarnos a mantener esta guía actualizada.<br>
+    Puedes sugerir un nuevo establecimiento, o enviarnos comentarios, dudas o correcciones.
+  </p>
+
+  <a class="contact-button" href="https://docs.google.com/forms/d/e/1FAIpQLSeUa3WA4lrcoStNrmVSqTPFOrKXWynsG6uvTQ8nkovmr2rwWA/viewform?usp=header" target="_blank">
+    ➕ Añadir o editar establecimientos
+  </a>
+
+
+  <a class="contact-button" href="https://docs.google.com/forms/d/e/1FAIpQLSe2cdhWnYESMk4WXJvxyzCTKkMNsuOiSGVHDAky8hRrPNSidQ/viewform?usp=header" target="_blank">
+    💬 Envíanos tu mensaje por cualquier otra razón
+  </a>
+</div>
+
+
+<!-- ---
+title: "Contacto"
+---
+
+
+Gracias por ayudarnos a mantener esta guía actualizada. Puedes sugerir un nuevo centro, un/a profesor/a o informarnos de alguna corrección.
+
+
+
+```{=html}
+<div style="text-align: center; margin-top: 2em; margin-bottom: 3em;">
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLScXrAjdVHfkB-50QpnDUGvp5FDrTORbgftis9ledNwKzz2lRQ/viewform?embedded=true" target="_blank" style="background-color: #800000; color: white; padding: 15px 25px; font-size: 18px; text-decoration: none; border-radius: 8px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); display: inline-block;">
+    Añadir o editar centros y profesores
+  </a>
+</div>
+
+
+
+<div style="text-align: center; margin-top: 2em; margin-bottom: 3em;">
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfLjTxiau7biL0Ptv2idJSiY5knNu032ut49rxfg4XW4iVvOA/viewform?usp=header" target="_blank" style="background-color: #800000; color: white; padding: 15px 25px; font-size: 18px; text-decoration: none; border-radius: 8px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); display: inline-block;">
+    Envianos tu mensaje por cualquier otra razón
+  </a>
+</div>
+``` -->
