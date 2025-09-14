@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ANKARA BURGER – Tiendas argentinas</title>
+<title>ANKARA BURGER – Buscador de establecimientos</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -63,7 +63,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Tiendas argentinas</span>
+    <span class="navbar-title">Buscador de establecimientos</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -77,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../map.html"> 
-<span class="menu-text">Encuentra tu centro</span></a>
+<span class="menu-text">Encuentra tu establecimiento</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../contacto.html"> 
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const BASE = location.pathname.includes('/centers/') ? '..' : '.';
 
   // Adjust this path if you rename your data file (encoded for spaces)
-  const CENTERS_URL = encodeURI(`${BASE}/data/test centers_with_google_maps_and_website_information.json`);
+  const CENTERS_URL = `${BASE}/data/centers_with_google_maps_and_website_information.json`;
 
   // ----- helpers -----
   const domainFromUrl = (u) => {
@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     return {
       place_id: c.place_id || c.id || '',
       name: c.name || '',
-      city: c.city || c.town || c.locality || '',
+      city: c.city,
       address: c.address || c.formatted_address || '',
       website: c.website || c.url_website || '',
       url: c.url || c.google_maps || '',
@@ -273,7 +273,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         <div class="center-hero">
           
           <div class="cta-row">
-            <a class="btn outline" href="${BASE}/map.html">← Volver al mapa</a>
             ${center.website ? `<a class="btn small" href="${center.website}" target="_blank" rel="noopener">Visita el sitio web de la tienda</a>` : ``}
             <a class="btn small" href="${mapsHref}" target="_blank" rel="noopener">Ver en Google Maps</a>
             ${center.whatsapp ? `<a class="btn small whatsapp" href="${waLink(center.whatsapp)}" target="_blank" rel="noopener">

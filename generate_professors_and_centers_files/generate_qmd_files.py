@@ -5,7 +5,7 @@ from string import Template
 class CTemplate(Template):
     delimiter = '§'
 
-DATA_PATH = "data/test centers_with_google_maps_and_website_information.json"
+DATA_PATH = "data/centers_with_google_maps_and_website_information.json"
 TEMPLATE_PATH = "generate_professors_and_centers_files/center_template.qmd"
 OUT_DIR = Path("centers")
 

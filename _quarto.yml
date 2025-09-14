@@ -2,7 +2,7 @@ project:
   type: website
 
 resources:
-  - data/test centers_with_google_maps_and_website_information.json
+  - data/centers_with_google_maps_and_website_information.json
 
 website:
   title: "Buscador de establecimientos"

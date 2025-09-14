@@ -153,7 +153,9 @@ format:
 
 
 
-Explora nuestro directorio de establecimientos por ciudad, tipo de establecimiento, país de origen de los productos y más. Todo en un solo lugar.
+Explora nuestro directorio de establecimientos por ciudad, tipo de establecimiento, país de origen de los productos y más. Todo en un solo lugar. 
+Actualmente hay sitios argentinos, pero próximamente añadiremos sitios especilizados en productos de otros países latinoamericanos. 
+
 
 <div class="hero-search" style="position: relative;">
   <input type="text" id="citySearch" placeholder="Buscar establecimientos en mi ciudad" autocomplete="off" />
@@ -189,13 +191,13 @@ Explora nuestro directorio de establecimientos por ciudad, tipo de establecimien
     <img src="/images/cities/valencia.jpg" alt="Valencia">
     <div class="city-name">Valencia</div>
   </div>
-  <div class="city-card" onclick="window.location.href='/map.html?city=Granada'">
-    <img src="/images/cities/granada.jpg" alt="Granada">
-    <div class="city-name">Granada</div>
+  <div class="city-card" onclick="window.location.href='/map.html?city=París'">
+    <img src="/images/cities/París2.jpg" alt="París">
+    <div class="city-name">París</div>
   </div>
-  <div class="city-card" onclick="window.location.href='/map.html?city=Granada'">
-    <img src="/images/cities/granada.jpg" alt="Granada">
-    <div class="city-name">Granada</div>
+  <div class="city-card" onclick="window.location.href='/map.html?city=Londres'">
+    <img src="/images/cities/Londres.jpg" alt="Londres">
+    <div class="city-name">Londres</div>
   </div>
 </div>
 ```

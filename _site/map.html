@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Encuentra tu tienda – Buscar de establecimientos</title>
+<title>Encuentra tu tienda – Buscador de establecimientos</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -63,7 +63,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Buscar de establecimientos</span>
+    <span class="navbar-title">Buscador de establecimientos</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -310,10 +310,30 @@ button.secondary:hover{
 #citySuggestions li{ padding: .5rem .6rem; cursor: pointer; }
 #citySuggestions li:hover{ background: #f7f7f7; }
 
-
+.intro{
+  flex: 0 0 100%;      /* ocupa todo el ancho dentro de .layout */
+  padding: 0 1rem;
+  margin: .25rem 0 1rem;
+  color: #444;
+}
+.intro p{
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+}
 
 </style>
 <div class="layout">
+
+   <div class="intro">
+  <p>
+    ¡Explora el directorio de tiendas, cafés, bares  y más!. ¿No sabes por dónde empezar?
+    Prueba “Cerca de mí” para ver sitios cercanos a ti, o escribe tu ciudad y
+    elige tu tipo de establecimiento.
+
+    Actualmente hay sitios argentinos, pero próximamente añadiremos sitios especilizados en productos de otros países latinoamericanos. 
+  </p>
+</div>
 
   <div class="sidebar">
    
@@ -352,7 +372,7 @@ button.secondary:hover{
 
   <div class="main">
     <div id="map"></div>
-    <h2 class="anchored">establecimientos encontrados</h2>
+    <h2 class="anchored">Establecimientos encontrados</h2>
     <ul id="centerList"></ul>
     <p id="noResults" style="display:none; color: red;">No centers found for your search.</p>
   </div>
@@ -416,13 +436,40 @@ typeCheckboxes.forEach(cb =>
 );
 
 
+const DEFAULT_BOUNDS = L.latLngBounds(
+  [34.0, -25.0],  // Suroeste ~ Atlántico/Canarias
+  [72.0,  45.0]   // Noreste  ~ Norte de Noruega / Oeste de Rusia
+);
 
 
-const map = L.map('map').setView([40.0, -3.7], 6);
+const map = L.map('map', { worldCopyJump: true });
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 18,
   attribution: '&copy; OpenStreetMap'
 }).addTo(map);
+
+// Vista inicial: Europa completa
+map.fitBounds(DEFAULT_BOUNDS, { padding: [20, 20] });
+
+// (Opcional) Limitar paneo para no “salirse” demasiado
+map.setMaxBounds(DEFAULT_BOUNDS.pad(0.2));
+map.options.maxBoundsViscosity = 0.8;
+
+// Icono "pequeño" basado en el pin por defecto de Leaflet
+const smallIcon = L.icon({
+  iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+  iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  // Tamaño y anclas ajustadas (por defecto es 25x41)
+  iconSize: [12, 20],         // ← prueba 18x30 o 20x33 si prefieres
+  iconAnchor: [6, 20],
+  popupAnchor: [1, -16],
+  shadowSize: [20, 20]
+});
+
+
+
+
 let markers = [];
 
 
@@ -474,11 +521,10 @@ function normalizeCenter(c) {
   const cats = Array.isArray(c.category) ? c.category
               : (c.category ? c.category.split(",") : []);
 
-  const origin = (Array.isArray(c.country_of_origin) ? c.country_of_origin
-                : (typeof (c.country_of_origin || c.product_origin || c.origin_country || c.origin) === "string"
-                   ? (c.country_of_origin || c.product_origin || c.origin_country || c.origin).split(/[;,/|]+/)
-                   : []))
-                .map(s => (s || "").trim()).filter(Boolean);
+  const origin = Array.isArray(c.origins) ? c.origins
+              : (typeof (c.country_of_origin || c.product_origin || c.origin_country || c.origin) === "string"
+                 ? (c.country_of_origin || c.product_origin || c.origin_country || c.origin).split(/[;,/|]+/)
+                 : []);
 
   return {
     name: c.name || "",
@@ -514,7 +560,7 @@ clearBtn.addEventListener("click", () => {
   originContainer.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
 
   // Recentrar mapa y repintar
-  map.setView([DEFAULT_LAT, DEFAULT_LNG], DEFAULT_ZOOM);
+  map.fitBounds(DEFAULT_BOUNDS, { padding: [20, 20] });
   updateDisplay(true, true);
 });
 
@@ -580,8 +626,9 @@ function updateDisplay(doZoom = false, updateMarkers = true) {
     markers.forEach(m => map.removeLayer(m));
     markers = [];
     filtered.forEach(c => {
-      const marker = L.marker([c.lat, c.lng]).addTo(map)
+      const marker = L.marker([c.lat, c.lng], { icon: smallIcon }).addTo(map)
         .bindPopup(`<a href="${c.page}" target="_blank" rel="noopener">${c.name}</a><br>${c.city}`);
+
         markers.push(marker);
     });
   }
@@ -605,7 +652,7 @@ function updateDisplay(doZoom = false, updateMarkers = true) {
 
 
 // CARGA DE CENTROS DESDE TU JSON
-fetch(encodeURI("data/test centers_with_google_maps_and_website_information.json"))
+fetch(encodeURI("data/centers_with_google_maps_and_website_information.json"))
   .then(res => res.json())
   .then(raw => {
     centers = raw.map(normalizeCenter)
