@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.53">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Encuentra tu tienda – Buscador de establecimientos</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Buscador de establecimientos</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <span class="nav-link">
+<span class="menu-text">Inicio</span>
+    </span>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./map.html" aria-current="page"> 
+<span class="menu-text">Encuentra tu establecimiento</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./contacto.html"> 
+<span class="menu-text">Contacto</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Encuentra tu tienda</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-page">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><link href="https://fonts.googleapis.com/css2?family=Savate&amp;display=swap" rel="stylesheet"></p>
+<style>
+  :root {
+    --burdeos: #800000;
+    --burdeos-hover: #a3333d;
+    --gris-claro: #f4f1f1;
+    --blanco-roto: #fafafa;
+    --texto-oscuro: #222222;
+    --borde-gris: #ccc;
+
+    /* layout vars */
+    --sidebar-w: 300px;  /* ancho columna filtros */
+    --gap: 1em;        /* separación columnas */
+  }
+
+  body {
+    font-family: 'Savate', sans-serif !important;
+    padding: 0 !important;
+    background-color: var(--blanco-roto) !important;
+    padding-top: 100px !important; /* separa del navbar fijo */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Contenedor 2 columnas */
+  .layout{
+    display:flex;
+    flex-wrap:wrap;
+    gap: var(--gap);
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    margin-top: 30px !important; /* ajusta a gusto */
+    align-items: flex-start !important;
+  }
+
+  /* Filtros (izquierda) */
+  .sidebar{
+    flex: 0 0 var(--sidebar-w);
+    max-width: var(--sidebar-w);
+    background-color: var(--gris-claro) !important;
+    padding: 1em 1em 1em 1em !important;   /* usa 0.5em si quieres un poco de aire */
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.05);
+  }
+
+  .sidebar h2{
+  margin-top: 0 !important;
+  /* opcional: ajusta el espacio hacia abajo */
+  margin-bottom: .5em;
+}
+
+  /* Columna derecha (mapa + lista) */
+  .main{
+    flex: 1 1 0;
+    max-width: none !important;
+    margin: 0 0 2em 0 !important; /* sin centrado */
+  }
+
+  h2 { color: #000 !important; }
+
+  /* Mapa */
+  #map{
+    width: 100%;
+    height: clamp(420px, 75dvh, 900px);
+    border-radius: 12px;
+    margin-bottom: 1em;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+  }
+
+  /* Lista resultados */
+  #centerList { list-style: none; padding-left: 0; margin-top: 1em; }
+  #centerList li {
+    background: var(--gris-claro);
+    padding: .6em .8em;
+    border-radius: 8px;
+    margin-bottom: .5em;
+  }
+  #centerList a { text-decoration: none; color: var(--burdeos); font-weight: bold; }
+
+  /* Oculta el “#” de ancla en títulos */
+  h2 a.anchorjs-link { display: none !important; }
+
+  /* Botones */
+  button{
+    background-color: var(--burdeos);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    font-weight: bold;
+    width: 100%;
+    margin-bottom: 1em;
+    cursor: pointer;
+    transition: background-color .3s;
+  }
+  button:hover{ background-color: var(--burdeos-hover); }
+
+
+  #typeCheckboxes, #originCheckboxes {
+    display: block !important;
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: .5em;
+  }
+  #typeCheckboxes label, #originCheckboxes label {
+    display: block !important;
+    margin-bottom: .3em;
+  }
+
+
+  /* Responsive */
+  @media (max-width: 768px){
+    .layout{ flex-direction: column; align-items: stretch; }
+    .sidebar{ width: 100%; max-width: 100%; }
+    .main{ width: 100%; flex: 1 1 100%; padding: 0 .5em; }
+    #map{ height: 50vh !important; }
+  }
+
+
+
+
+
+/* Elimina la columna de margen y el padding lateral de Quarto */
+.page-columns .content{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  grid-template-columns: [screen-start] minmax(0,1fr) [screen-end] !important;
+}
+.page-columns .content > *{ grid-column: screen !important; }
+
+/* Quita límites y centrados de contenedores de Quarto */
+.quarto-container, .content, main, .page-layout, .column-page, #quarto-content{
+  max-width: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+
+
+
+/* H1 responsivo y sin cortes (título de la página de Quarto) */
+.quarto-title-block .title, .page-title, h1 {
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  line-height: 1.25;
+  margin: 0 0 .5rem 0 !important;
+  padding: 0 1rem;              /* un poco de aire lateral */
+  white-space: normal;          /* permite salto de línea */
+  overflow-wrap: anywhere;      /* evita “cortes” raros */
+}
+/* Asegura padding horizontal del contenedor del título */
+.quarto-title-block, .page-header {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+/* Variante secundaria para el botón limpiar */
+button.secondary{
+  background:#fff;
+  color: var(--burdeos);
+  border: 1px solid var(--burdeos);
+}
+button.secondary:hover{
+  background:#f7f7f7;
+}
+
+/* Botón "Limpiar filtros" más bajo/compacto */
+#clearFilters{
+  padding: 6px 10px;     /* antes: 12px */
+  font-size: 0.9rem;     /* un poco más pequeño */
+  line-height: 1.1;      /* reduce la altura de línea */
+  margin-bottom: .5em;   /* menos espacio debajo */
+}
+
+
+.city-autocomplete{ position: relative; }
+#citySuggestions{
+  list-style: none;
+  margin: .25rem 0 0 0; padding: 0;
+  position: absolute; top: calc(100% - 10px); left: 0; right: 0;
+  background: #fff; border: 1px solid var(--borde-gris);
+  border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  display: none; max-height: 200px; overflow-y: auto; z-index: 1000;
+}
+#citySuggestions li{ padding: .5rem .6rem; cursor: pointer; }
+#citySuggestions li:hover{ background: #f7f7f7; }
+
+.intro{
+  flex: 0 0 100%;      /* ocupa todo el ancho dentro de .layout */
+  padding: 0 1rem;
+  margin: .25rem 0 1rem;
+  color: #444;
+}
+.intro p{
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+</style>
+<div class="layout">
+
+   <div class="intro">
+  <p>
+    ¡Explora el directorio de tiendas, cafés, bares  y más!. ¿No sabes por dónde empezar?
+    Prueba “Cerca de mí” para ver sitios cercanos a ti, o escribe tu ciudad y
+    elige tu tipo de establecimiento.
+
+    Actualmente hay sitios argentinos, pero próximamente añadiremos sitios especilizados en productos de otros países latinoamericanos. 
+  </p>
+</div>
+
+  <div class="sidebar">
+   
+
+    <button id="clearFilters" class="secondary">Limpiar filtros</button>
+
+    <button id="findNearby">Cerca de mí</button>
+
+
+  <div class="city-autocomplete">
+    <input type="text" id="citySearch" placeholder="Buscar en mi ciudad" style="width: 100%; padding: 10px; margin-bottom: 10px;" autocomplete="off">
+    <ul id="citySuggestions" role="listbox" aria-label="Sugerencias de ciudades"></ul>
+  </div>
+
+
+  <div id="typeFilters" style="margin-bottom: 1em;">
+    <strong>Tipo de establecimiento</strong><br>
+    <div id="typeCheckboxes">
+      <label><input type="checkbox" value="Alimentación"> Alimentación</label>
+      <label><input type="checkbox" value="café"> Café</label>
+      <label><input type="checkbox" value="pastelería"> Pastelería</label>
+      <label><input type="checkbox" value="bar"> Bar</label>
+      <label><input type="checkbox" value="restaurante"> Restaurante</label>
+      <label><input type="checkbox" value="otros"> Otros</label>
+    </div>
+  </div>
+
+  <div id="originFilters" style="margin-bottom: 1em;">
+    <strong>País de origen</strong><br>
+    <div id="originCheckboxes"></div>
+  </div>
+
+    
+
+  </div>
+
+  <div class="main">
+    <div id="map"></div>
+    <h2 class="anchored">Establecimientos encontrados</h2>
+    <ul id="centerList"></ul>
+    <p id="noResults" style="display:none; color: red;">No centers found for your search.</p>
+  </div>
+
+</div>
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+let centers = [];
+let usingNearby = false;
+let userLat = null;
+let userLng = null;
+let originParam = "";
+
+
+
+const input = document.getElementById("citySearch");
+const suggestions = document.getElementById("citySuggestions");
+const findNearbyBtn = document.getElementById("findNearby");
+const listEl = document.getElementById("centerList");
+const noResults = document.getElementById("noResults");
+const typeCheckboxes = document.querySelectorAll("#typeFilters input[type=checkbox]");
+const originContainer = document.getElementById("originCheckboxes");
+
+
+// ✅ Lista fija de países (edítala como quieras)
+const FIXED_COUNTRIES = ["Argentina"];
+
+
+
+// Construye los checkboxes de países desde una lista fija
+function buildOriginFilter() {
+  originContainer.innerHTML = "";
+  FIXED_COUNTRIES.forEach(pais => {
+    const id = "origin-" + pais.toLowerCase().replace(/\s+/g, "-");
+    const label = document.createElement("label");
+    label.innerHTML = `<input type="checkbox" id="${id}" value="${pais}"> ${pais}`;
+    originContainer.appendChild(label);
+  });
+
+  // Listeners: cuando cambie cualquier checkbox, re-filtra
+  originContainer.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener("change", () => updateDisplay(false, true));
+  });
+
+  // Preselección si viene ?origin= en la URL
+  const pre = (new URLSearchParams(window.location.search).get("origin") || "").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim();
+  if (pre) {
+    originContainer.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+      const v = cb.value.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim();
+      if (v === pre) cb.checked = true;
+    });
+  }
+}
+buildOriginFilter();
+
+
+
+typeCheckboxes.forEach(cb =>
+  cb.addEventListener("change", () => updateDisplay(false, true))
+);
+
+
+const DEFAULT_BOUNDS = L.latLngBounds(
+  [34.0, -25.0],  // Suroeste ~ Atlántico/Canarias
+  [72.0,  45.0]   // Noreste  ~ Norte de Noruega / Oeste de Rusia
+);
+
+
+const map = L.map('map', { worldCopyJump: true });
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 18,
+  attribution: '&copy; OpenStreetMap'
+}).addTo(map);
+
+// Vista inicial: Europa completa
+map.fitBounds(DEFAULT_BOUNDS, { padding: [20, 20] });
+
+// (Opcional) Limitar paneo para no “salirse” demasiado
+map.setMaxBounds(DEFAULT_BOUNDS.pad(0.2));
+map.options.maxBoundsViscosity = 0.8;
+
+// Icono "pequeño" basado en el pin por defecto de Leaflet
+const smallIcon = L.icon({
+  iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+  iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  // Tamaño y anclas ajustadas (por defecto es 25x41)
+  iconSize: [12, 20],         // ← prueba 18x30 o 20x33 si prefieres
+  iconAnchor: [6, 20],
+  popupAnchor: [1, -16],
+  shadowSize: [20, 20]
+});
+
+
+
+
+let markers = [];
+
+
+const clearBtn = document.getElementById("clearFilters");
+
+// Valores por defecto del mapa (los que ya usas)
+const DEFAULT_LAT = 40.0;
+const DEFAULT_LNG = -3.7;
+const DEFAULT_ZOOM = 6;
+
+
+
+const slugify = (text) => (text ?? "")
+  .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+  .toLowerCase()
+  .replace(/\s+/g, "-")
+  .replace(/[^a-z0-9-]/g, "-")
+  .replace(/-+/g, "-")
+  .replace(/^-|-$/g, "");
+
+
+
+
+// Normaliza textos: minúsculas + sin acentos + trim
+const norm = s => (s ?? "").toString()
+  .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+  .toLowerCase().trim();
+
+
+const parseCategories = (v) => {
+  if (Array.isArray(v)) return v;
+  if (typeof v === "string") return v.split(/[;,/|]+/); // comma ; / |
+  return [];
+};
+
+const parseOrigins = v =>
+  Array.isArray(v) ? v :
+  (typeof v === "string" ? v.split(/[;,/|]+/) : []);
+
+
+
+
+// Convierte cada registro de tu JSON al formato que usa el mapa
+function normalizeCenter(c) {
+  const pid  = (c.place_id ?? "").toString().trim();
+  const slug = pid.toLowerCase().replace(/[^a-z0-9_-]/g, "-").replace(/-+/g, "-");
+  const page = `centers/${slug}.html`;
+
+  const cats = Array.isArray(c.category) ? c.category
+              : (c.category ? c.category.split(",") : []);
+
+  const origin = Array.isArray(c.origins) ? c.origins
+              : (typeof (c.country_of_origin || c.product_origin || c.origin_country || c.origin) === "string"
+                 ? (c.country_of_origin || c.product_origin || c.origin_country || c.origin).split(/[;,/|]+/)
+                 : []);
+
+  return {
+    name: c.name || "",
+    page,
+    city: c.city || "",
+    lat: +c.lat,
+    lng: +c.lng,
+    category: cats,
+    origin
+  };
+}
+
+
+
+
+
+
+clearBtn.addEventListener("click", () => {
+  // Apaga “cerca de mí”
+  usingNearby = false;
+  userLat = null;
+  userLng = null;
+  findNearbyBtn.textContent = "Cerca de mí";
+
+  // Resetea filtros de texto/autocomplete
+  input.value = "";
+  suggestions.style.display = "none";
+
+  // Desmarcar tipos
+  typeCheckboxes.forEach(cb => cb.checked = false);
+
+  // ⬇️ DESMARCAR PAÍSES (pégalo aquí)
+  originContainer.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+
+  // Recentrar mapa y repintar
+  map.fitBounds(DEFAULT_BOUNDS, { padding: [20, 20] });
+  updateDisplay(true, true);
+});
+
+
+
+
+// 🔧 Asegura que Leaflet recalcula el tamaño cuando la página carga o cambia de tamaño
+window.addEventListener('load', () => setTimeout(() => map.invalidateSize(), 0));
+window.addEventListener('resize', () => map.invalidateSize());
+
+
+function updateDisplay(doZoom = false, updateMarkers = true) {
+  const cityVal = norm(input.value);
+  const selectedTypes = Array.from(typeCheckboxes).filter(cb => cb.checked).map(cb => norm(cb.value));
+
+  const selectedOrigins = Array.from(
+    document.querySelectorAll('#originCheckboxes input[type="checkbox"]:checked')
+  ).map(cb => norm(cb.value));
+
+
+  const filtered = centers.filter(c => {
+    const matchCity = !cityVal || norm(c.city).includes(cityVal);
+
+    const matchNearby = !usingNearby || (
+      userLat !== null && userLng !== null &&
+      getDistance(userLat, userLng, c.lat, c.lng) <= 2
+    );
+
+    // categorías normalizadas para comparar sin tildes
+    let centerCats = parseCategories(c.category).map(x => norm(x.trim()));
+
+    const matchType =
+      selectedTypes.length === 0 ||
+      centerCats.some(ct => selectedTypes.includes(ct)) ||
+      (selectedTypes.includes("otros") && centerCats.length === 0);
+
+    const originNorms = Array.isArray(c.origin) ? c.origin.map(o => norm(o)) : [];
+    const matchOrigin = selectedOrigins.length === 0 ||
+                        originNorms.some(o => selectedOrigins.includes(o));
+
+
+
+    return matchNearby && matchCity && matchType && matchOrigin;
+  });
+
+  if (usingNearby && userLat != null && userLng != null) {
+  filtered.sort((a, b) =>
+    getDistance(userLat, userLng, a.lat, a.lng) - getDistance(userLat, userLng, b.lat, b.lng)
+  );
+}
+
+  // Lista
+  listEl.innerHTML = "";
+  filtered.forEach(c => {
+    const li = document.createElement("li");
+    li.innerHTML = `<a href="${c.page}" target="_blank" rel="noopener">${c.name} (${c.city})</a>`;
+    listEl.appendChild(li);
+  });
+  noResults.style.display = filtered.length === 0 ? "block" : "none";
+
+  // Marcadores
+  if (updateMarkers) {
+    markers.forEach(m => map.removeLayer(m));
+    markers = [];
+    filtered.forEach(c => {
+      const marker = L.marker([c.lat, c.lng], { icon: smallIcon }).addTo(map)
+        .bindPopup(`<a href="${c.page}" target="_blank" rel="noopener">${c.name}</a><br>${c.city}`);
+
+        markers.push(marker);
+    });
+  }
+
+  // Zoom por ciudad exacta (ya limpia y normalizada)
+  if (doZoom && cityVal) {
+    const exactMatch = centers.filter(c => norm(c.city) === cityVal);
+    if (exactMatch.length > 0) {
+      const avgLat = exactMatch.reduce((sum, c) => sum + c.lat, 0) / exactMatch.length;
+      const avgLng = exactMatch.reduce((sum, c) => sum + c.lng, 0) / exactMatch.length;
+      map.setView([avgLat, avgLng], 12);
+    }
+  }
+
+  if (doZoom && usingNearby && userLat && userLng) {
+    map.setView([userLat, userLng], 14);
+  }
+}
+
+
+
+
+// CARGA DE CENTROS DESDE TU JSON
+fetch(encodeURI("data/centers_with_google_maps_and_website_information.json"))
+  .then(res => res.json())
+  .then(raw => {
+    centers = raw.map(normalizeCenter)
+                 .filter(c => Number.isFinite(c.lat) && Number.isFinite(c.lng));
+    updateDisplay(true, true);
+  })
+  .catch(err => {
+    console.error("Error cargando establecimientos:", err);
+    alert("No se pudieron cargar los establecimientos.");
+  });
+
+
+
+
+function getDistance(lat1, lng1, lat2, lng2) {
+  const toRad = deg => deg * Math.PI / 180;
+  const R = 6371;
+  const dLat = toRad(lat2 - lat1);
+  const dLng = toRad(lng2 - lng1);
+  const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng/2)**2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+findNearbyBtn.addEventListener("click", () => {
+  if (!usingNearby) {
+    if (!navigator.geolocation) {
+      alert("Geolocation not supported");
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(pos => {
+      userLat = pos.coords.latitude;
+      userLng = pos.coords.longitude;
+      usingNearby = true;
+
+      // Clear city input when nearby search is activated
+      input.value = "";
+      findNearbyBtn.textContent = "✅ Mostrando establecimientos cerca de mí";
+      updateDisplay(true, true);
+    }, () => {
+      alert("Unable to get location");
+    });
+  } else {
+    usingNearby = false;
+    userLat = null;
+    userLng = null;
+    findNearbyBtn.textContent = "Cerca de mí";
+    updateDisplay(true, true);
+  }
+});
+
+
+
+
+input.addEventListener("focus", () => {
+  suggestions.innerHTML = "";
+  // No mostramos nada al enfocar; se mostrará cuando el usuario escriba
+  suggestions.style.display = "none";
+});
+
+
+document.addEventListener("click", (e) => {
+  if (!input.contains(e.target) && !suggestions.contains(e.target)) {
+    suggestions.style.display = "none";
+  }
+});
+
+input.addEventListener("input", () => {
+  const val = input.value.toLowerCase().trim();
+  suggestions.innerHTML = "";
+
+  // Si no hay texto, ocultamos el menú
+  if (val.length === 0) {
+    suggestions.style.display = "none";
+    return;
+  }
+
+  const allCities = [...new Set(centers.map(c => c.city))];
+  const matches = allCities.filter(c => c.toLowerCase().startsWith(val));
+
+  if (matches.length > 0) {
+    matches.forEach(city => {
+      const li = document.createElement("li");
+      li.textContent = city;
+      li.style.padding = "5px";
+      li.style.cursor = "pointer";
+      li.addEventListener("click", () => {
+        usingNearby = false;
+        userLat = null;
+        userLng = null;
+        findNearbyBtn.textContent = "Cerca de mí";
+        input.value = city;
+        suggestions.style.display = "none";
+        updateDisplay(true, true);
+      });
+      suggestions.appendChild(li);
+    });
+    suggestions.style.display = "block";
+  } else {
+    suggestions.style.display = "none";
+  }
+});
+
+// Read URL parameters on page load
+window.addEventListener("DOMContentLoaded", () => {
+  const urlParams = new URLSearchParams(window.location.search);
+
+  // City
+  const cityParam = urlParams.get("city");
+  if (cityParam) {
+    input.value = cityParam;
+  }
+
+  originParam = norm(urlParams.get("origin") || "");
+
+
+  // Nearby search
+  const nearbyParam = urlParams.get("nearby");
+  if (nearbyParam === "1") {
+    findNearbyBtn.click();
+  } else {
+    updateDisplay(true, true);
+  }
+});
+
+
+
+</script>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/martin-farias\.com\/tw");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

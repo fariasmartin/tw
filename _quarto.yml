@@ -1,15 +1,22 @@
 project:
   type: website
+  output-dir: "C:/Users/faria/tw"
+
+
+execute:
+  freeze: auto    # only re-render files whose inputs changed
+  cache: true     # speed up code chunks that do run
 
 resources:
   - data/centers_with_google_maps_and_website_information.json
 
 website:
   title: "Buscador de establecimientos"
+  site-url: "https://martin-farias.com/tw"
   navbar:
     left:
       - text: Inicio
-        href: index.qmd
+        # href: index.qm
       - text: Encuentra tu establecimiento
         href: map.qmd
       - text: Contacto
