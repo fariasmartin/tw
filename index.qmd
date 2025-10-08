@@ -172,31 +172,31 @@ Actualmente hay sitios argentinos, pero próximamente añadiremos sitios especil
 
 
 <div class="centered">
-  <a href="/map.html" class="cta-button">Explora todas las ciudades</a>
+  <a href="map.html" class="cta-button">Explora todas las ciudades</a>
 </div>
 
 ### Ciudades más populares
 
 ```{=html}
 <div class="popular-cities-grid">
-  <div class="city-card" onclick="window.location.href='/map.html?city=Barcelona'">
-    <img src="/images/cities/barcelona.jpg" alt="Barcelona">
+  <div class="city-card" onclick="window.location.href='map.html?city=Barcelona'">
+    <img src="images/cities/barcelona.jpg" alt="Barcelona">
     <div class="city-name">Barcelona</div>
   </div>
-  <div class="city-card" onclick="window.location.href='/map.html?city=Madrid'">
-    <img src="/images/cities/madrid.jpg" alt="Madrid">
+  <div class="city-card" onclick="window.location.href='map.html?city=Madrid'">
+    <img src="images/cities/madrid.jpg" alt="Madrid">
     <div class="city-name">Madrid</div>
   </div>
-  <div class="city-card" onclick="window.location.href='/map.html?city=Valencia'">
-    <img src="/images/cities/valencia.jpg" alt="Valencia">
+  <div class="city-card" onclick="window.location.href='map.html?city=Valencia'">
+    <img src="images/cities/valencia.jpg" alt="Valencia">
     <div class="city-name">Valencia</div>
   </div>
-  <div class="city-card" onclick="window.location.href='/map.html?city=París'">
-    <img src="/images/cities/París2.jpg" alt="París">
+  <div class="city-card" onclick="window.location.href='map.html?city=París'">
+    <img src="images/cities/París2.jpg" alt="París">
     <div class="city-name">París</div>
   </div>
-  <div class="city-card" onclick="window.location.href='/map.html?city=Londres'">
-    <img src="/images/cities/Londres.jpg" alt="Londres">
+  <div class="city-card" onclick="window.location.href='map.html?city=Londres'">
+    <img src="images/cities/Londres.jpg" alt="Londres">
     <div class="city-name">Londres</div>
   </div>
 </div>
@@ -256,7 +256,7 @@ const parseOrigins = v =>
 const titleCase = s => (s || "").toLowerCase().replace(/\b\w/g, m => m.toUpperCase());
 
 
-fetch(encodeURI("/data/centers_with_google_maps_and_website_information.json"))
+fetch(encodeURI("data/centers_with_google_maps_and_website_information.json"))
   .then(res => {
     if (!res.ok) throw new Error("No se pudieron cargar los datos");
     return res.json();
@@ -285,7 +285,7 @@ input.addEventListener("input", () => {
     const li = document.createElement("li");
     li.textContent = city;
     li.addEventListener("click", () => {
-      window.location.href = `/map.html?city=${encodeURIComponent(city)}`;
+      window.location.href = `map.html?city=${encodeURIComponent(city)}`;
     });
     suggestions.appendChild(li);
   });
@@ -297,7 +297,7 @@ input.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     const val = input.value.trim();
     if (val.length > 0) {
-      window.location.href = `/map.html?city=${encodeURIComponent(val)}`;
+      window.location.href = `map.html?city=${encodeURIComponent(val)}`;
     }
   }
 });
