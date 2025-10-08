@@ -12,11 +12,11 @@ resources:
 
 website:
   title: "Buscador de establecimientos"
-  site-url: "https://martin-farias.com/tw"
+  site-url: "https://fariasmartin.github.io/tw"
   navbar:
     left:
       - text: Inicio
-        # href: index.qm
+        href: index.qmd
       - text: Encuentra tu establecimiento
         href: map.qmd
       - text: Contacto

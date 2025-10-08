@@ -72,9 +72,8 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <span class="nav-link">
-<span class="menu-text">Inicio</span>
-    </span>
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Inicio</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./map.html"> 
@@ -311,7 +310,7 @@ Ver establecimientos cercanos a tu ubicación
 </section>
 <section id="colabora" class="level2">
 <h2 class="anchored" data-anchor-id="colabora">Colabora</h2>
-<p>¿Conoces un establecimiento que debería estar aquí?</p>
+<p>¿Conoces un establecimiento que debería estar aquí, o simplemente quieres ponerte en contacto con nosotros?</p>
 <div class="centered">
 <p><a href="./contacto.html" class="cta-button">Ponte en contacto con nosotros</a></p>
 </div>
@@ -352,7 +351,7 @@ const parseOrigins = v =>
 const titleCase = s => (s || "").toLowerCase().replace(/\b\w/g, m => m.toUpperCase());
 
 
-fetch(encodeURI("/data/test centers_with_google_maps_and_website_information.json"))
+fetch(encodeURI("/data/centers_with_google_maps_and_website_information.json"))
   .then(res => {
     if (!res.ok) throw new Error("No se pudieron cargar los datos");
     return res.json();
@@ -501,7 +500,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/martin-farias\.com\/tw");
+      var filterRegex = new RegExp("https:\/\/fariasmartin\.github\.io\/tw");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

@@ -365,7 +365,7 @@ category_mapping = {
         "store": "Alimentación",
 
         # --- Cafés y panaderías ---
-        "Café": "Café",
+        "cafe": "Café",
         "bakery": "Pastelería",
 
         # --- Restaurantes y bares ---

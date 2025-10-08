@@ -212,7 +212,7 @@ Actualmente hay sitios argentinos, pero próximamente añadiremos sitios especil
 
 ## Colabora
 
-¿Conoces un establecimiento que debería estar aquí?
+¿Conoces un establecimiento que debería estar aquí, o simplemente quieres ponerte en contacto con nosotros?
 
 <div class="centered">
   <a href="/contacto.html" class="cta-button">Ponte en contacto con nosotros</a>
@@ -256,7 +256,7 @@ const parseOrigins = v =>
 const titleCase = s => (s || "").toLowerCase().replace(/\b\w/g, m => m.toUpperCase());
 
 
-fetch(encodeURI("/data/test centers_with_google_maps_and_website_information.json"))
+fetch(encodeURI("/data/centers_with_google_maps_and_website_information.json"))
   .then(res => {
     if (!res.ok) throw new Error("No se pudieron cargar los datos");
     return res.json();
