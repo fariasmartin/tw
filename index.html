@@ -351,7 +351,11 @@ const parseOrigins = v =>
 const titleCase = s => (s || "").toLowerCase().replace(/\b\w/g, m => m.toUpperCase());
 
 
+<<<<<<< HEAD
 fetch(encodeURI("data/centers_with_google_maps_and_website_information.json"))
+=======
+fetch(encodeURI("/data/centers_with_google_maps_and_website_information.json"))
+>>>>>>> 512ce77 (few fixes)
   .then(res => {
     if (!res.ok) throw new Error("No se pudieron cargar los datos");
     return res.json();

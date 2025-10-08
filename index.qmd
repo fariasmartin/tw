@@ -256,7 +256,7 @@ const parseOrigins = v =>
 const titleCase = s => (s || "").toLowerCase().replace(/\b\w/g, m => m.toUpperCase());
 
 
-fetch(encodeURI("data/centers_with_google_maps_and_website_information.json"))
+fetch(encodeURI("/data/test centers_with_google_maps_and_website_information.json"))
   .then(res => {
     if (!res.ok) throw new Error("No se pudieron cargar los datos");
     return res.json();
