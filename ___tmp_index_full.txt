@@ -239,16 +239,6 @@ originSelect.innerHTML = '<option value="">Todos los países</option>' +
 const currentOrigin = new URLSearchParams(window.location.search).get('origin') || '';
 if (currentOrigin) originSelect.value = currentOrigin;
 
-// Auto-redirect if there is exactly one country
-if (FIXED_COUNTRIES.length === 1 && !currentOrigin) {
-  const q = new URLSearchParams();
-  q.set('origin', FIXED_COUNTRIES[0]);
-  const existingCity = new URLSearchParams(window.location.search).get('city');
-  if (existingCity) q.set('city', existingCity);
-  // Use replace to avoid creating an extra history entry
-  window.location.replace(map.html?);
-}
-
 // Navegación al cambiar
 originSelect.addEventListener("change", () => {
   const v = originSelect.value;
