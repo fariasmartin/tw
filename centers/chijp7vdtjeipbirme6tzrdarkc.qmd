@@ -1,0 +1,215 @@
+---
+title: "Forn de Pa artesanal Goya"
+format:
+  html:
+    toc: false
+params:
+  id: "ChIJP7vDtJeipBIRMe6TzRDarKc"
+---
+
+<link href="https://fonts.googleapis.com/css2?family=Savate&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Savate&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+
+
+<style>
+  :root{ --burdeos:#800000; --gris-claro:#f7f5f5; --borde:#e6e6e6; }
+  body{ font-family:'Savate', sans-serif; }
+  .center-wrap{ max-width:1100px; margin:0 auto; padding:1rem 1.25rem; }
+  .center-hero h1{
+    margin: 0 0 .6rem 0;
+    font-size: clamp(1.7rem, 2.6vw, 2.2rem);
+    line-height: 1.2;
+  }
+  .center-sub{ color:#555; margin:.2rem 0 1rem 0; }
+  .cta-row{
+    display:flex;
+    flex-direction: column;   /* stack vertically */
+    align-items: flex-start;  /* keep natural width */
+    gap:.6rem;
+    margin:.4rem 0 1rem;
+  }
+
+  /* new: smaller button style */
+  .btn.small{
+    padding:.42rem .7rem;     /* smaller padding */
+    font-size:.92rem;         /* slightly smaller text */
+    border-radius:8px;        /* a bit tighter corner */
+  }
+  .btn{ background:var(--burdeos); color:#fff; border:none; border-radius:10px; padding:.55rem .9rem; font-weight:700; text-decoration:none; display:inline-block; }
+  .btn.outline{ background:#fff; color:var(--burdeos); border:1px solid var(--burdeos); }
+  .btn:hover{ filter:brightness(.95); }
+  .grid{ display:grid; grid-template-columns: 1.25fr .75fr; gap:1.2rem; align-items:start; }
+  .card{ background:var(--gris-claro); border:1px solid var(--borde); border-radius:14px; padding:1rem 1.2rem; box-shadow:0 2px 6px rgba(0,0,0,.05); }
+  .section-title{ margin:.2rem 0 .6rem; font-size:1.1rem; }
+  .chips{ display:flex; flex-wrap:wrap; gap:.5rem; margin:.4rem 0 .8rem; }
+  .chip{ background:#fff; border:1px solid var(--borde); border-radius:999px; padding:.25rem .65rem; font-size:.95rem; }
+  .meta-list{
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+  }
+  @media(max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
+
+  .crumbs{ font-size:.95rem; color:#666; margin:.25rem 0 1rem; }
+  .crumbs a{ color: inherit; text-decoration: none; }
+  .crumbs a:hover{ text-decoration: underline; }
+
+  .btn .icon{ 
+  font-size:1.05em; 
+  line-height:0; 
+  margin-right:.45rem; 
+  vertical-align:-0.1em; 
+  display:inline-block; 
+}
+/* optional brand color — remove if you want to keep burgundy */
+.btn.whatsapp{ background:#25D366; color:#fff; }
+.btn.whatsapp.outline{ background:#fff; color:#25D366; border:1px solid #25D366; }
+
+
+
+</style>
+
+<div id="centerInfo">Loading...</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  const centerId = "ChIJP7vDtJeipBIRMe6TzRDarKc"; // this is the place_id
+  const container = document.getElementById("centerInfo");
+
+  // Detect relative base if page lives under /centers/
+  const BASE = location.pathname.includes('/centers/') ? '..' : '.';
+
+  // Adjust this path if you rename your data file (encoded for spaces)
+  const CENTERS_URL = `${BASE}/data/centers_with_google_maps_and_website_information.json`;
+
+  // ----- helpers -----
+  const domainFromUrl = (u) => {
+    try { return new URL(u).hostname.replace(/^www\./,''); } catch { return u || ''; }
+  };
+  const asArray = (v) => Array.isArray(v) ? v : (v ? [v] : []);
+  const toChips = (val) => {
+    // category may be array or comma-separated string
+    let arr = Array.isArray(val) ? val : (typeof val === 'string' ? val.split(',') : []);
+    arr = arr.map(x => String(x).trim()).filter(Boolean);
+    return arr.length ? arr.map(s => `<span class="chip">${s}</span>`).join('') : '—';
+  };
+  const cleanPhone = (p) => (p || '').toString().replace(/[^\d+]/g, '');
+  const waLink = (p) => {
+    const digits = cleanPhone(p).replace(/^00/, ''); // handle 00XX
+    if (!digits) return '';
+    // WhatsApp requires full international number, e.g. 349XXXXXXXX
+    return `https://wa.me/${digits.replace(/^\+/, '')}`;
+  };
+  const gmapsLink = (c) => {
+    if (c.url) return c.url; // Google Maps share URL if present
+    if (c.google_maps) return c.google_maps;
+    if (Number.isFinite(+c.lat) && Number.isFinite(+c.lng) && c.place_id) {
+      return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(c.lat + ',' + c.lng)}&query_place_id=${encodeURIComponent(c.place_id)}`;
+    }
+    // Fallback: search by name + city
+    const q = [c.name, c.city].filter(Boolean).join(' ');
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+  };
+  const normalizeCenter = (c) => {
+    // keep original fields but provide safe fallbacks
+    return {
+      place_id: c.place_id || c.id || '',
+      name: c.name || '',
+      city: c.city,
+      address: c.address || c.formatted_address || '',
+      website: c.website || c.url_website || '',
+      url: c.url || c.google_maps || '',
+      category: c.category, // could be array or string
+      phone: c.phone || c.formatted_phone || c.international_phone_number || '',
+      whatsapp: c.whatsapp || c.whatsApp || c.whatsapp_number || '',
+      hours: c.hours || c.opening_hours || c.opening_hours_text || [],
+      lat: Number(c.lat),
+      lng: Number(c.lng),
+      description: c.description || '',
+      editorial: c.editorial_summary_overview
+                || (c.editorial_summary && c.editorial_summary.overview) || '',
+      editorialLang: c.editorial_summary_language
+                || (c.editorial_summary && c.editorial_summary.language) || ''
+    };
+  };
+  const renderHours = (h) => {
+    const arr = Array.isArray(h) ? h : (typeof h === 'string' ? h.split(/\r?\n|;+/) : []);
+    const lines = arr.map(s => s.trim()).filter(Boolean);
+    return lines.length ? `<ul class="meta-list">${lines.map(s => `<li>${s}</li>`).join('')}</ul>` : '—';
+  };
+
+  try {
+    const res = await fetch(CENTERS_URL);
+    if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
+    const raw = await res.json();
+    const centers = raw.map(normalizeCenter);
+
+    // find by place_id
+    const center = centers.find(c => c.place_id === centerId);
+    if (!center) {
+      container.innerHTML = `<div class='center-wrap'><div class='card'><p>Center not found (id: ${centerId}).</p></div></div>`;
+      return;
+    }
+
+    const mapsHref = gmapsLink(center);
+    const websiteHost = center.website ? domainFromUrl(center.website) : '';
+
+
+// <h1>${center.name || 'Centro'}</h1>
+//           <div class="center-sub">
+//             ${center.address ? center.address : (center.city || '')}
+//           </div>
+
+    container.innerHTML = `
+      <div class="center-wrap">
+        <div class="center-hero">
+          
+          <div class="cta-row">
+            ${center.website ? `<a class="btn small" href="${center.website}" target="_blank" rel="noopener">Visita el sitio web de la tienda</a>` : ``}
+            <a class="btn small" href="${mapsHref}" target="_blank" rel="noopener">Ver en Google Maps</a>
+            ${center.whatsapp ? `<a class="btn small whatsapp" href="${waLink(center.whatsapp)}" target="_blank" rel="noopener">
+            <i class="ti ti-brand-whatsapp icon" aria-hidden="true"></i> WhatsApp </a>` : ``}
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <h3 class="section-title">Descripción del sitio</h3>
+
+            ${
+              center.editorial
+                ? `<p>${center.editorial}</p>`
+                : (center.description
+                    ? `<p>${center.description}</p>`
+                    : `<p>Bienvenido a la página de ${center.name}${center.city ? ' en ' + center.city : ''}.</p>`
+                  )
+            }
+
+            <h3 class="section-title">Tipo de establecimiento</h3>
+            <div class="chips">
+              ${toChips(center.category)}
+            </div>
+
+            <h3 class="section-title">Horario</h3>
+            ${renderHours(center.hours)}
+          </div>
+
+          <div class="card">
+            <h3 class="section-title">Detalles</h3>
+            <ul class="meta-list">
+              ${center.city ? `<li>📍 ${center.city}</li>` : ``}
+              ${center.address ? `<li>🏠 ${center.address}</li>` : ``}
+              ${center.phone ? `<li>📞 ${center.phone}</li>` : ``}
+            </ul>
+          </div>
+        </div>
+      </div>
+    `;
+  } catch (err) {
+    console.error('[center page] Error:', err);
+    container.innerHTML = "<div class='center-wrap'><div class='card'><p>Error loading data.</p></div></div>";
+  }
+});
+</script>

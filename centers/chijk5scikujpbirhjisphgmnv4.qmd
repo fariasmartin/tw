@@ -183,21 +183,21 @@ document.addEventListener('DOMContentLoaded', async () => {
                 ? `<p>${center.editorial}</p>`
                 : (center.description
                     ? `<p>${center.description}</p>`
-                    : `<p>Welcome to the page for ${center.name}${center.city ? ' in ' + center.city : ''}.</p>`
+                    : `<p>Bienvenido a la página de ${center.name}${center.city ? ' en ' + center.city : ''}.</p>`
                   )
             }
 
-            <h3 class="section-title">Category</h3>
+            <h3 class="section-title">Tipo de establecimiento</h3>
             <div class="chips">
               ${toChips(center.category)}
             </div>
 
-            <h3 class="section-title">Hours</h3>
+            <h3 class="section-title">Horario</h3>
             ${renderHours(center.hours)}
           </div>
 
           <div class="card">
-            <h3 class="section-title">Details</h3>
+            <h3 class="section-title">Detalles</h3>
             <ul class="meta-list">
               ${center.city ? `<li>📍 ${center.city}</li>` : ``}
               ${center.address ? `<li>🏠 ${center.address}</li>` : ``}
