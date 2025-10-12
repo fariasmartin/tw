@@ -1,0 +1,5 @@
+project:
+  render:
+    - index.qmd
+    - map.qmd
+    - contacto.qmd

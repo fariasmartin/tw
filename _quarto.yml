@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: "C:/Users/faria/tw"
+  output-dir: docs
 
 
 execute:

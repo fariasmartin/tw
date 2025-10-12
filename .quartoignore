@@ -1,0 +1,7 @@
+# Ignore heavy output and temp dirs from Quarto input scanning
+_site/
+docs/
+___temp_*/
+.DS_Store
+__pycache__/
+# Keep sources like data/, images/, centers/ as needed
