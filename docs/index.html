@@ -263,7 +263,7 @@ ul.task-list li input[type="checkbox"] {
 <ul id="citySuggestions" class="suggestion-list">
 </ul>
 </div>
-<!-- BUSCADOR DE PAISES DE ORIGEN  -->
+<!-- BUSCADOR DE PAISES DE ORIGI -->
 <!-- <div class="hero-filters" style="text-align:center; margin-top:1rem;">
   <select id="originSelect" style="padding:10px; font-size:16px; border-radius:6px; border:1px solid #ccc; width:100%; max-width:500px;">
     <option value="">Todos los países</option>
@@ -321,62 +321,26 @@ let centers = [];
 const input = document.getElementById("citySearch");
 const suggestions = document.getElementById("citySuggestions");
 
+/* --- helpers --- */
+const norm = (s) =>
+  (s ?? "")
+    .toString()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // sin tildes
+    .toLowerCase()
+    .trim();
 
-const originSelect = document.getElementById("originSelect");
-
-// Lista fija (edítala a tu gusto)
-const FIXED_COUNTRIES = ["Argentina"];
-
-// Pinta opciones inmediatamente (sin esperar al fetch)
-originSelect.innerHTML = '<option value="">Argentina</option>' +
-  FIXED_COUNTRIES.map(p => `<option value="${p}">${p}</option>`).join('');
-
-// Preselecciona si vienes con ?origin=
-const currentOrigin = new URLSearchParams(window.location.search).get('origin') || '';
-if (currentOrigin) originSelect.value = currentOrigin;
-
-// Auto-redirect if there is exactly one country
-if (FIXED_COUNTRIES.length === 1 && !currentOrigin) {
-  const q = new URLSearchParams();
-  q.set('origin', FIXED_COUNTRIES[0]);
-  const existingCity = new URLSearchParams(window.location.search).get('city');
-  if (existingCity) q.set('city', existingCity);
-  // Use replace to avoid creating an extra history entry
-  window.location.replace(map.html?);
-}
-
-// Navegación al cambiar
-originSelect.addEventListener("change", () => {
-  const v = originSelect.value;
-  const q = new URLSearchParams();
-  if (input.value.trim()) q.set("city", input.value.trim());
-  if (v) q.set("origin", v);
-  window.location.href = `/map.html?${q.toString()}`;
-});
-
-
-const parseOrigins = v =>
-  Array.isArray(v) ? v :
-  (typeof v === "string" ? v.split(/[;,/|]+/) : []);
-
-const titleCase = s => (s || "").toLowerCase().replace(/\b\w/g, m => m.toUpperCase());
-
-
-fetch(encodeURI("/data/centers_with_google_maps_and_website_information.json"))
+/* --- load data (RELATIVE path!) --- */
+fetch(encodeURI("data/centers_with_google_maps_and_website_information.json"))
   .then(res => {
     if (!res.ok) throw new Error("No se pudieron cargar los datos");
     return res.json();
   })
-  .then(data => {
-    centers = data;
-  })
-  .catch(err => {
-    console.error("Error cargando establecimientos:", err);
-  });
+  .then(data => { centers = data; })
+  .catch(err => { console.error("Error cargando establecimientos:", err); });
 
-
+/* --- suggestions --- */
 input.addEventListener("input", () => {
-  const val = input.value.toLowerCase().trim();
+  const val = norm(input.value);
   suggestions.innerHTML = "";
 
   if (val.length === 0) {
@@ -384,30 +348,35 @@ input.addEventListener("input", () => {
     return;
   }
 
-  const allCities = [...new Set(centers.map(c => c.city))];
-  const matches = allCities.filter(c => c.toLowerCase().startsWith(val));
+  // ciudades únicas y limpias
+  const allCities = [...new Set(centers.map(c => c.city).filter(Boolean))];
 
-  matches.forEach(city => {
+  // filtra sin tildes y por prefijo
+  const matches = allCities.filter(c => norm(c).startsWith(val)).slice(0, 12);
+
+  for (const city of matches) {
     const li = document.createElement("li");
     li.textContent = city;
     li.addEventListener("click", () => {
       window.location.href = `map.html?city=${encodeURIComponent(city)}`;
     });
     suggestions.appendChild(li);
-  });
+  }
 
   suggestions.style.display = matches.length > 0 ? "block" : "none";
 });
 
+/* enter to go */
 input.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     const val = input.value.trim();
-    if (val.length > 0) {
+    if (val) {
       window.location.href = `map.html?city=${encodeURIComponent(val)}`;
     }
   }
 });
 
+/* click outside to close */
 document.addEventListener("click", (e) => {
   if (!input.contains(e.target) && !suggestions.contains(e.target)) {
     suggestions.style.display = "none";
