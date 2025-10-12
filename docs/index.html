@@ -263,12 +263,13 @@ ul.task-list li input[type="checkbox"] {
 <ul id="citySuggestions" class="suggestion-list">
 </ul>
 </div>
-<div class="hero-filters" style="text-align:center; margin-top:1rem;">
-<select id="originSelect" style="padding:10px; font-size:16px; border-radius:6px; border:1px solid #ccc; width:100%; max-width:500px;"> <option value="">Todos los países</option> </select>
-<div class="origin-note">
-Proximamente añadiremos más países
-</div>
-</div>
+<!-- BUSCADOR DE PAISES DE ORIGEN  -->
+<!-- <div class="hero-filters" style="text-align:center; margin-top:1rem;">
+  <select id="originSelect" style="padding:10px; font-size:16px; border-radius:6px; border:1px solid #ccc; width:100%; max-width:500px;">
+    <option value="">Todos los países</option>
+  </select>
+  <div class="origin-note">Proximamente añadiremos más países</div>
+</div> -->
 <div class="centered">
 <p><a href="map.html" class="cta-button">Explora todas las ciudades</a></p>
 </div>
@@ -327,7 +328,7 @@ const originSelect = document.getElementById("originSelect");
 const FIXED_COUNTRIES = ["Argentina"];
 
 // Pinta opciones inmediatamente (sin esperar al fetch)
-originSelect.innerHTML = '<option value="">Todos los países</option>' +
+originSelect.innerHTML = '<option value="">Argentina</option>' +
   FIXED_COUNTRIES.map(p => `<option value="${p}">${p}</option>`).join('');
 
 // Preselecciona si vienes con ?origin=
