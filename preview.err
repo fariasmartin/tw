@@ -53,3 +53,27 @@ metadata
   title: 'Encuentra tu tienda, bar, restaurante o café favorito'
   page-layout: full
   
+pandoc 
+  to: html
+  output-file: index.html
+  standalone: true
+  title-prefix: Buscador de establecimientos
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  css:
+    - styles.css
+  toc: false
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  resources:
+    - data/centers_with_google_maps_and_website_information.json
+  theme: flatly
+  title: 'Encuentra tu tienda, bar, restaurante o café favorito'
+  page-layout: full
+  

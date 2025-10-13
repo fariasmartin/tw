@@ -320,3 +320,44 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+#Load the final data
+final_data = pd.read_excel(OUTPUT_EXCEL_PATH)
+
+# Display the list of city and country anmes
+print("Cities:", final_data['city'].dropna().unique())
+print("Countries:", final_data['country'].dropna().unique())
+
+# Change city names
+final_data['city'] = final_data['city'].replace({
+    'A Coruña': 'La Coruña',
+    'Bologna': 'Bolonia',
+    'Alicante (Alacant)': 'Alicante',
+    'Sagunt': 'Sagunto',
+    'London': 'Londres',
+    'București': 'Bucarest',
+    'Paris': 'París',
+    'València': 'Valencia',
+    "L'Hospitalet de Llobregat": 'Hospitalet de Llobregat',
+    'Milano': 'Milán',
+    "L'Hospitalet de l'Infant": 'Hospitalet del Infante',
+    'Port de Sagunt': 'Puerto de Sagunto',
+    'Antwerpen': 'Amberes',
+    'Alexandria': 'Alejandría',
+    'Bruxelles': 'Bruselas',
+    'el Gran Alacant': 'Gran Alacant',
+    'Alacant': 'Alicante',
+    'Illes Balears': 'Islas Baleares',
+    'Alacant': 'Alicante'  
+})
+
+# still have to change "el"
+
+# Guardar
+final_data.to_excel(OUTPUT_EXCEL_PATH, index=False)
+with open(OUTPUT_JSON_PATH, "w", encoding="utf-8") as f:
+    f.write(final_data.to_json(orient="records", force_ascii=False, indent=2))
+
+print(f"✅ Saved Excel to {OUTPUT_EXCEL_PATH}")
+print(f"✅ Saved JSON to {OUTPUT_JSON_PATH}")
