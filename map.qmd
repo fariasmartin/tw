@@ -285,6 +285,19 @@ button.secondary:hover{
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
+<!-- PASTE THIS RIGHT AFTER THE LINES ABOVE -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+/>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+
+
 <script>
 let centers = [];
 let usingNearby = false;
@@ -356,6 +369,16 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // Vista inicial: Europa completa
 map.fitBounds(DEFAULT_BOUNDS, { padding: [20, 20] });
 
+// Cluster layer
+const clusterLayer = L.markerClusterGroup({
+  chunkedLoading: true,
+  spiderfyOnClick: true,
+  showCoverageOnHover: false,
+  maxClusterRadius: 50
+});
+map.addLayer(clusterLayer);
+
+
 // (Opcional) Limitar paneo para no “salirse” demasiado
 map.setMaxBounds(DEFAULT_BOUNDS.pad(0.2));
 map.options.maxBoundsViscosity = 0.8;
@@ -374,8 +397,6 @@ const smallIcon = L.icon({
 
 
 
-
-let markers = [];
 
 
 const clearBtn = document.getElementById("clearFilters");
@@ -526,17 +547,16 @@ function updateDisplay(doZoom = false, updateMarkers = true) {
   });
   noResults.style.display = filtered.length === 0 ? "block" : "none";
 
-  // Marcadores
+  // Marcadores (cluster)
   if (updateMarkers) {
-    markers.forEach(m => map.removeLayer(m));
-    markers = [];
-    filtered.forEach(c => {
-      const marker = L.marker([c.lat, c.lng], { icon: smallIcon }).addTo(map)
-        .bindPopup(`<a href="${c.page}" target="_blank" rel="noopener">${c.name}</a><br>${c.city}`);
-
-        markers.push(marker);
-    });
+    clusterLayer.clearLayers();
+    const newMarkers = filtered.map(c =>
+      L.marker([c.lat, c.lng], { icon: smallIcon })
+        .bindPopup(`<a href="${c.page}" target="_blank" rel="noopener">${c.name}</a><br>${c.city}`)
+    );
+    clusterLayer.addLayers(newMarkers);
   }
+
 
   // Zoom por ciudad exacta (ya limpia y normalizada)
   if (doZoom && cityVal) {
@@ -610,6 +630,15 @@ findNearbyBtn.addEventListener("click", () => {
 
 
 
+function debounce(fn, wait = 200) {
+  let t;
+  return function (...args) {
+    clearTimeout(t);
+    t = setTimeout(() => fn.apply(this, args), wait);
+  };
+}
+
+
 
 input.addEventListener("focus", () => {
   suggestions.innerHTML = "";
@@ -624,41 +653,40 @@ document.addEventListener("click", (e) => {
   }
 });
 
-input.addEventListener("input", () => {
-  const val = input.value.toLowerCase().trim();
+input.addEventListener("input", debounce(() => {
+  const val = (input.value || "").toLowerCase().trim();
   suggestions.innerHTML = "";
 
-  // Si no hay texto, ocultamos el menú
   if (val.length === 0) {
     suggestions.style.display = "none";
     return;
   }
 
-  const allCities = [...new Set(centers.map(c => c.city))];
-  const matches = allCities.filter(c => c.toLowerCase().startsWith(val));
+  const allCities = [...new Set(centers.map(c => c.city).filter(Boolean))];
+  const matches = allCities
+    .filter(c => c.toLowerCase().startsWith(val))
+    .slice(0, 20); // limita sugerencias
 
-  if (matches.length > 0) {
-    matches.forEach(city => {
-      const li = document.createElement("li");
-      li.textContent = city;
-      li.style.padding = "5px";
-      li.style.cursor = "pointer";
-      li.addEventListener("click", () => {
-        usingNearby = false;
-        userLat = null;
-        userLng = null;
-        findNearbyBtn.textContent = "Cerca de mí";
-        input.value = city;
-        suggestions.style.display = "none";
-        updateDisplay(true, true);
-      });
-      suggestions.appendChild(li);
+  matches.forEach(city => {
+    const li = document.createElement("li");
+    li.textContent = city;
+    li.style.padding = "5px";
+    li.style.cursor = "pointer";
+    li.addEventListener("click", () => {
+      usingNearby = false;
+      userLat = null;
+      userLng = null;
+      findNearbyBtn.textContent = "Cerca de mí";
+      input.value = city;
+      suggestions.style.display = "none";
+      updateDisplay(true, true);
     });
-    suggestions.style.display = "block";
-  } else {
-    suggestions.style.display = "none";
-  }
-});
+    suggestions.appendChild(li);
+  });
+
+  suggestions.style.display = matches.length > 0 ? "block" : "none";
+}, 200));
+
 
 // Read URL parameters on page load
 window.addEventListener("DOMContentLoaded", () => {
