@@ -464,9 +464,6 @@ const clusterLayer = L.markerClusterGroup({
 map.addLayer(clusterLayer);
 
 
-// (Opcional) Limitar paneo para no “salirse” demasiado
-map.setMaxBounds(DEFAULT_BOUNDS.pad(0.2));
-map.options.maxBoundsViscosity = 0.8;
 
 // Icono "pequeño" basado en el pin por defecto de Leaflet
 const smallIcon = L.icon({
@@ -571,8 +568,10 @@ clearBtn.addEventListener("click", () => {
   originContainer.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
 
   // Recentrar mapa y repintar
-  map.fitBounds(DEFAULT_BOUNDS, { padding: [20, 20] });
-  updateDisplay(true, true);
+  // map.fitBounds(DEFAULT_BOUNDS, { padding: [20, 20] });
+  // updateDisplay(true, true);
+  updateDisplay(false, true); // no re-centrar
+
 });
 
 
