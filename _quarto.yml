@@ -8,11 +8,12 @@ execute:
   cache: true     # speed up code chunks that do run
 
 resources:
+  - CNAME
   - data/centers_with_google_maps_and_website_information.json
 
 website:
   title: "Buscador de establecimientos"
-  site-url: "https://fariasmartin.github.io/tw"
+  site-url: "https://sabordecasa.es/"
   navbar:
     left:
       - text: Inicio
