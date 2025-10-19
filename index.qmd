@@ -219,6 +219,16 @@ Actualmente hay sitios argentinos, pero próximamente añadiremos sitios especil
   <a href="/contacto.html" class="cta-button">Ponte en contacto con nosotros</a>
 </div>
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2TPFSWBN1G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2TPFSWBN1G');
+</script>
+
 
 <script>
 let centers = [];
