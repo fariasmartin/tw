@@ -1,0 +1,180 @@
+{
+  "metadata": {
+    "description": "European cities for expansion - organized by priority and Argentine diaspora likelihood",
+    "created": "2025-01-31",
+    "total_cities": 150,
+    "notes": "Priority based on: population size, known Argentine communities, proximity to existing coverage"
+  },
+  "priority_1_major_capitals": {
+    "description": "Large capitals with significant Argentine communities - highest priority",
+    "cities": [
+      {"city": "London", "country": "United Kingdom", "country_code": "GB", "population": 9000000, "current_coverage": 6},
+      {"city": "Berlin", "country": "Germany", "country_code": "DE", "population": 3600000, "current_coverage": "low"},
+      {"city": "Rome", "country": "Italy", "country_code": "IT", "population": 2800000, "current_coverage": "low"},
+      {"city": "Paris", "country": "France", "country_code": "FR", "population": 2200000, "current_coverage": 19},
+      {"city": "Vienna", "country": "Austria", "country_code": "AT", "population": 1900000, "current_coverage": 0},
+      {"city": "Warsaw", "country": "Poland", "country_code": "PL", "population": 1800000, "current_coverage": 0},
+      {"city": "Budapest", "country": "Hungary", "country_code": "HU", "population": 1750000, "current_coverage": 2},
+      {"city": "Munich", "country": "Germany", "country_code": "DE", "population": 1500000, "current_coverage": "low"},
+      {"city": "Prague", "country": "Czech Republic", "country_code": "CZ", "population": 1300000, "current_coverage": 0},
+      {"city": "Brussels", "country": "Belgium", "country_code": "BE", "population": 1200000, "current_coverage": "low"},
+      {"city": "Dublin", "country": "Ireland", "country_code": "IE", "population": 1100000, "current_coverage": 1},
+      {"city": "Amsterdam", "country": "Netherlands", "country_code": "NL", "population": 900000, "current_coverage": 5},
+      {"city": "Stockholm", "country": "Sweden", "country_code": "SE", "population": 980000, "current_coverage": 0},
+      {"city": "Copenhagen", "country": "Denmark", "country_code": "DK", "population": 800000, "current_coverage": 5},
+      {"city": "Lisbon", "country": "Portugal", "country_code": "PT", "population": 550000, "current_coverage": 7}
+    ]
+  },
+  "priority_2_spain_expansion": {
+    "description": "Spanish cities with likely Argentine presence but low/no coverage",
+    "cities": [
+      {"city": "Sevilla", "country": "Spain", "country_code": "ES", "population": 690000, "current_coverage": "check"},
+      {"city": "Bilbao", "country": "Spain", "country_code": "ES", "population": 350000, "current_coverage": "check"},
+      {"city": "Granada", "country": "Spain", "country_code": "ES", "population": 230000, "current_coverage": "check"},
+      {"city": "Murcia", "country": "Spain", "country_code": "ES", "population": 450000, "current_coverage": "check"},
+      {"city": "Valladolid", "country": "Spain", "country_code": "ES", "population": 300000, "current_coverage": "check"},
+      {"city": "Vigo", "country": "Spain", "country_code": "ES", "population": 295000, "current_coverage": "check"},
+      {"city": "Gijón", "country": "Spain", "country_code": "ES", "population": 270000, "current_coverage": "check"},
+      {"city": "Santander", "country": "Spain", "country_code": "ES", "population": 170000, "current_coverage": "check"},
+      {"city": "San Sebastián", "country": "Spain", "country_code": "ES", "population": 185000, "current_coverage": "check"},
+      {"city": "Pamplona", "country": "Spain", "country_code": "ES", "population": 200000, "current_coverage": "check"},
+      {"city": "Salamanca", "country": "Spain", "country_code": "ES", "population": 145000, "current_coverage": "check"},
+      {"city": "Cádiz", "country": "Spain", "country_code": "ES", "population": 115000, "current_coverage": "check"},
+      {"city": "Córdoba", "country": "Spain", "country_code": "ES", "population": 325000, "current_coverage": "check"},
+      {"city": "Las Palmas", "country": "Spain", "country_code": "ES", "population": 380000, "current_coverage": "check"},
+      {"city": "Santa Cruz de Tenerife", "country": "Spain", "country_code": "ES", "population": 210000, "current_coverage": "check"}
+    ]
+  },
+  "priority_3_major_european": {
+    "description": "Major European cities - good potential",
+    "cities": [
+      {"city": "Hamburg", "country": "Germany", "country_code": "DE", "population": 1900000},
+      {"city": "Frankfurt", "country": "Germany", "country_code": "DE", "population": 750000},
+      {"city": "Cologne", "country": "Germany", "country_code": "DE", "population": 1080000},
+      {"city": "Düsseldorf", "country": "Germany", "country_code": "DE", "population": 620000},
+      {"city": "Stuttgart", "country": "Germany", "country_code": "DE", "population": 635000},
+      {"city": "Milan", "country": "Italy", "country_code": "IT", "population": 1400000, "current_coverage": 11},
+      {"city": "Naples", "country": "Italy", "country_code": "IT", "population": 960000},
+      {"city": "Turin", "country": "Italy", "country_code": "IT", "population": 870000},
+      {"city": "Florence", "country": "Italy", "country_code": "IT", "population": 380000},
+      {"city": "Bologna", "country": "Italy", "country_code": "IT", "population": 390000},
+      {"city": "Lyon", "country": "France", "country_code": "FR", "population": 520000},
+      {"city": "Marseille", "country": "France", "country_code": "FR", "population": 870000},
+      {"city": "Toulouse", "country": "France", "country_code": "FR", "population": 490000, "current_coverage": 5},
+      {"city": "Nice", "country": "France", "country_code": "FR", "population": 340000},
+      {"city": "Bordeaux", "country": "France", "country_code": "FR", "population": 260000},
+      {"city": "Rotterdam", "country": "Netherlands", "country_code": "NL", "population": 650000},
+      {"city": "The Hague", "country": "Netherlands", "country_code": "NL", "population": 550000},
+      {"city": "Utrecht", "country": "Netherlands", "country_code": "NL", "population": 360000},
+      {"city": "Antwerp", "country": "Belgium", "country_code": "BE", "population": 530000},
+      {"city": "Ghent", "country": "Belgium", "country_code": "BE", "population": 265000},
+      {"city": "Porto", "country": "Portugal", "country_code": "PT", "population": 240000},
+      {"city": "Manchester", "country": "United Kingdom", "country_code": "GB", "population": 550000},
+      {"city": "Birmingham", "country": "United Kingdom", "country_code": "GB", "population": 1150000},
+      {"city": "Edinburgh", "country": "United Kingdom", "country_code": "GB", "population": 530000},
+      {"city": "Glasgow", "country": "United Kingdom", "country_code": "GB", "population": 635000},
+      {"city": "Liverpool", "country": "United Kingdom", "country_code": "GB", "population": 500000},
+      {"city": "Bristol", "country": "United Kingdom", "country_code": "GB", "population": 470000},
+      {"city": "Leeds", "country": "United Kingdom", "country_code": "GB", "population": 800000}
+    ]
+  },
+  "priority_4_nordic_eastern": {
+    "description": "Nordic and Eastern European cities",
+    "cities": [
+      {"city": "Oslo", "country": "Norway", "country_code": "NO", "population": 700000},
+      {"city": "Helsinki", "country": "Finland", "country_code": "FI", "population": 660000, "current_coverage": 1},
+      {"city": "Gothenburg", "country": "Sweden", "country_code": "SE", "population": 590000},
+      {"city": "Malmö", "country": "Sweden", "country_code": "SE", "population": 350000},
+      {"city": "Kraków", "country": "Poland", "country_code": "PL", "population": 780000},
+      {"city": "Wrocław", "country": "Poland", "country_code": "PL", "population": 640000},
+      {"city": "Poznań", "country": "Poland", "country_code": "PL", "population": 535000},
+      {"city": "Gdańsk", "country": "Poland", "country_code": "PL", "population": 470000},
+      {"city": "Bucharest", "country": "Romania", "country_code": "RO", "population": 1800000, "current_coverage": 3},
+      {"city": "Sofia", "country": "Bulgaria", "country_code": "BG", "population": 1300000},
+      {"city": "Athens", "country": "Greece", "country_code": "GR", "population": 660000, "current_coverage": 1},
+      {"city": "Thessaloniki", "country": "Greece", "country_code": "GR", "population": 320000},
+      {"city": "Zagreb", "country": "Croatia", "country_code": "HR", "population": 800000},
+      {"city": "Belgrade", "country": "Serbia", "country_code": "RS", "population": 1400000},
+      {"city": "Bratislava", "country": "Slovakia", "country_code": "SK", "population": 440000},
+      {"city": "Ljubljana", "country": "Slovenia", "country_code": "SI", "population": 290000}
+    ]
+  },
+  "priority_5_swiss_austrian": {
+    "description": "Swiss and Austrian cities - wealthy markets",
+    "cities": [
+      {"city": "Zurich", "country": "Switzerland", "country_code": "CH", "population": 435000},
+      {"city": "Geneva", "country": "Switzerland", "country_code": "CH", "population": 205000},
+      {"city": "Basel", "country": "Switzerland", "country_code": "CH", "population": 180000},
+      {"city": "Bern", "country": "Switzerland", "country_code": "CH", "population": 135000},
+      {"city": "Lausanne", "country": "Switzerland", "country_code": "CH", "population": 140000},
+      {"city": "Salzburg", "country": "Austria", "country_code": "AT", "population": 155000},
+      {"city": "Innsbruck", "country": "Austria", "country_code": "AT", "population": 130000},
+      {"city": "Graz", "country": "Austria", "country_code": "AT", "population": 290000},
+      {"city": "Linz", "country": "Austria", "country_code": "AT", "population": 210000}
+    ]
+  },
+  "priority_6_americas_for_reference": {
+    "description": "Major cities in Americas (for completeness, lower priority than Europe)",
+    "cities": [
+      {"city": "New York", "country": "United States", "country_code": "US", "population": 8300000},
+      {"city": "Miami", "country": "United States", "country_code": "US", "population": 450000, "notes": "Large Latin community"},
+      {"city": "Los Angeles", "country": "United States", "country_code": "US", "population": 3900000},
+      {"city": "Chicago", "country": "United States", "country_code": "US", "population": 2700000},
+      {"city": "Toronto", "country": "Canada", "country_code": "CA", "population": 2800000},
+      {"city": "Vancouver", "country": "Canada", "country_code": "CA", "population": 675000},
+      {"city": "Montreal", "country": "Canada", "country_code": "CA", "population": 1800000, "current_coverage": 21},
+      {"city": "São Paulo", "country": "Brazil", "country_code": "BR", "population": 12300000},
+      {"city": "Mexico City", "country": "Mexico", "country_code": "MX", "population": 9200000},
+      {"city": "Santiago", "country": "Chile", "country_code": "CL", "population": 6300000},
+      {"city": "Montevideo", "country": "Uruguay", "country_code": "UY", "population": 1800000}
+    ]
+  },
+  "search_queries": {
+    "description": "Keywords to use for Google Text Search in each city",
+    "spanish": [
+      "tienda argentina {city}",
+      "productos argentinos {city}",
+      "empanadas argentinas {city}",
+      "restaurante argentino {city}",
+      "yerba mate {city}",
+      "alfajores {city}",
+      "dulce de leche {city}",
+      "parrilla argentina {city}",
+      "asado argentino {city}",
+      "carnicería argentina {city}"
+    ],
+    "english": [
+      "argentine restaurant {city}",
+      "argentinian food {city}",
+      "argentine grocery {city}",
+      "south american food store {city}",
+      "latin american grocery {city}",
+      "empanadas {city}",
+      "yerba mate shop {city}"
+    ],
+    "local_language_templates": {
+      "german": ["argentinisches restaurant {city}", "südamerikanische lebensmittel {city}"],
+      "french": ["restaurant argentin {city}", "épicerie argentine {city}", "produits argentins {city}"],
+      "italian": ["ristorante argentino {city}", "empanadas {city}", "negozio argentino {city}"],
+      "portuguese": ["restaurante argentino {city}", "produtos argentinos {city}"],
+      "dutch": ["argentijns restaurant {city}", "zuid-amerikaanse winkel {city}"]
+    }
+  },
+  "facebook_groups_for_outreach": {
+    "description": "Example Facebook groups for community outreach",
+    "groups": [
+      "Argentinos en Europa",
+      "Argentinos en España",
+      "Argentinos en Londres",
+      "Argentinos en Alemania",
+      "Argentinos en Italia",
+      "Argentinos en Francia",
+      "Argentinos en Holanda",
+      "Argentinos en Barcelona",
+      "Argentinos en Madrid",
+      "Latinos en Europa",
+      "Sudamericanos en [City]"
+    ],
+    "outreach_template": "¡Hola! Estoy armando un directorio de tiendas y restaurantes argentinos en Europa (sabordecasa.es). Si conocés algún lugar en {city} que venda productos argentinos, ¡contame! También podés agregarlo directamente en la web."
+  }
+}

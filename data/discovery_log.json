@@ -1,0 +1,1762 @@
+{
+  "started_at": "2026-01-31T19:06:38.200947",
+  "cities_searched": [
+    {
+      "city": "London",
+      "country": "United Kingdom",
+      "searches": [
+        {
+          "query": "tienda argentina London",
+          "results_count": 10,
+          "new_count": 7
+        },
+        {
+          "query": "productos argentinos London",
+          "results_count": 11,
+          "new_count": 5
+        },
+        {
+          "query": "empanadas argentinas London",
+          "results_count": 11,
+          "new_count": 10
+        },
+        {
+          "query": "restaurante argentino London",
+          "results_count": 20,
+          "new_count": 16
+        },
+        {
+          "query": "yerba mate London",
+          "results_count": 20,
+          "new_count": 18
+        },
+        {
+          "query": "alfajores London",
+          "results_count": 17,
+          "new_count": 8
+        },
+        {
+          "query": "parrilla argentina London",
+          "results_count": 20,
+          "new_count": 7
+        },
+        {
+          "query": "argentine restaurant London",
+          "results_count": 20,
+          "new_count": 3
+        },
+        {
+          "query": "argentinian food London",
+          "results_count": 20,
+          "new_count": 1
+        },
+        {
+          "query": "south american grocery London",
+          "results_count": 20,
+          "new_count": 19
+        }
+      ],
+      "places_found": 169,
+      "new_places": 94
+    },
+    {
+      "city": "Berlin",
+      "country": "Germany",
+      "searches": [
+        {
+          "query": "tienda argentina Berlin",
+          "results_count": 1,
+          "new_count": 0
+        },
+        {
+          "query": "productos argentinos Berlin",
+          "results_count": 15,
+          "new_count": 11
+        },
+        {
+          "query": "empanadas argentinas Berlin",
+          "results_count": 20,
+          "new_count": 15
+        },
+        {
+          "query": "restaurante argentino Berlin",
+          "results_count": 20,
+          "new_count": 16
+        },
+        {
+          "query": "yerba mate Berlin",
+          "results_count": 6,
+          "new_count": 4
+        },
+        {
+          "query": "alfajores Berlin",
+          "results_count": 10,
+          "new_count": 3
+        },
+        {
+          "query": "parrilla argentina Berlin",
+          "results_count": 20,
+          "new_count": 7
+        },
+        {
+          "query": "argentine restaurant Berlin",
+          "results_count": 15,
+          "new_count": 3
+        },
+        {
+          "query": "argentinian food Berlin",
+          "results_count": 20,
+          "new_count": 7
+        },
+        {
+          "query": "south american grocery Berlin",
+          "results_count": 16,
+          "new_count": 12
+        }
+      ],
+      "places_found": 143,
+      "new_places": 78
+    },
+    {
+      "city": "Rome",
+      "country": "Italy",
+      "searches": [
+        {
+          "query": "tienda argentina Rome",
+          "results_count": 4,
+          "new_count": 3
+        },
+        {
+          "query": "productos argentinos Rome",
+          "results_count": 3,
+          "new_count": 0
+        },
+        {
+          "query": "empanadas argentinas Rome",
+          "results_count": 10,
+          "new_count": 4
+        },
+        {
+          "query": "restaurante argentino Rome",
+          "results_count": 19,
+          "new_count": 15
+        },
+        {
+          "query": "yerba mate Rome",
+          "results_count": 7,
+          "new_count": 6
+        },
+        {
+          "query": "alfajores Rome",
+          "results_count": 20,
+          "new_count": 16
+        },
+        {
+          "query": "parrilla argentina Rome",
+          "results_count": 4,
+          "new_count": 0
+        },
+        {
+          "query": "argentine restaurant Rome",
+          "results_count": 7,
+          "new_count": 0
+        },
+        {
+          "query": "argentinian food Rome",
+          "results_count": 6,
+          "new_count": 0
+        },
+        {
+          "query": "south american grocery Rome",
+          "results_count": 4,
+          "new_count": 3
+        }
+      ],
+      "places_found": 84,
+      "new_places": 47
+    },
+    {
+      "city": "Paris",
+      "country": "France",
+      "searches": [
+        {
+          "query": "tienda argentina Paris",
+          "results_count": 4,
+          "new_count": 4
+        },
+        {
+          "query": "productos argentinos Paris",
+          "results_count": 1,
+          "new_count": 0
+        },
+        {
+          "query": "empanadas argentinas Paris",
+          "results_count": 20,
+          "new_count": 19
+        },
+        {
+          "query": "restaurante argentino Paris",
+          "results_count": 20,
+          "new_count": 6
+        },
+        {
+          "query": "yerba mate Paris",
+          "results_count": 20,
+          "new_count": 16
+        },
+        {
+          "query": "alfajores Paris",
+          "results_count": 20,
+          "new_count": 4
+        },
+        {
+          "query": "parrilla argentina Paris",
+          "results_count": 20,
+          "new_count": 1
+        },
+        {
+          "query": "argentine restaurant Paris",
+          "results_count": 19,
+          "new_count": 1
+        },
+        {
+          "query": "argentinian food Paris",
+          "results_count": 20,
+          "new_count": 0
+        },
+        {
+          "query": "south american grocery Paris",
+          "results_count": 20,
+          "new_count": 12
+        }
+      ],
+      "places_found": 164,
+      "new_places": 63
+    },
+    {
+      "city": "Vienna",
+      "country": "Austria",
+      "searches": [
+        {
+          "query": "tienda argentina Vienna",
+          "results_count": 10,
+          "new_count": 6
+        },
+        {
+          "query": "productos argentinos Vienna",
+          "results_count": 2,
+          "new_count": 1
+        },
+        {
+          "query": "empanadas argentinas Vienna",
+          "results_count": 15,
+          "new_count": 8
+        },
+        {
+          "query": "restaurante argentino Vienna",
+          "results_count": 7,
+          "new_count": 4
+        },
+        {
+          "query": "yerba mate Vienna",
+          "results_count": 9,
+          "new_count": 8
+        },
+        {
+          "query": "alfajores Vienna",
+          "results_count": 9,
+          "new_count": 5
+        },
+        {
+          "query": "parrilla argentina Vienna",
+          "results_count": 1,
+          "new_count": 0
+        },
+        {
+          "query": "argentine restaurant Vienna",
+          "results_count": 2,
+          "new_count": 0
+        },
+        {
+          "query": "argentinian food Vienna",
+          "results_count": 1,
+          "new_count": 0
+        },
+        {
+          "query": "south american grocery Vienna",
+          "results_count": 12,
+          "new_count": 11
+        }
+      ],
+      "places_found": 68,
+      "new_places": 43
+    },
+    {
+      "city": "Warsaw",
+      "country": "Poland",
+      "searches": [
+        {
+          "query": "tienda argentina Warsaw",
+          "results_count": 12,
+          "new_count": 9
+        },
+        {
+          "query": "productos argentinos Warsaw",
+          "results_count": 10,
+          "new_count": 2
+        },
+        {
+          "query": "empanadas argentinas Warsaw",
+          "results_count": 7,
+          "new_count": 1
+        },
+        {
+          "query": "restaurante argentino Warsaw",
+          "results_count": 5,
+          "new_count": 0
+        },
+        {
+          "query": "yerba mate Warsaw",
+          "results_count": 20,
+          "new_count": 18
+        },
+        {
+          "query": "alfajores Warsaw",
+          "results_count": 11,
+          "new_count": 7
+        },
+        {
+          "query": "parrilla argentina Warsaw",
+          "results_count": 20,
+          "new_count": 15
+        },
+        {
+          "query": "argentine restaurant Warsaw",
+          "results_count": 14,
+          "new_count": 6
+        },
+        {
+          "query": "argentinian food Warsaw",
+          "results_count": 15,
+          "new_count": 1
+        },
+        {
+          "query": "south american grocery Warsaw",
+          "results_count": 1,
+          "new_count": 1
+        }
+      ],
+      "places_found": 115,
+      "new_places": 60
+    },
+    {
+      "city": "Budapest",
+      "country": "Hungary",
+      "searches": [
+        {
+          "query": "tienda argentina Budapest",
+          "results_count": 11,
+          "new_count": 6
+        },
+        {
+          "query": "productos argentinos Budapest",
+          "results_count": 15,
+          "new_count": 6
+        },
+        {
+          "query": "empanadas argentinas Budapest",
+          "results_count": 6,
+          "new_count": 2
+        },
+        {
+          "query": "restaurante argentino Budapest",
+          "results_count": 8,
+          "new_count": 5
+        },
+        {
+          "query": "yerba mate Budapest",
+          "results_count": 7,
+          "new_count": 5
+        },
+        {
+          "query": "alfajores Budapest",
+          "results_count": 7,
+          "new_count": 5
+        },
+        {
+          "query": "parrilla argentina Budapest",
+          "results_count": 5,
+          "new_count": 0
+        },
+        {
+          "query": "argentine restaurant Budapest",
+          "results_count": 3,
+          "new_count": 0
+        },
+        {
+          "query": "argentinian food Budapest",
+          "results_count": 3,
+          "new_count": 0
+        },
+        {
+          "query": "south american grocery Budapest",
+          "results_count": 20,
+          "new_count": 17
+        }
+      ],
+      "places_found": 85,
+      "new_places": 46
+    },
+    {
+      "city": "Munich",
+      "country": "Germany",
+      "searches": [
+        {
+          "query": "tienda argentina Munich",
+          "results_count": 12,
+          "new_count": 8
+        },
+        {
+          "query": "productos argentinos Munich",
+          "results_count": 2,
+          "new_count": 0
+        },
+        {
+          "query": "empanadas argentinas Munich",
+          "results_count": 10,
+          "new_count": 3
+        },
+        {
+          "query": "restaurante argentino Munich",
+          "results_count": 7,
+          "new_count": 4
+        },
+        {
+          "query": "yerba mate Munich",
+          "results_count": 11,
+          "new_count": 10
+        },
+        {
+          "query": "alfajores Munich",
+          "results_count": 10,
+          "new_count": 6
+        },
+        {
+          "query": "parrilla argentina Munich",
+          "results_count": 20,
+          "new_count": 9
+        },
+        {
+          "query": "argentine restaurant Munich",
+          "results_count": 5,
+          "new_count": 1
+        },
+        {
+          "query": "argentinian food Munich",
+          "results_count": 2,
+          "new_count": 0
+        },
+        {
+          "query": "south american grocery Munich",
+          "results_count": 3,
+          "new_count": 1
+        }
+      ],
+      "places_found": 82,
+      "new_places": 42
+    },
+    {
+      "city": "Prague",
+      "country": "Czech Republic",
+      "searches": [
+        {
+          "query": "tienda argentina Prague",
+          "results_count": 8,
+          "new_count": 7
+        },
+        {
+          "query": "productos argentinos Prague",
+          "results_count": 13,
+          "new_count": 3
+        },
+        {
+          "query": "empanadas argentinas Prague",
+          "results_count": 15,
+          "new_count": 9
+        },
+        {
+          "query": "restaurante argentino Prague",
+          "results_count": 13,
+          "new_count": 1
+        },
+        {
+          "query": "yerba mate Prague",
+          "results_count": 1,
+          "new_count": 1
+        },
+        {
+          "query": "alfajores Prague",
+          "results_count": 12,
+          "new_count": 6
+        },
+        {
+          "query": "parrilla argentina Prague",
+          "results_count": 16,
+          "new_count": 3
+        },
+        {
+          "query": "argentine restaurant Prague",
+          "results_count": 11,
+          "new_count": 0
+        },
+        {
+          "query": "argentinian food Prague",
+          "results_count": 14,
+          "new_count": 0
+        },
+        {
+          "query": "south american grocery Prague",
+          "results_count": 20,
+          "new_count": 18
+        }
+      ],
+      "places_found": 123,
+      "new_places": 48
+    },
+    {
+      "city": "Brussels",
+      "country": "Belgium",
+      "searches": [
+        {
+          "query": "tienda argentina Brussels",
+          "results_count": 18,
+          "new_count": 13
+        },
+        {
+          "query": "productos argentinos Brussels",
+          "results_count": 1,
+          "new_count": 0
+        },
+        {
+          "query": "empanadas argentinas Brussels",
+          "results_count": 14,
+          "new_count": 8
+        },
+        {
+          "query": "restaurante argentino Brussels",
+          "results_count": 8,
+          "new_count": 3
+        },
+        {
+          "query": "yerba mate Brussels",
+          "results_count": 8,
+          "new_count": 5
+        },
+        {
+          "query": "alfajores Brussels",
+          "results_count": 1,
+          "new_count": 0
+        },
+        {
+          "query": "parrilla argentina Brussels",
+          "results_count": 12,
+          "new_count": 5
+        },
+        {
+          "query": "argentine restaurant Brussels",
+          "results_count": 3,
+          "new_count": 0
+        },
+        {
+          "query": "argentinian food Brussels",
+          "results_count": 5,
+          "new_count": 0
+        },
+        {
+          "query": "south american grocery Brussels",
+          "results_count": 9,
+          "new_count": 3
+        }
+      ],
+      "places_found": 79,
+      "new_places": 37
+    },
+    {
+      "city": "Dublin",
+      "country": "Ireland",
+      "searches": [
+        {
+          "query": "tienda argentina Dublin",
+          "results_count": 1,
+          "new_count": 1
+        },
+        {
+          "query": "productos argentinos Dublin",
+          "results_count": 13,
+          "new_count": 9
+        },
+        {
+          "query": "empanadas argentinas Dublin",
+          "results_count": 3,
+          "new_count": 0
+        },
+        {
+          "query": "restaurante argentino Dublin",
+          "results_count": 20,
+          "new_count": 14
+        },
+        {
+          "query": "yerba mate Dublin",
+          "results_count": 1,
+          "new_count": 0
+        },
+        {
+          "query": "alfajores Dublin",
+          "results_count": 3,
+          "new_count": 0
+        },
+        {
+          "query": "parrilla argentina Dublin",
+          "results_count": 1,
+          "new_count": 1
+        },
+        {
+          "query": "argentine restaurant Dublin",
+          "results_count": 8,
+          "new_count": 5
+        },
+        {
+          "query": "argentinian food Dublin",
+          "results_count": 7,
+          "new_count": 0
+        },
+        {
+          "query": "south american grocery Dublin",
+          "results_count": 3,
+          "new_count": 0
+        }
+      ],
+      "places_found": 60,
+      "new_places": 30
+    },
+    {
+      "city": "Amsterdam",
+      "country": "Netherlands",
+      "searches": [
+        {
+          "query": "tienda argentina Amsterdam",
+          "results_count": 1,
+          "new_count": 1
+        },
+        {
+          "query": "productos argentinos Amsterdam",
+          "results_count": 2,
+          "new_count": 1
+        },
+        {
+          "query": "empanadas argentinas Amsterdam",
+          "results_count": 20,
+          "new_count": 14
+        },
+        {
+          "query": "restaurante argentino Amsterdam",
+          "results_count": 20,
+          "new_count": 8
+        },
+        {
+          "query": "yerba mate Amsterdam",
+          "results_count": 18,
+          "new_count": 17
+        },
+        {
+          "query": "alfajores Amsterdam",
+          "results_count": 9,
+          "new_count": 4
+        },
+        {
+          "query": "parrilla argentina Amsterdam",
+          "results_count": 20,
+          "new_count": 3
+        },
+        {
+          "query": "argentine restaurant Amsterdam",
+          "results_count": 20,
+          "new_count": 0
+        },
+        {
+          "query": "argentinian food Amsterdam",
+          "results_count": 20,
+          "new_count": 0
+        },
+        {
+          "query": "south american grocery Amsterdam",
+          "results_count": 8,
+          "new_count": 8
+        }
+      ],
+      "places_found": 138,
+      "new_places": 56
+    },
+    {
+      "city": "Stockholm",
+      "country": "Sweden",
+      "searches": [
+        {
+          "query": "tienda argentina Stockholm",
+          "results_count": 8,
+          "new_count": 6
+        },
+        {
+          "query": "productos argentinos Stockholm",
+          "results_count": 4,
+          "new_count": 0
+        },
+        {
+          "query": "empanadas argentinas Stockholm",
+          "results_count": 17,
+          "new_count": 6
+        },
+        {
+          "query": "restaurante argentino Stockholm",
+          "results_count": 20,
+          "new_count": 17
+        },
+        {
+          "query": "yerba mate Stockholm",
+          "results_count": 3,
+          "new_count": 2
+        },
+        {
+          "query": "alfajores Stockholm",
+          "results_count": 0,
+          "new_count": 0
+        },
+        {
+          "query": "parrilla argentina Stockholm",
+          "results_count": 20,
+          "new_count": 14
+        },
+        {
+          "query": "argentine restaurant Stockholm",
+          "results_count": 7,
+          "new_count": 2
+        },
+        {
+          "query": "argentinian food Stockholm",
+          "results_count": 17,
+          "new_count": 6
+        },
+        {
+          "query": "south american grocery Stockholm",
+          "results_count": 1,
+          "new_count": 0
+        }
+      ],
+      "places_found": 97,
+      "new_places": 53
+    },
+    {
+      "city": "Copenhagen",
+      "country": "Denmark",
+      "searches": [
+        {
+          "query": "tienda argentina Copenhagen",
+          "results_count": 14,
+          "new_count": 9
+        },
+        {
+          "query": "productos argentinos Copenhagen",
+          "results_count": 4,
+          "new_count": 1
+        },
+        {
+          "query": "empanadas argentinas Copenhagen",
+          "results_count": 12,
+          "new_count": 5
+        },
+        {
+          "query": "restaurante argentino Copenhagen",
+          "results_count": 20,
+          "new_count": 10
+        },
+        {
+          "query": "yerba mate Copenhagen",
+          "results_count": 9,
+          "new_count": 7
+        },
+        {
+          "query": "alfajores Copenhagen",
+          "results_count": 8,
+          "new_count": 1
+        },
+        {
+          "query": "parrilla argentina Copenhagen",
+          "results_count": 9,
+          "new_count": 1
+        },
+        {
+          "query": "argentine restaurant Copenhagen",
+          "results_count": 6,
+          "new_count": 0
+        },
+        {
+          "query": "argentinian food Copenhagen",
+          "results_count": 20,
+          "new_count": 6
+        },
+        {
+          "query": "south american grocery Copenhagen",
+          "results_count": 20,
+          "new_count": 13
+        }
+      ],
+      "places_found": 122,
+      "new_places": 53
+    },
+    {
+      "city": "Lisbon",
+      "country": "Portugal",
+      "searches": [
+        {
+          "query": "tienda argentina Lisbon",
+          "results_count": 5,
+          "new_count": 3
+        },
+        {
+          "query": "productos argentinos Lisbon",
+          "results_count": 20,
+          "new_count": 8
+        },
+        {
+          "query": "empanadas argentinas Lisbon",
+          "results_count": 9,
+          "new_count": 3
+        },
+        {
+          "query": "restaurante argentino Lisbon",
+          "results_count": 20,
+          "new_count": 16
+        },
+        {
+          "query": "yerba mate Lisbon",
+          "results_count": 8,
+          "new_count": 4
+        },
+        {
+          "query": "alfajores Lisbon",
+          "results_count": 10,
+          "new_count": 5
+        },
+        {
+          "query": "parrilla argentina Lisbon",
+          "results_count": 3,
+          "new_count": 0
+        },
+        {
+          "query": "argentine restaurant Lisbon",
+          "results_count": 18,
+          "new_count": 4
+        },
+        {
+          "query": "argentinian food Lisbon",
+          "results_count": 20,
+          "new_count": 2
+        },
+        {
+          "query": "south american grocery Lisbon",
+          "results_count": 20,
+          "new_count": 18
+        }
+      ],
+      "places_found": 133,
+      "new_places": 63
+    },
+    {
+      "city": "Sevilla",
+      "country": "Spain",
+      "searches": [
+        {
+          "query": "tienda argentina Sevilla",
+          "results_count": 20,
+          "new_count": 19
+        },
+        {
+          "query": "productos argentinos Sevilla",
+          "results_count": 4,
+          "new_count": 2
+        },
+        {
+          "query": "empanadas argentinas Sevilla",
+          "results_count": 20,
+          "new_count": 12
+        },
+        {
+          "query": "restaurante argentino Sevilla",
+          "results_count": 20,
+          "new_count": 15
+        },
+        {
+          "query": "yerba mate Sevilla",
+          "results_count": 20,
+          "new_count": 16
+        },
+        {
+          "query": "alfajores Sevilla",
+          "results_count": 20,
+          "new_count": 12
+        },
+        {
+          "query": "parrilla argentina Sevilla",
+          "results_count": 20,
+          "new_count": 2
+        },
+        {
+          "query": "argentine restaurant Sevilla",
+          "results_count": 20,
+          "new_count": 3
+        },
+        {
+          "query": "argentinian food Sevilla",
+          "results_count": 20,
+          "new_count": 3
+        },
+        {
+          "query": "south american grocery Sevilla",
+          "results_count": 20,
+          "new_count": 13
+        }
+      ],
+      "places_found": 184,
+      "new_places": 97
+    },
+    {
+      "city": "Bilbao",
+      "country": "Spain",
+      "searches": [
+        {
+          "query": "tienda argentina Bilbao",
+          "results_count": 3,
+          "new_count": 3
+        },
+        {
+          "query": "productos argentinos Bilbao",
+          "results_count": 20,
+          "new_count": 13
+        },
+        {
+          "query": "empanadas argentinas Bilbao",
+          "results_count": 9,
+          "new_count": 2
+        },
+        {
+          "query": "restaurante argentino Bilbao",
+          "results_count": 20,
+          "new_count": 15
+        },
+        {
+          "query": "yerba mate Bilbao",
+          "results_count": 3,
+          "new_count": 3
+        },
+        {
+          "query": "alfajores Bilbao",
+          "results_count": 20,
+          "new_count": 9
+        },
+        {
+          "query": "parrilla argentina Bilbao",
+          "results_count": 20,
+          "new_count": 3
+        },
+        {
+          "query": "argentine restaurant Bilbao",
+          "results_count": 19,
+          "new_count": 2
+        },
+        {
+          "query": "argentinian food Bilbao",
+          "results_count": 15,
+          "new_count": 0
+        },
+        {
+          "query": "south american grocery Bilbao",
+          "results_count": 20,
+          "new_count": 18
+        }
+      ],
+      "places_found": 149,
+      "new_places": 68
+    },
+    {
+      "city": "Granada",
+      "country": "Spain",
+      "searches": [
+        {
+          "query": "tienda argentina Granada",
+          "results_count": 6,
+          "new_count": 6
+        },
+        {
+          "query": "productos argentinos Granada",
+          "results_count": 7,
+          "new_count": 1
+        },
+        {
+          "query": "empanadas argentinas Granada",
+          "results_count": 20,
+          "new_count": 17
+        },
+        {
+          "query": "restaurante argentino Granada",
+          "results_count": 20,
+          "new_count": 10
+        },
+        {
+          "query": "yerba mate Granada",
+          "results_count": 12,
+          "new_count": 9
+        },
+        {
+          "query": "alfajores Granada",
+          "results_count": 5,
+          "new_count": 2
+        },
+        {
+          "query": "parrilla argentina Granada",
+          "results_count": 8,
+          "new_count": 1
+        },
+        {
+          "query": "argentine restaurant Granada",
+          "results_count": 20,
+          "new_count": 6
+        },
+        {
+          "query": "argentinian food Granada",
+          "results_count": 18,
+          "new_count": 0
+        },
+        {
+          "query": "south american grocery Granada",
+          "results_count": 20,
+          "new_count": 18
+        }
+      ],
+      "places_found": 136,
+      "new_places": 70
+    },
+    {
+      "city": "Murcia",
+      "country": "Spain",
+      "searches": [
+        {
+          "query": "tienda argentina Murcia",
+          "results_count": 14,
+          "new_count": 13
+        },
+        {
+          "query": "productos argentinos Murcia",
+          "results_count": 20,
+          "new_count": 7
+        },
+        {
+          "query": "empanadas argentinas Murcia",
+          "results_count": 3,
+          "new_count": 0
+        },
+        {
+          "query": "restaurante argentino Murcia",
+          "results_count": 14,
+          "new_count": 10
+        },
+        {
+          "query": "yerba mate Murcia",
+          "results_count": 20,
+          "new_count": 17
+        },
+        {
+          "query": "alfajores Murcia",
+          "results_count": 1,
+          "new_count": 0
+        },
+        {
+          "query": "parrilla argentina Murcia",
+          "results_count": 5,
+          "new_count": 1
+        },
+        {
+          "query": "argentine restaurant Murcia",
+          "results_count": 7,
+          "new_count": 0
+        },
+        {
+          "query": "argentinian food Murcia",
+          "results_count": 9,
+          "new_count": 0
+        },
+        {
+          "query": "south american grocery Murcia",
+          "results_count": 20,
+          "new_count": 18
+        }
+      ],
+      "places_found": 113,
+      "new_places": 66
+    },
+    {
+      "city": "Valladolid",
+      "country": "Spain",
+      "searches": [
+        {
+          "query": "tienda argentina Valladolid",
+          "results_count": 12,
+          "new_count": 10
+        },
+        {
+          "query": "productos argentinos Valladolid",
+          "results_count": 20,
+          "new_count": 8
+        },
+        {
+          "query": "empanadas argentinas Valladolid",
+          "results_count": 1,
+          "new_count": 0
+        },
+        {
+          "query": "restaurante argentino Valladolid",
+          "results_count": 8,
+          "new_count": 6
+        },
+        {
+          "query": "yerba mate Valladolid",
+          "results_count": 20,
+          "new_count": 18
+        },
+        {
+          "query": "alfajores Valladolid",
+          "results_count": 16,
+          "new_count": 9
+        },
+        {
+          "query": "parrilla argentina Valladolid",
+          "results_count": 2,
+          "new_count": 1
+        },
+        {
+          "query": "argentine restaurant Valladolid",
+          "results_count": 14,
+          "new_count": 8
+        },
+        {
+          "query": "argentinian food Valladolid",
+          "results_count": 4,
+          "new_count": 0
+        },
+        {
+          "query": "south american grocery Valladolid",
+          "results_count": 20,
+          "new_count": 17
+        }
+      ],
+      "places_found": 117,
+      "new_places": 77
+    },
+    {
+      "city": "Vigo",
+      "country": "Spain",
+      "searches": [
+        {
+          "query": "tienda argentina Vigo",
+          "results_count": 20,
+          "new_count": 17
+        },
+        {
+          "query": "productos argentinos Vigo",
+          "results_count": 20,
+          "new_count": 6
+        },
+        {
+          "query": "empanadas argentinas Vigo",
+          "results_count": 1,
+          "new_count": 1
+        },
+        {
+          "query": "restaurante argentino Vigo",
+          "results_count": 20,
+          "new_count": 19
+        },
+        {
+          "query": "yerba mate Vigo",
+          "results_count": 20,
+          "new_count": 14
+        },
+        {
+          "query": "alfajores Vigo",
+          "results_count": 20,
+          "new_count": 17
+        },
+        {
+          "query": "parrilla argentina Vigo",
+          "results_count": 14,
+          "new_count": 3
+        },
+        {
+          "query": "argentine restaurant Vigo",
+          "results_count": 7,
+          "new_count": 1
+        },
+        {
+          "query": "argentinian food Vigo",
+          "results_count": 2,
+          "new_count": 0
+        },
+        {
+          "query": "south american grocery Vigo",
+          "results_count": 13,
+          "new_count": 10
+        }
+      ],
+      "places_found": 137,
+      "new_places": 88
+    },
+    {
+      "city": "Gijón",
+      "country": "Spain",
+      "searches": [
+        {
+          "query": "tienda argentina Gijón",
+          "results_count": 20,
+          "new_count": 20
+        },
+        {
+          "query": "productos argentinos Gijón",
+          "results_count": 20,
+          "new_count": 11
+        },
+        {
+          "query": "empanadas argentinas Gijón",
+          "results_count": 20,
+          "new_count": 13
+        },
+        {
+          "query": "restaurante argentino Gijón",
+          "results_count": 20,
+          "new_count": 16
+        },
+        {
+          "query": "yerba mate Gijón",
+          "results_count": 20,
+          "new_count": 17
+        },
+        {
+          "query": "alfajores Gijón",
+          "results_count": 12,
+          "new_count": 8
+        },
+        {
+          "query": "parrilla argentina Gijón",
+          "results_count": 20,
+          "new_count": 3
+        },
+        {
+          "query": "argentine restaurant Gijón",
+          "results_count": 20,
+          "new_count": 6
+        },
+        {
+          "query": "argentinian food Gijón",
+          "results_count": 20,
+          "new_count": 2
+        },
+        {
+          "query": "south american grocery Gijón",
+          "results_count": 20,
+          "new_count": 15
+        }
+      ],
+      "places_found": 192,
+      "new_places": 111
+    },
+    {
+      "city": "Santander",
+      "country": "Spain",
+      "searches": [
+        {
+          "query": "tienda argentina Santander",
+          "results_count": 1,
+          "new_count": 0
+        },
+        {
+          "query": "productos argentinos Santander",
+          "results_count": 1,
+          "new_count": 0
+        },
+        {
+          "query": "empanadas argentinas Santander",
+          "results_count": 6,
+          "new_count": 5
+        },
+        {
+          "query": "restaurante argentino Santander",
+          "results_count": 20,
+          "new_count": 18
+        },
+        {
+          "query": "yerba mate Santander",
+          "results_count": 10,
+          "new_count": 9
+        },
+        {
+          "query": "alfajores Santander",
+          "results_count": 6,
+          "new_count": 5
+        },
+        {
+          "query": "parrilla argentina Santander",
+          "results_count": 2,
+          "new_count": 0
+        },
+        {
+          "query": "argentine restaurant Santander",
+          "results_count": 18,
+          "new_count": 4
+        },
+        {
+          "query": "argentinian food Santander",
+          "results_count": 10,
+          "new_count": 0
+        },
+        {
+          "query": "south american grocery Santander",
+          "results_count": 12,
+          "new_count": 9
+        }
+      ],
+      "places_found": 86,
+      "new_places": 50
+    },
+    {
+      "city": "San Sebastián",
+      "country": "Spain",
+      "searches": [
+        {
+          "query": "tienda argentina San Sebastián",
+          "results_count": 12,
+          "new_count": 7
+        },
+        {
+          "query": "productos argentinos San Sebastián",
+          "results_count": 13,
+          "new_count": 1
+        },
+        {
+          "query": "empanadas argentinas San Sebastián",
+          "results_count": 3,
+          "new_count": 2
+        },
+        {
+          "query": "restaurante argentino San Sebastián",
+          "results_count": 20,
+          "new_count": 13
+        },
+        {
+          "query": "yerba mate San Sebastián",
+          "results_count": 6,
+          "new_count": 3
+        },
+        {
+          "query": "alfajores San Sebastián",
+          "results_count": 20,
+          "new_count": 13
+        },
+        {
+          "query": "parrilla argentina San Sebastián",
+          "results_count": 20,
+          "new_count": 5
+        },
+        {
+          "query": "argentine restaurant San Sebastián",
+          "results_count": 20,
+          "new_count": 2
+        },
+        {
+          "query": "argentinian food San Sebastián",
+          "results_count": 20,
+          "new_count": 5
+        },
+        {
+          "query": "south american grocery San Sebastián",
+          "results_count": 20,
+          "new_count": 14
+        }
+      ],
+      "places_found": 154,
+      "new_places": 65
+    },
+    {
+      "city": "Pamplona",
+      "country": "Spain",
+      "searches": [
+        {
+          "query": "tienda argentina Pamplona",
+          "results_count": 4,
+          "new_count": 4
+        },
+        {
+          "query": "productos argentinos Pamplona",
+          "results_count": 20,
+          "new_count": 13
+        },
+        {
+          "query": "empanadas argentinas Pamplona",
+          "results_count": 1,
+          "new_count": 0
+        },
+        {
+          "query": "restaurante argentino Pamplona",
+          "results_count": 20,
+          "new_count": 17
+        },
+        {
+          "query": "yerba mate Pamplona",
+          "results_count": 20,
+          "new_count": 17
+        },
+        {
+          "query": "alfajores Pamplona",
+          "results_count": 20,
+          "new_count": 13
+        },
+        {
+          "query": "parrilla argentina Pamplona",
+          "results_count": 1,
+          "new_count": 1
+        },
+        {
+          "query": "argentine restaurant Pamplona",
+          "results_count": 9,
+          "new_count": 0
+        },
+        {
+          "query": "argentinian food Pamplona",
+          "results_count": 6,
+          "new_count": 0
+        },
+        {
+          "query": "south american grocery Pamplona",
+          "results_count": 20,
+          "new_count": 16
+        }
+      ],
+      "places_found": 121,
+      "new_places": 81
+    },
+    {
+      "city": "Salamanca",
+      "country": "Spain",
+      "searches": [
+        {
+          "query": "tienda argentina Salamanca",
+          "results_count": 19,
+          "new_count": 15
+        },
+        {
+          "query": "productos argentinos Salamanca",
+          "results_count": 20,
+          "new_count": 3
+        },
+        {
+          "query": "empanadas argentinas Salamanca",
+          "results_count": 4,
+          "new_count": 0
+        },
+        {
+          "query": "restaurante argentino Salamanca",
+          "results_count": 11,
+          "new_count": 5
+        },
+        {
+          "query": "yerba mate Salamanca",
+          "results_count": 20,
+          "new_count": 16
+        },
+        {
+          "query": "alfajores Salamanca",
+          "results_count": 20,
+          "new_count": 8
+        },
+        {
+          "query": "parrilla argentina Salamanca",
+          "results_count": 10,
+          "new_count": 1
+        },
+        {
+          "query": "argentine restaurant Salamanca",
+          "results_count": 7,
+          "new_count": 0
+        },
+        {
+          "query": "argentinian food Salamanca",
+          "results_count": 3,
+          "new_count": 0
+        },
+        {
+          "query": "south american grocery Salamanca",
+          "results_count": 17,
+          "new_count": 12
+        }
+      ],
+      "places_found": 131,
+      "new_places": 60
+    },
+    {
+      "city": "Cádiz",
+      "country": "Spain",
+      "searches": [
+        {
+          "query": "tienda argentina Cádiz",
+          "results_count": 20,
+          "new_count": 16
+        },
+        {
+          "query": "productos argentinos Cádiz",
+          "results_count": 20,
+          "new_count": 4
+        },
+        {
+          "query": "empanadas argentinas Cádiz",
+          "results_count": 14,
+          "new_count": 6
+        },
+        {
+          "query": "restaurante argentino Cádiz",
+          "results_count": 20,
+          "new_count": 16
+        },
+        {
+          "query": "yerba mate Cádiz",
+          "results_count": 20,
+          "new_count": 10
+        },
+        {
+          "query": "alfajores Cádiz",
+          "results_count": 9,
+          "new_count": 6
+        },
+        {
+          "query": "parrilla argentina Cádiz",
+          "results_count": 20,
+          "new_count": 2
+        },
+        {
+          "query": "argentine restaurant Cádiz",
+          "results_count": 15,
+          "new_count": 2
+        },
+        {
+          "query": "argentinian food Cádiz",
+          "results_count": 13,
+          "new_count": 4
+        },
+        {
+          "query": "south american grocery Cádiz",
+          "results_count": 1,
+          "new_count": 0
+        }
+      ],
+      "places_found": 152,
+      "new_places": 66
+    },
+    {
+      "city": "Córdoba",
+      "country": "Spain",
+      "searches": [
+        {
+          "query": "tienda argentina Córdoba",
+          "results_count": 1,
+          "new_count": 1
+        },
+        {
+          "query": "productos argentinos Córdoba",
+          "results_count": 2,
+          "new_count": 0
+        },
+        {
+          "query": "empanadas argentinas Córdoba",
+          "results_count": 10,
+          "new_count": 10
+        },
+        {
+          "query": "restaurante argentino Córdoba",
+          "results_count": 20,
+          "new_count": 17
+        },
+        {
+          "query": "yerba mate Córdoba",
+          "results_count": 20,
+          "new_count": 18
+        },
+        {
+          "query": "alfajores Córdoba",
+          "results_count": 20,
+          "new_count": 20
+        },
+        {
+          "query": "parrilla argentina Córdoba",
+          "results_count": 20,
+          "new_count": 8
+        },
+        {
+          "query": "argentine restaurant Córdoba",
+          "results_count": 20,
+          "new_count": 9
+        },
+        {
+          "query": "argentinian food Córdoba",
+          "results_count": 14,
+          "new_count": 1
+        },
+        {
+          "query": "south american grocery Córdoba",
+          "results_count": 1,
+          "new_count": 1
+        }
+      ],
+      "places_found": 128,
+      "new_places": 85
+    },
+    {
+      "city": "Las Palmas",
+      "country": "Spain",
+      "searches": [
+        {
+          "query": "tienda argentina Las Palmas",
+          "results_count": 20,
+          "new_count": 18
+        },
+        {
+          "query": "productos argentinos Las Palmas",
+          "results_count": 20,
+          "new_count": 3
+        },
+        {
+          "query": "empanadas argentinas Las Palmas",
+          "results_count": 16,
+          "new_count": 5
+        },
+        {
+          "query": "restaurante argentino Las Palmas",
+          "results_count": 20,
+          "new_count": 11
+        },
+        {
+          "query": "yerba mate Las Palmas",
+          "results_count": 7,
+          "new_count": 5
+        },
+        {
+          "query": "alfajores Las Palmas",
+          "results_count": 2,
+          "new_count": 1
+        },
+        {
+          "query": "parrilla argentina Las Palmas",
+          "results_count": 20,
+          "new_count": 6
+        },
+        {
+          "query": "argentine restaurant Las Palmas",
+          "results_count": 20,
+          "new_count": 1
+        },
+        {
+          "query": "argentinian food Las Palmas",
+          "results_count": 20,
+          "new_count": 2
+        },
+        {
+          "query": "south american grocery Las Palmas",
+          "results_count": 20,
+          "new_count": 15
+        }
+      ],
+      "places_found": 165,
+      "new_places": 67
+    },
+    {
+      "city": "Santa Cruz de Tenerife",
+      "country": "Spain",
+      "searches": [
+        {
+          "query": "tienda argentina Santa Cruz de Tenerife",
+          "results_count": 20,
+          "new_count": 19
+        },
+        {
+          "query": "productos argentinos Santa Cruz de Tenerife",
+          "results_count": 20,
+          "new_count": 7
+        },
+        {
+          "query": "empanadas argentinas Santa Cruz de Tenerife",
+          "results_count": 20,
+          "new_count": 11
+        },
+        {
+          "query": "restaurante argentino Santa Cruz de Tenerife",
+          "results_count": 20,
+          "new_count": 12
+        },
+        {
+          "query": "yerba mate Santa Cruz de Tenerife",
+          "results_count": 1,
+          "new_count": 1
+        },
+        {
+          "query": "alfajores Santa Cruz de Tenerife",
+          "results_count": 19,
+          "new_count": 16
+        },
+        {
+          "query": "parrilla argentina Santa Cruz de Tenerife",
+          "results_count": 5,
+          "new_count": 0
+        },
+        {
+          "query": "argentine restaurant Santa Cruz de Tenerife",
+          "results_count": 10,
+          "new_count": 0
+        },
+        {
+          "query": "argentinian food Santa Cruz de Tenerife",
+          "results_count": 12,
+          "new_count": 3
+        },
+        {
+          "query": "south american grocery Santa Cruz de Tenerife",
+          "results_count": 20,
+          "new_count": 19
+        }
+      ],
+      "places_found": 147,
+      "new_places": 88
+    }
+  ],
+  "queries_used": [
+    "tienda argentina {city}",
+    "productos argentinos {city}",
+    "empanadas argentinas {city}",
+    "restaurante argentino {city}",
+    "yerba mate {city}",
+    "alfajores {city}",
+    "parrilla argentina {city}",
+    "argentine restaurant {city}",
+    "argentinian food {city}",
+    "south american grocery {city}"
+  ],
+  "total_api_calls": 300,
+  "total_results": 3774,
+  "new_places_found": 1952,
+  "duplicates_skipped": 248,
+  "completed_at": "2026-01-31T19:10:02.645677"
+}
